@@ -15,6 +15,7 @@
 		1F6ED3B31E45D67900CE30CD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F6ED3B11E45D67900CE30CD /* LaunchScreen.storyboard */; };
 		1F6ED3BE1E45D67900CE30CD /* LogDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F6ED3BD1E45D67900CE30CD /* LogDemoTests.m */; };
 		1F6ED3C91E45D67900CE30CD /* LogDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F6ED3C81E45D67900CE30CD /* LogDemoUITests.m */; };
+		1F6ED3D81E45D69C00CE30CD /* ZFQLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F6ED3D71E45D69C00CE30CD /* ZFQLog.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,8 @@
 		1F6ED3C41E45D67900CE30CD /* LogDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LogDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F6ED3C81E45D67900CE30CD /* LogDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LogDemoUITests.m; sourceTree = "<group>"; };
 		1F6ED3CA1E45D67900CE30CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1F6ED3D61E45D69C00CE30CD /* ZFQLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZFQLog.h; sourceTree = "<group>"; };
+		1F6ED3D71E45D69C00CE30CD /* ZFQLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZFQLog.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +108,8 @@
 				1F6ED3A71E45D67900CE30CD /* AppDelegate.m */,
 				1F6ED3A91E45D67900CE30CD /* ViewController.h */,
 				1F6ED3AA1E45D67900CE30CD /* ViewController.m */,
+				1F6ED3D61E45D69C00CE30CD /* ZFQLog.h */,
+				1F6ED3D71E45D69C00CE30CD /* ZFQLog.m */,
 				1F6ED3AC1E45D67900CE30CD /* Main.storyboard */,
 				1F6ED3AF1E45D67900CE30CD /* Assets.xcassets */,
 				1F6ED3B11E45D67900CE30CD /* LaunchScreen.storyboard */,
@@ -275,6 +280,7 @@
 			files = (
 				1F6ED3AB1E45D67900CE30CD /* ViewController.m in Sources */,
 				1F6ED3A81E45D67900CE30CD /* AppDelegate.m in Sources */,
+				1F6ED3D81E45D69C00CE30CD /* ZFQLog.m in Sources */,
 				1F6ED3A51E45D67900CE30CD /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

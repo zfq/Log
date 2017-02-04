@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "ZFQLog.h"
 
 @interface ViewController ()
 
@@ -25,5 +26,11 @@
     // Dispose of any resources that can be recreated.
 }
 
+
+- (IBAction)tapSaveBtnAction:(id)sender
+{
+    [ZFQLog logMsg:self.myTextField.text];
+    //[ZFQLog logFormat:@"这是我人生的第%d和%@",123,@"你妹的"];
+}
 
 @end

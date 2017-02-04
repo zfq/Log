@@ -7,6 +7,7 @@
 //
 
 #import <XCTest/XCTest.h>
+#import "ZFQLog.h"
 
 @interface LogDemoTests : XCTestCase
 
@@ -24,15 +25,67 @@
     [super tearDown];
 }
 
-- (void)testExample {
-    // This is an example of a functional test case.
-    // Use XCTAssert and related functions to verify your tests produce the correct results.
+- (void)testMsgNil
+{
+    [ZFQLog logMsg:nil];
 }
 
-- (void)testPerformanceExample {
+- (void)testMsgEmpty
+{
+    [ZFQLog logMsg:@""];
+}
+
+- (void)testMsgNoramlA
+{
+    [ZFQLog logMsg:@"This is Test String"];
+}
+
+- (void)testMsgNoramlB
+{
+    [ZFQLog logMsg:@"This is Test String😬"];
+}
+
+- (void)testMsgNoramlC
+{
+    [ZFQLog logMsg:@"This is 测试 String😬"];
+}
+
+- (void)testLogFormatNil
+{
+    [ZFQLog logFormat:nil];
+}
+
+- (void)testLogFormatString
+{
+    [ZFQLog logFormat:@"This is 测试 String😬"];
+}
+
+- (void)testLogFormatNoraml
+{
+    [ZFQLog logFormat:@"This is %d and %s",123,@"你好"];
+}
+
+- (void)testPerformanceLogFormat
+{
     // This is an example of a performance test case.
     [self measureBlock:^{
-        // Put the code you want to measure the time of here.
+        [ZFQLog logFormat:@"This is %d and %s",123,@"你好"];
+    }];
+}
+
+- (void)testPerformanceLogMsg
+{
+    // This is an example of a performance test case.
+    [self measureBlock:^{
+        [ZFQLog logMsg:@"This is Test String"];
+    }];
+}
+
+- (void)testPerformanceLogMsgLongStr
+{
+    // This is an example of a performance test case.
+    [self measureBlock:^{
+        [ZFQLog logMsg:@"This is Test String and it's very long , I'm so hungry i want go home early please get off work quickly hahahhah"];
     }];
 }
 
