@@ -1,9 +1,9 @@
 platform:ios, '7.0'
 
 target 'LogDemo' do
-	pod 'ZFQLog', :path => 'Classes'
+	pod 'ZFQLog', :podspec => 'ZFQLog.podspec'
 end
 
 target 'LogDemoTests' do
-    pod 'ZFQLog', :path => 'Classes'
+    pod 'ZFQLog', :podspec => 'ZFQLog.podspec'
 end
