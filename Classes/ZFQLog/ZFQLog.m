@@ -16,7 +16,7 @@
     if (!msg || ![msg isKindOfClass:[NSString class]]) {
         return;
     }
-                  
+                
     NSString *documentPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
     NSString *logPath = [documentPath stringByAppendingPathComponent:@"log.txt"];
 #ifdef DEBUG
