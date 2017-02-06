@@ -9,10 +9,30 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-LogDemoTests.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>ZFQLog.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>16FA157BB3DC94519D50A4FCA2B584A0</key>
+		<key>015013EA51D2E54D62B00429491E1A6F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>41E7B6AB5B3506AEECD734524C8A6A4C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F4DD9F199C6565999323E65D845CA7C3</key>
 		<dict>
 			<key>primary</key>
 			<true/>

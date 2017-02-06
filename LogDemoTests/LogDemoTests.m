@@ -62,14 +62,14 @@
 
 - (void)testLogFormatNoraml
 {
-    [ZFQLog logFormat:@"This is %d and %s",123,@"你好"];
+    [ZFQLog logFormat:@"This is %d and %@",123,@"你好"];
 }
 
 - (void)testPerformanceLogFormat
 {
     // This is an example of a performance test case.
     [self measureBlock:^{
-        [ZFQLog logFormat:@"This is %d and %s",123,@"你好"];
+        [ZFQLog logFormat:@"This is %d and %@",123,@"你好"];
     }];
 }
 
