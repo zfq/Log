@@ -60,6 +60,16 @@
     [ZFQLog logFormat:@"This is 测试 String😬"];
 }
 
+- (void)testLogMacro
+{
+    ZFQLog(@"你好啊，哈哈");
+}
+
+- (void)testLogMacro2
+{
+    ZFQLog(@"你好啊，哈哈%d,%@",123,@"呵呵");
+}
+
 - (void)testLogFormatNoraml
 {
     [ZFQLog logFormat:@"This is %d and %@",123,@"你好"];

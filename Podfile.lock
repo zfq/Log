@@ -2,15 +2,15 @@ PODS:
   - ZFQLog (0.0.1)
 
 DEPENDENCIES:
-  - ZFQLog (from `Classes`)
+  - ZFQLog (from `/Users/wecash/Documents/Xcode工程/LogDemo`)
 
 EXTERNAL SOURCES:
   ZFQLog:
-    :path: Classes
+    :path: "/Users/wecash/Documents/Xcode工程/LogDemo"
 
 SPEC CHECKSUMS:
   ZFQLog: 2a92740da539309aee7e3b15d0db544aee06acad
 
-PODFILE CHECKSUM: 129d8c1f41ef2beb236974bc76c8502ef3eb2858
+PODFILE CHECKSUM: 9110dbdcdc894765cf7d4983e6b2330ca9c4b15c
 
-COCOAPODS: 1.0.1
+COCOAPODS: 1.2.0
