@@ -15,7 +15,7 @@
 		1F6ED3B31E45D67900CE30CD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F6ED3B11E45D67900CE30CD /* LaunchScreen.storyboard */; };
 		1F6ED3BE1E45D67900CE30CD /* LogDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F6ED3BD1E45D67900CE30CD /* LogDemoTests.m */; };
 		1F6ED3C91E45D67900CE30CD /* LogDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F6ED3C81E45D67900CE30CD /* LogDemoUITests.m */; };
-		1F6ED3D81E45D69C00CE30CD /* ZFQLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F6ED3D71E45D69C00CE30CD /* ZFQLog.m */; };
+		36BB289B456A4C8CF5307364 /* libPods-LogDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C3521DA705C09602C10FEDBF /* libPods-LogDemo.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,8 +52,9 @@
 		1F6ED3C41E45D67900CE30CD /* LogDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LogDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F6ED3C81E45D67900CE30CD /* LogDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LogDemoUITests.m; sourceTree = "<group>"; };
 		1F6ED3CA1E45D67900CE30CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1F6ED3D61E45D69C00CE30CD /* ZFQLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZFQLog.h; sourceTree = "<group>"; };
-		1F6ED3D71E45D69C00CE30CD /* ZFQLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZFQLog.m; sourceTree = "<group>"; };
+		4205B274AE3C6BBCCB495BE0 /* Pods-LogDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LogDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LogDemo/Pods-LogDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		C3521DA705C09602C10FEDBF /* libPods-LogDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LogDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE8443CD79B0789455990B0E /* Pods-LogDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LogDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-LogDemo/Pods-LogDemo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				36BB289B456A4C8CF5307364 /* libPods-LogDemo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -88,6 +90,8 @@
 				1F6ED3BC1E45D67900CE30CD /* LogDemoTests */,
 				1F6ED3C71E45D67900CE30CD /* LogDemoUITests */,
 				1F6ED3A11E45D67900CE30CD /* Products */,
+				BD054A2B93B4935BAF4B6092 /* Pods */,
+				C69753CE224BAFD79E7787EC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -108,8 +112,6 @@
 				1F6ED3A71E45D67900CE30CD /* AppDelegate.m */,
 				1F6ED3A91E45D67900CE30CD /* ViewController.h */,
 				1F6ED3AA1E45D67900CE30CD /* ViewController.m */,
-				1F6ED3D61E45D69C00CE30CD /* ZFQLog.h */,
-				1F6ED3D71E45D69C00CE30CD /* ZFQLog.m */,
 				1F6ED3AC1E45D67900CE30CD /* Main.storyboard */,
 				1F6ED3AF1E45D67900CE30CD /* Assets.xcassets */,
 				1F6ED3B11E45D67900CE30CD /* LaunchScreen.storyboard */,
@@ -145,6 +147,23 @@
 			path = LogDemoUITests;
 			sourceTree = "<group>";
 		};
+		BD054A2B93B4935BAF4B6092 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4205B274AE3C6BBCCB495BE0 /* Pods-LogDemo.debug.xcconfig */,
+				CE8443CD79B0789455990B0E /* Pods-LogDemo.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		C69753CE224BAFD79E7787EC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C3521DA705C09602C10FEDBF /* libPods-LogDemo.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -152,9 +171,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1F6ED3CD1E45D67900CE30CD /* Build configuration list for PBXNativeTarget "LogDemo" */;
 			buildPhases = (
+				4139DEE67001AF89EF2B357D /* [CP] Check Pods Manifest.lock */,
 				1F6ED39C1E45D67900CE30CD /* Sources */,
 				1F6ED39D1E45D67900CE30CD /* Frameworks */,
 				1F6ED39E1E45D67900CE30CD /* Resources */,
+				5E24C3BA7B9CA7FBE4C82DAD /* [CP] Embed Pods Frameworks */,
+				510D0C5BE374886CE8A4FBBC /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -273,6 +295,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		4139DEE67001AF89EF2B357D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		510D0C5BE374886CE8A4FBBC /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LogDemo/Pods-LogDemo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5E24C3BA7B9CA7FBE4C82DAD /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LogDemo/Pods-LogDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		1F6ED39C1E45D67900CE30CD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -280,7 +350,6 @@
 			files = (
 				1F6ED3AB1E45D67900CE30CD /* ViewController.m in Sources */,
 				1F6ED3A81E45D67900CE30CD /* AppDelegate.m in Sources */,
-				1F6ED3D81E45D69C00CE30CD /* ZFQLog.m in Sources */,
 				1F6ED3A51E45D67900CE30CD /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -426,6 +495,7 @@
 		};
 		1F6ED3CE1E45D67900CE30CD /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4205B274AE3C6BBCCB495BE0 /* Pods-LogDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = LogDemo/Info.plist;
@@ -437,6 +507,7 @@
 		};
 		1F6ED3CF1E45D67900CE30CD /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CE8443CD79B0789455990B0E /* Pods-LogDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = LogDemo/Info.plist;
@@ -511,6 +582,7 @@
 				1F6ED3CF1E45D67900CE30CD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1F6ED3D01E45D67900CE30CD /* Build configuration list for PBXNativeTarget "LogDemoTests" */ = {
 			isa = XCConfigurationList;
@@ -519,6 +591,7 @@
 				1F6ED3D21E45D67900CE30CD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1F6ED3D31E45D67900CE30CD /* Build configuration list for PBXNativeTarget "LogDemoUITests" */ = {
 			isa = XCConfigurationList;
@@ -527,6 +600,7 @@
 				1F6ED3D51E45D67900CE30CD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
