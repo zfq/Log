@@ -20,7 +20,7 @@
     NSString *documentPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
     NSString *logPath = [documentPath stringByAppendingPathComponent:@"log.txt"];
 #ifdef DEBUG
-    NSLog(@"log文件路径为%@",logPath);
+    NSLog(@"log文件路径为\n%@",logPath);
 #endif
     msg = [NSString stringWithFormat:@"%@\r\n",msg];
     
