@@ -8,8 +8,17 @@
 
 #import "ZFQLog.h"
 #import <stdio.h>
+#import <time.h>
 
 @implementation ZFQLog
+
+void zfqPrintDate()
+{
+    time_t timep;
+    time(&timep);
+    struct tm *p = localtime(&timep);
+    printf("%d/%d/%d %d:%d:%d ",(1900+p->tm_year),(1+p->tm_mon),p->tm_mday,p->tm_hour,p->tm_min,p->tm_sec);
+}
 
 + (void)logMsg:(NSString *)msg
 {
@@ -25,7 +34,10 @@
     msg = [NSString stringWithFormat:@"%@\r\n",msg];
     
     if (freopen([logPath UTF8String], "a+", stdout)) {
-        printf("%s", [msg UTF8String]);
+        
+        //get current date
+        zfqPrintDate();
+        printf("%d,%s", __LINE__,[msg UTF8String]);
     }
     fclose(stdout);
 }
