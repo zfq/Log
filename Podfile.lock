@@ -1,16 +1,41 @@
 PODS:
+  - CocoaAsyncSocket (7.5.1):
+    - CocoaAsyncSocket/GCD (= 7.5.1)
+  - CocoaAsyncSocket/GCD (7.5.1)
+  - CocoaHTTPServer (2.3):
+    - CocoaAsyncSocket
+    - CocoaLumberjack
+  - CocoaLumberjack (3.0.0):
+    - CocoaLumberjack/Default (= 3.0.0)
+    - CocoaLumberjack/Extensions (= 3.0.0)
+  - CocoaLumberjack/Core (3.0.0)
+  - CocoaLumberjack/Default (3.0.0):
+    - CocoaLumberjack/Core
+  - CocoaLumberjack/Extensions (3.0.0):
+    - CocoaLumberjack/Default
   - ZFQLog (0.0.1)
 
 DEPENDENCIES:
+  - CocoaHTTPServer (from `https://github.com/robbiehanson/CocoaHTTPServer.git`)
   - ZFQLog (from `/Users/wecash/Documents/Xcode工程/LogDemo`)
 
 EXTERNAL SOURCES:
+  CocoaHTTPServer:
+    :git: https://github.com/robbiehanson/CocoaHTTPServer.git
   ZFQLog:
     :path: "/Users/wecash/Documents/Xcode工程/LogDemo"
 
+CHECKOUT OPTIONS:
+  CocoaHTTPServer:
+    :commit: 52b2a64e9cbdb5f09cc915814a5fb68a45dd3707
+    :git: https://github.com/robbiehanson/CocoaHTTPServer.git
+
 SPEC CHECKSUMS:
+  CocoaAsyncSocket: e0a7e93b2ffa411592ff87e58524fbbc9b95b4fa
+  CocoaHTTPServer: 5624681fc3473d43b18202f635f9b3abb013b530
+  CocoaLumberjack: c823149bccc5519a9447aeb433be7b1212a7d6a5
   ZFQLog: 2a92740da539309aee7e3b15d0db544aee06acad
 
-PODFILE CHECKSUM: 9110dbdcdc894765cf7d4983e6b2330ca9c4b15c
+PODFILE CHECKSUM: 0ad5a990e66e6e911d07ed980005009cecc1c576
 
 COCOAPODS: 1.2.0

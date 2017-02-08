@@ -27,37 +27,37 @@
 
 - (void)testMsgNil
 {
-    [ZFQLog logMsg:nil];
+    [ZFQLog log:__LINE__ msg:nil];
 }
 
 - (void)testMsgEmpty
 {
-    [ZFQLog logMsg:@""];
+    [ZFQLog log:__LINE__ msg:@""];
 }
 
 - (void)testMsgNoramlA
 {
-    [ZFQLog logMsg:@"This is Test String"];
+    [ZFQLog log:__LINE__ msg:@"This is Test String"];
 }
 
 - (void)testMsgNoramlB
 {
-    [ZFQLog logMsg:@"This is Test String😬"];
+    [ZFQLog log:__LINE__ msg:@"This is Test String😬"];
 }
 
 - (void)testMsgNoramlC
 {
-    [ZFQLog logMsg:@"This is 测试 String😬"];
+    [ZFQLog log:__LINE__ msg:@"This is 测试 String😬"];
 }
 
 - (void)testLogFormatNil
 {
-    [ZFQLog logFormat:nil];
+    [ZFQLog log:__LINE__ format:nil];
 }
 
 - (void)testLogFormatString
 {
-    [ZFQLog logFormat:@"This is 测试 String😬"];
+    [ZFQLog log:__LINE__ format:@"This is 测试 String😬"];
 }
 
 - (void)testLogMacro
@@ -72,14 +72,14 @@
 
 - (void)testLogFormatNoraml
 {
-    [ZFQLog logFormat:@"This is %d and %@",123,@"你好"];
+    [ZFQLog log:__LINE__ format:@"This is %d and %@",123,@"你好"];
 }
 
 - (void)testPerformanceLogFormat
 {
     // This is an example of a performance test case.
     [self measureBlock:^{
-        [ZFQLog logFormat:@"This is %d and %@",123,@"你好"];
+        [ZFQLog log:__LINE__ format:@"This is %d and %@",123,@"你好"];
     }];
 }
 
@@ -87,7 +87,7 @@
 {
     // This is an example of a performance test case.
     [self measureBlock:^{
-        [ZFQLog logMsg:@"This is Test String"];
+        [ZFQLog log:__LINE__ format:@"This is Test String"];
     }];
 }
 
@@ -95,7 +95,7 @@
 {
     // This is an example of a performance test case.
     [self measureBlock:^{
-        [ZFQLog logMsg:@"This is Test String and it's very long , I'm so hungry i want go home early please get off work quickly hahahhah"];
+        [ZFQLog log:__LINE__ format:@"This is Test String and it's very long , I'm so hungry i want go home early please get off work quickly hahahhah"];
     }];
 }
 

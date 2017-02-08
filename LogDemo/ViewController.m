@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "ZFQLog.h"
+#import "WiFiViewController.h"
 
 @interface ViewController ()
 
@@ -18,8 +19,19 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    
+    UIButton *startBtn = [UIButton buttonWithType:UIButtonTypeSystem];
+    [startBtn setTitle:@"打开WiFi上传页面" forState:UIControlStateNormal];
+    startBtn.frame = CGRectMake(50, 100, 180, 44);
+    [self.view addSubview:startBtn];
+    [startBtn addTarget:self action:@selector(showWiFiPage) forControlEvents:UIControlEventTouchUpInside];
 }
 
+- (void)showWiFiPage
+{
+    WiFiViewController *wfVC = [[WiFiViewController alloc] init];
+    [self presentViewController:wfVC animated:YES completion:nil];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -29,8 +41,7 @@
 
 - (IBAction)tapSaveBtnAction:(id)sender
 {
-    [ZFQLog logMsg:self.myTextField.text];
-    //[ZFQLog logFormat:@"这是我人生的第%d和%@",123,@"你妹的"];
+    ZFQLog(self.myTextField.text);
 }
 
 @end

@@ -20,7 +20,7 @@ void zfqPrintDate()
     printf("%d/%d/%d %d:%d:%d ",(1900+p->tm_year),(1+p->tm_mon),p->tm_mday,p->tm_hour,p->tm_min,p->tm_sec);
 }
 
-+ (void)logMsg:(NSString *)msg
++ (void)log:(NSInteger)line msg:(NSString *)msg
 {
     if (!msg || ![msg isKindOfClass:[NSString class]]) {
         return;
@@ -37,12 +37,12 @@ void zfqPrintDate()
         
         //get current date
         zfqPrintDate();
-        printf("%d,%s", __LINE__,[msg UTF8String]);
+        printf("%d,%s", line, [msg UTF8String]);
     }
     fclose(stdout);
 }
 
-+ (void)logFormat:(NSString *)format, ...
++ (void)log:(NSInteger)line format:(NSString *)format, ...
 {
     if (!format) {
         return;
@@ -52,8 +52,8 @@ void zfqPrintDate()
     va_start(args, format);
     NSString *msg = [[NSString alloc] initWithFormat:format arguments:args];
     va_end(args);
-        
-    [self logMsg:msg];
+    
+    [self log:line msg:msg];
 }
 
 @end

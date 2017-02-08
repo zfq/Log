@@ -8,12 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
-#define ZFQLog(fmt,...) [ZFQLog logFormat:fmt,##__VA_ARGS__]
+#define ZFQLog(fmt,...) [ZFQLog log:__LINE__ format:fmt,##__VA_ARGS__]
 
 @interface ZFQLog : NSObject
 
-+ (void)logMsg:(NSString *)msg;
++ (void)log:(NSInteger)line msg:(NSString *)msg;
 
-+ (void)logFormat:(NSString *)format, ...;
++ (void)log:(NSInteger)line format:(NSString *)format, ...;
 
 @end
