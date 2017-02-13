@@ -19,8 +19,9 @@
 		1FA282FB1E49E4F000649387 /* WiFiViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FA282F91E49E4F000649387 /* WiFiViewController.xib */; };
 		1FA282FD1E49E5AB00649387 /* wifi.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FA282FC1E49E5AB00649387 /* wifi.png */; };
 		1FA283001E4AB62A00649387 /* WiFiUploadFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FA282FF1E4AB62A00649387 /* WiFiUploadFileManager.m */; };
-		1FA283031E4AC0D000649387 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 1FA283021E4AC0D000649387 /* index.html */; };
 		1FA283061E4AD16400649387 /* NSString+IPAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FA283051E4AD16400649387 /* NSString+IPAddress.m */; };
+		1FE8539A1E4B3B67009D139C /* Web in Resources */ = {isa = PBXBuildFile; fileRef = 1FE853991E4B3B67009D139C /* Web */; };
+		1FE8539D1E4C1CFE009D139C /* WiFiUploadHTTPConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE8539C1E4C1CFE009D139C /* WiFiUploadHTTPConnection.m */; };
 		36BB289B456A4C8CF5307364 /* libPods-LogDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C3521DA705C09602C10FEDBF /* libPods-LogDemo.a */; };
 		94F18D5AA82F857196EC7C34 /* libPods-LogDemoTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B0C366D6AB05FB848A7DA2B /* libPods-LogDemoTests.a */; };
 /* End PBXBuildFile section */
@@ -65,9 +66,11 @@
 		1FA282FC1E49E5AB00649387 /* wifi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wifi.png; sourceTree = "<group>"; };
 		1FA282FE1E4AB62A00649387 /* WiFiUploadFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WiFiUploadFileManager.h; sourceTree = "<group>"; };
 		1FA282FF1E4AB62A00649387 /* WiFiUploadFileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WiFiUploadFileManager.m; sourceTree = "<group>"; };
-		1FA283021E4AC0D000649387 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
 		1FA283041E4AD16400649387 /* NSString+IPAddress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+IPAddress.h"; sourceTree = "<group>"; };
 		1FA283051E4AD16400649387 /* NSString+IPAddress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+IPAddress.m"; sourceTree = "<group>"; };
+		1FE853991E4B3B67009D139C /* Web */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Web; sourceTree = "<group>"; };
+		1FE8539B1E4C1CFE009D139C /* WiFiUploadHTTPConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WiFiUploadHTTPConnection.h; sourceTree = "<group>"; };
+		1FE8539C1E4C1CFE009D139C /* WiFiUploadHTTPConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WiFiUploadHTTPConnection.m; sourceTree = "<group>"; };
 		4205B274AE3C6BBCCB495BE0 /* Pods-LogDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LogDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LogDemo/Pods-LogDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		7B0C366D6AB05FB848A7DA2B /* libPods-LogDemoTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LogDemoTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		99717B720F4C6098E5A16A85 /* Pods-LogDemoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LogDemoTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-LogDemoTests/Pods-LogDemoTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -171,10 +174,12 @@
 		1FA282F61E49E43000649387 /* WiFiUploadFile */ = {
 			isa = PBXGroup;
 			children = (
-				1FA283011E4AC0D000649387 /* Web */,
+				1FE853991E4B3B67009D139C /* Web */,
 				1FA282FC1E49E5AB00649387 /* wifi.png */,
 				1FA282F71E49E4F000649387 /* WiFiViewController.h */,
 				1FA282F81E49E4F000649387 /* WiFiViewController.m */,
+				1FE8539B1E4C1CFE009D139C /* WiFiUploadHTTPConnection.h */,
+				1FE8539C1E4C1CFE009D139C /* WiFiUploadHTTPConnection.m */,
 				1FA283041E4AD16400649387 /* NSString+IPAddress.h */,
 				1FA283051E4AD16400649387 /* NSString+IPAddress.m */,
 				1FA282F91E49E4F000649387 /* WiFiViewController.xib */,
@@ -182,14 +187,6 @@
 				1FA282FF1E4AB62A00649387 /* WiFiUploadFileManager.m */,
 			);
 			path = WiFiUploadFile;
-			sourceTree = "<group>";
-		};
-		1FA283011E4AC0D000649387 /* Web */ = {
-			isa = PBXGroup;
-			children = (
-				1FA283021E4AC0D000649387 /* index.html */,
-			);
-			path = Web;
 			sourceTree = "<group>";
 		};
 		BD054A2B93B4935BAF4B6092 /* Pods */ = {
@@ -327,7 +324,7 @@
 				1F6ED3B31E45D67900CE30CD /* LaunchScreen.storyboard in Resources */,
 				1FA282FD1E49E5AB00649387 /* wifi.png in Resources */,
 				1FA282FB1E49E4F000649387 /* WiFiViewController.xib in Resources */,
-				1FA283031E4AC0D000649387 /* index.html in Resources */,
+				1FE8539A1E4B3B67009D139C /* Web in Resources */,
 				1F6ED3B01E45D67900CE30CD /* Assets.xcassets in Resources */,
 				1F6ED3AE1E45D67900CE30CD /* Main.storyboard in Resources */,
 			);
@@ -450,6 +447,7 @@
 				1F6ED3AB1E45D67900CE30CD /* ViewController.m in Sources */,
 				1FA282FA1E49E4F000649387 /* WiFiViewController.m in Sources */,
 				1F6ED3A81E45D67900CE30CD /* AppDelegate.m in Sources */,
+				1FE8539D1E4C1CFE009D139C /* WiFiUploadHTTPConnection.m in Sources */,
 				1FA283001E4AB62A00649387 /* WiFiUploadFileManager.m in Sources */,
 				1F6ED3A51E45D67900CE30CD /* main.m in Sources */,
 				1FA283061E4AD16400649387 /* NSString+IPAddress.m in Sources */,

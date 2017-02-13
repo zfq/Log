@@ -37,6 +37,7 @@
 - (IBAction)tapStartServerAction:(UIButton *)sender
 {
     [self.manager startHttpServer];
+    [sender setTitle:@"已开启" forState:UIControlStateNormal];
 }
 
 - (IBAction)tapCloseAction:(UIButton *)sender

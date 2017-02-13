@@ -10,6 +10,7 @@
 #import <HTTPServer.h>
 #import "ZFQLog.h"
 #import "NSString+IPAddress.h"
+#import "WiFiUploadHTTPConnection.h"
 
 @interface WiFiUploadFileManager ()
 {
@@ -21,14 +22,17 @@
 - (void)startHttpServer
 {
     _httpServer = [[HTTPServer alloc] init];
-    
+//    [_httpServer setType:@"_http._tcp."];
     NSString *webPath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"Web"];
     [_httpServer setDocumentRoot:webPath];
-    
+    [_httpServer setConnectionClass:[WiFiUploadHTTPConnection class]];
+    [_httpServer setPort:8091];
     NSError *error;
     if ([_httpServer start:&error]) {
         UInt16 port = [_httpServer listeningPort];
-        ZFQLog(@"启动成功,端口号为:%@:%hu",[NSString currentIpAddress],port);
+        NSString *ipAddress = [NSString currentIpAddress];
+        NSLog(@"%@:%hu",ipAddress,port);
+        ZFQLog(@"启动成功,端口号为:%@:%hu",ipAddress,port);
     } else {
         ZFQLog(@"启动失败:%@",error);
     }

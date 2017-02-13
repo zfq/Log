@@ -28,6 +28,7 @@
 
         struct in_addr addr = *(struct in_addr *)(hent->h_addr_list[i]);
         ipAddress = inet_ntoa(addr);
+        
         ZFQLog(@"%@\n", [NSString stringWithUTF8String:ipAddress]);
     }
     

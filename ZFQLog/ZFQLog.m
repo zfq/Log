@@ -29,7 +29,11 @@ void zfqPrintDate()
     NSString *documentPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
     NSString *logPath = [documentPath stringByAppendingPathComponent:@"log.txt"];
 #ifdef DEBUG
-    NSLog(@"log文件路径为\n%@",logPath);
+    static BOOL logged = NO;
+    if (!logged) {
+        NSLog(@"log文件路径为\n%@",logPath);
+        logged = YES;
+    }
 #endif
     msg = [NSString stringWithFormat:@"%@\r\n",msg];
     

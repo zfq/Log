@@ -5,6 +5,40 @@
     <meta charset="utf-8">
 </head>
 <body>
-h哈哈 hello wold
+hello wold
+<form name="demoForm" id="demoFormId" method="post" enctype="multipart/form-data" action="javascript:upload();">
+    <input id="tmpFileId" type="file" name="testFileName"> 
+    <input type="submit" value="提交" />
+</form> 
+
+<script type="text/javascript">
+
+
+function upload() {
+    //获取表单内容
+    var formData = new FormData();
+    var files = document.getElementById('tmpFileId').files;
+    //怎么添加文件到form表单里
+    formData.append('fileName',files[0]);
+
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST','http://127.0.0.1:8091/upload',true);
+
+    //上传完成的回调
+    xhr.onload = function () {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            console.log('上传成功');
+        } else {
+            console.log('上传失败%d',xhr.status);
+        }
+    };
+
+    //将表单内容发送给服务器
+    xhr.send(formData);
+}
+    
+
+</script>
+
 </body>
 </html>
