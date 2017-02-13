@@ -10,6 +10,7 @@
 #import <CocoaHTTPServer/HTTPMessage.h>
 #import <CocoaHTTPServer/MultipartMessageHeaderField.h>
 #import <CocoaHTTPServer/HTTPDataResponse.h>
+#import "CustomHTTPDataResponse.h"
 
 @interface WiFiUploadHTTPConnection()
 {
@@ -58,8 +59,13 @@
                                   @"msg":@"success"
                                   };
         NSData *data = [NSJSONSerialization dataWithJSONObject:jsonOBj options:0 error:nil];
-        HTTPDataResponse *response = [[HTTPDataResponse alloc] initWithData:data];
+        CustomHTTPDataResponse *response = [[CustomHTTPDataResponse alloc] initWithData:data];
         
+        //处理可能的Ajax跨域问题
+        if ([request.allHeaderFields objectForKey:@"Origin"]) {
+            response.customHttpHeader = @{@"Access-Control-Allow-Origin":@"*"};
+        }
+
         return response;
     }
     return [super httpResponseForMethod:method URI:path];

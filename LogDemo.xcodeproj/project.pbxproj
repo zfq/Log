@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F1B98031E5188E000A48AA8 /* CustomHTTPDataResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F1B98021E5188E000A48AA8 /* CustomHTTPDataResponse.m */; };
 		1F6ED3A51E45D67900CE30CD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F6ED3A41E45D67900CE30CD /* main.m */; };
 		1F6ED3A81E45D67900CE30CD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F6ED3A71E45D67900CE30CD /* AppDelegate.m */; };
 		1F6ED3AB1E45D67900CE30CD /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F6ED3AA1E45D67900CE30CD /* ViewController.m */; };
@@ -44,6 +45,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1F1B98011E5188E000A48AA8 /* CustomHTTPDataResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomHTTPDataResponse.h; sourceTree = "<group>"; };
+		1F1B98021E5188E000A48AA8 /* CustomHTTPDataResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomHTTPDataResponse.m; sourceTree = "<group>"; };
 		1F6ED3A01E45D67900CE30CD /* LogDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LogDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F6ED3A41E45D67900CE30CD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		1F6ED3A61E45D67900CE30CD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -180,6 +183,8 @@
 				1FA282F81E49E4F000649387 /* WiFiViewController.m */,
 				1FE8539B1E4C1CFE009D139C /* WiFiUploadHTTPConnection.h */,
 				1FE8539C1E4C1CFE009D139C /* WiFiUploadHTTPConnection.m */,
+				1F1B98011E5188E000A48AA8 /* CustomHTTPDataResponse.h */,
+				1F1B98021E5188E000A48AA8 /* CustomHTTPDataResponse.m */,
 				1FA283041E4AD16400649387 /* NSString+IPAddress.h */,
 				1FA283051E4AD16400649387 /* NSString+IPAddress.m */,
 				1FA282F91E49E4F000649387 /* WiFiViewController.xib */,
@@ -451,6 +456,7 @@
 				1FA283001E4AB62A00649387 /* WiFiUploadFileManager.m in Sources */,
 				1F6ED3A51E45D67900CE30CD /* main.m in Sources */,
 				1FA283061E4AD16400649387 /* NSString+IPAddress.m in Sources */,
+				1F1B98031E5188E000A48AA8 /* CustomHTTPDataResponse.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
