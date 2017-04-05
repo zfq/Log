@@ -36,8 +36,13 @@
 
 - (IBAction)tapStartServerAction:(UIButton *)sender
 {
+    __weak typeof(self) weakSelf = self;
+    self.manager.ipAddressBlk = ^(NSString *ipAddress){
+        weakSelf.wifiNameLabel.text = ipAddress;
+    };
     [self.manager startHttpServer];
     [sender setTitle:@"已开启" forState:UIControlStateNormal];
+    
 }
 
 - (IBAction)tapCloseAction:(UIButton *)sender

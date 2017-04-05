@@ -1,0 +1,17 @@
+#top_bar {
+    border:red solid thin;
+    height: 60px;
+    width: 100%;
+}
+
+#send_type {
+    border:blue solid thin;
+    height: 80px;
+    width: 100%;
+}
+
+#content {
+    border:green solid thin;
+    height: 500px;
+    width: 100%;
+}

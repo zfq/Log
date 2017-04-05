@@ -33,8 +33,15 @@
         NSString *ipAddress = [NSString currentIpAddress];
         NSLog(@"%@:%hu",ipAddress,port);
         ZFQLog(@"启动成功,端口号为:%@:%hu",ipAddress,port);
+        ipAddress = [NSString stringWithFormat:@"%@:%i",ipAddress,port];
+        if (self.ipAddressBlk) {
+            self.ipAddressBlk(ipAddress);
+        }
     } else {
         ZFQLog(@"启动失败:%@",error);
+        if (self.ipAddressBlk) {
+            self.ipAddressBlk(@"失败");
+        }
     }
 }
 

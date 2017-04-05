@@ -10,6 +10,11 @@
 
 @interface WiFiUploadFileManager : NSObject
 
+/**
+ 获取ip地址成功后的回调
+ */
+@property (nonatomic, copy) void (^ipAddressBlk)(NSString *ipAddress);
+
 - (void)startHttpServer;
 - (void)stopHttpServer;
 
