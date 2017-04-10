@@ -7,9 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <CocoaHTTPServer/HTTPMessage.h>
+#import "CustomHTTPDataResponse.h"
 
 @protocol ZFQConnectionProtocol <NSObject>
 
-- (BOOL)matchMethod:(NSString *)method path:(NSString *)path;
+@property (nonatomic, copy) NSString *method;
+@property (nonatomic, copy) NSString *path;
+@property (nonatomic, copy) HTTPMessage *request;
+
+- (BOOL)matchMethod:(NSString *)method path:(NSString *)path request:(HTTPMessage *)request;
+- (NSObject<HTTPResponse> *)httpResponse;
 
 @end

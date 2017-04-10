@@ -10,11 +10,17 @@
 
 @implementation ZFQBaseService
 
-- (BOOL)matchMethod:(NSString *)method path:(NSString *)path
+- (BOOL)matchMethod:(NSString *)method path:(NSString *)path request:(HTTPMessage *)request
 {
     self.method = method;
     self.path = path;
+    self.request = request;
     return NO;
+}
+
+- (NSObject<HTTPResponse> *)httpResponse
+{
+    return nil;
 }
 
 @end

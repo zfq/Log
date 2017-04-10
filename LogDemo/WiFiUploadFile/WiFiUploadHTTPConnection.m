@@ -12,6 +12,7 @@
 #import <CocoaHTTPServer/HTTPDataResponse.h>
 #import "CustomHTTPDataResponse.h"
 #import "NSString+FileHelp.h"
+#import "ZFQAllResponseService.h"
 
 @interface WiFiUploadHTTPConnection()
 {
@@ -59,6 +60,7 @@
 
 - (NSObject<HTTPResponse> *)httpResponseForMethod:(NSString *)method URI:(NSString *)path
 {
+    /*
     if ([method isEqualToString:@"POST"] && [path isEqualToString:@"/upload"]) {
         NSDictionary *jsonOBj = @{
                                   @"errorCode":@0,
@@ -94,8 +96,16 @@
         
         return response;
     }
+    */
     
+    ZFQServiceContext *context = [[ZFQServiceContext alloc] init];
+    [context addService:[[ZFQFileListService alloc] init]];
+    [context addService:[[ZFQUploadFileService alloc] init]];
     
+    NSObject<HTTPResponse> *responseObj = [context responseForMethod:method path:path request:request];
+    if (responseObj) {
+        return responseObj;
+    }
     
     return [super httpResponseForMethod:method URI:path];
 }
