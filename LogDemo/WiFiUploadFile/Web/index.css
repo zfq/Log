@@ -2,6 +2,7 @@
     border:red solid thin;
     height: 60px;
     width: 100%;
+    background-color: #343434;
 }
 
 #send_type {
@@ -14,4 +15,34 @@
     border:green solid thin;
     height: 500px;
     width: 100%;
+}
+
+#send_type a {
+    position: relative;
+    width: 300px;
+    height: 80px;
+    border:red solid thin;
+    display: block;
+    float: left;
+}
+
+#send_type a span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform:translate(-50%,-50%);
+}
+
+#contentPlaceholder {
+    background-color: #343434;
+    width: 100%;
+    height: 100%;
+    display: none;
+}
+
+#fileLists {
+    background-color: #234567;
+    width: 100%;
+    height: 100%;
+    display: none;
 }

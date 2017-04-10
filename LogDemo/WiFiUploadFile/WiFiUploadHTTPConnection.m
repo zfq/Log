@@ -11,6 +11,7 @@
 #import <CocoaHTTPServer/MultipartMessageHeaderField.h>
 #import <CocoaHTTPServer/HTTPDataResponse.h>
 #import "CustomHTTPDataResponse.h"
+#import "NSString+FileHelp.h"
 
 @interface WiFiUploadHTTPConnection()
 {
@@ -25,6 +26,11 @@
 {
     NSLog(@"%@ %@",method,path);
     if ([method isEqualToString:@"POST"]) {
+        return YES;
+    }
+    
+    if ([path isEqualToString:@"/files"] && [method isEqualToString:@"GET"]) {
+        
         return YES;
     }
     return [super supportsMethod:method atPath:path];
@@ -68,10 +74,33 @@
 
         return response;
     }
+    
+    if ([method isEqualToString:@"GET"] && [path isEqualToString:@"/files"]) {
+        
+        NSArray *filesInfo = [NSString filesInfoInDocPath];
+        if (filesInfo == nil) {
+            filesInfo = [NSArray array];
+        }
+        NSDictionary *jsonOBj = @{
+                                  @"errorCode":@0,
+                                  @"msg":@"nil",
+                                  @"obj":filesInfo
+                                  };
+        NSData *data = [NSJSONSerialization dataWithJSONObject:jsonOBj options:0 error:nil];
+        CustomHTTPDataResponse *response = [[CustomHTTPDataResponse alloc] initWithData:data];
+        response.customHttpHeader = @{
+                                      @"Content-Type":@"text/plain; charset=utf-8"
+                                      };
+        
+        return response;
+    }
+    
+    
+    
     return [super httpResponseForMethod:method URI:path];
 }
 
-//以下两个方法默认是空方法, 类似serverlet里面的两个代理方法
+//以下两个方法默认是空方法, 类似servlet里面的两个代理方法
 - (void)prepareForBodyWithSize:(UInt64)contentLength
 {
     //得先获取到boundary
@@ -151,7 +180,7 @@
     
     NSFileManager *fileManager = [NSFileManager defaultManager];
     //判断wifiFile文件夹是否存在，如果不存在就创建
-    NSString *wifiFileDirPath = [[self documentPath] stringByAppendingPathComponent:@"wifiFile"];
+    NSString *wifiFileDirPath = [[NSString documentPath] stringByAppendingPathComponent:@"wifiFile"];
     BOOL isDir = NO;
     if ( ![fileManager fileExistsAtPath:wifiFileDirPath isDirectory:&isDir] || !isDir) {
         //创建文件夹
@@ -173,11 +202,6 @@
         [fileManager createFileAtPath:filePath contents:nil attributes:nil];
         _fileHandle = [NSFileHandle fileHandleForWritingAtPath:filePath];
     }
-}
-
-- (NSString *)documentPath
-{
-    return [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
 }
 
 @end
