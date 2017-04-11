@@ -7,8 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "ZFQBaseService.h"
+#import "ZFQConnectionProtocol.h"
 
-@interface ZFQUploadFileService : ZFQBaseService
+@interface ZFQUploadFileService : NSObject<ZFQConnectionProtocol>
+
+@property (nonatomic, strong) HTTPMessage *request;
 
 @end

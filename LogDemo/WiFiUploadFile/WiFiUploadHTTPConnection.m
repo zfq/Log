@@ -20,20 +20,18 @@
     NSFileHandle *_fileHandle;
     NSMutableString *_filePath;
 }
+@property (nonatomic, strong) ZFQServiceContext *serviceContext;
 @end
 @implementation WiFiUploadHTTPConnection 
 
 - (BOOL)supportsMethod:(NSString *)method atPath:(NSString *)path
 {
     NSLog(@"%@ %@",method,path);
-    if ([method isEqualToString:@"POST"]) {
+    
+    if ([self.serviceContext supportMethod:method path:path]) {
         return YES;
     }
     
-    if ([path isEqualToString:@"/files"] && [method isEqualToString:@"GET"]) {
-        
-        return YES;
-    }
     return [super supportsMethod:method atPath:path];
 }
 
@@ -60,49 +58,7 @@
 
 - (NSObject<HTTPResponse> *)httpResponseForMethod:(NSString *)method URI:(NSString *)path
 {
-    /*
-    if ([method isEqualToString:@"POST"] && [path isEqualToString:@"/upload"]) {
-        NSDictionary *jsonOBj = @{
-                                  @"errorCode":@0,
-                                  @"msg":@"success"
-                                  };
-        NSData *data = [NSJSONSerialization dataWithJSONObject:jsonOBj options:0 error:nil];
-        CustomHTTPDataResponse *response = [[CustomHTTPDataResponse alloc] initWithData:data];
-        
-        //处理可能的Ajax跨域问题
-        if ([request.allHeaderFields objectForKey:@"Origin"]) {
-            response.customHttpHeader = @{@"Access-Control-Allow-Origin":@"*"};
-        }
-
-        return response;
-    }
-    
-    if ([method isEqualToString:@"GET"] && [path isEqualToString:@"/files"]) {
-        
-        NSArray *filesInfo = [NSString filesInfoInDocPath];
-        if (filesInfo == nil) {
-            filesInfo = [NSArray array];
-        }
-        NSDictionary *jsonOBj = @{
-                                  @"errorCode":@0,
-                                  @"msg":@"nil",
-                                  @"obj":filesInfo
-                                  };
-        NSData *data = [NSJSONSerialization dataWithJSONObject:jsonOBj options:0 error:nil];
-        CustomHTTPDataResponse *response = [[CustomHTTPDataResponse alloc] initWithData:data];
-        response.customHttpHeader = @{
-                                      @"Content-Type":@"text/plain; charset=utf-8"
-                                      };
-        
-        return response;
-    }
-    */
-    
-    ZFQServiceContext *context = [[ZFQServiceContext alloc] init];
-    [context addService:[[ZFQFileListService alloc] init]];
-    [context addService:[[ZFQUploadFileService alloc] init]];
-    
-    NSObject<HTTPResponse> *responseObj = [context responseForMethod:method path:path request:request];
+    NSObject<HTTPResponse> *responseObj = [self.serviceContext responseForMethod:method path:path request:request];
     if (responseObj) {
         return responseObj;
     }
@@ -127,6 +83,22 @@
     // append data to the parser. It will invoke callbacks to let us handle
     // parsed data.
     [_parser appendData:postDataChunk];
+}
+
+- (ZFQServiceContext *)serviceContext
+{
+    if (!_serviceContext) {
+        _serviceContext = [[ZFQServiceContext alloc] init];
+        [self addServiceForServiceContext:_serviceContext];
+    }
+    return _serviceContext;
+}
+
+//添加服务
+- (void)addServiceForServiceContext:(ZFQServiceContext *)serviceContext
+{
+    [serviceContext addService:[[ZFQFileListService alloc] init]];
+    [serviceContext addService:[[ZFQUploadFileService alloc] init]];
 }
 
 #pragma mark - Multipart form data parser delegate 以下的方法在while循环里，可能被调用多次

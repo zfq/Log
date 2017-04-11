@@ -15,6 +15,12 @@
     self.method = method;
     self.path = path;
     self.request = request;
+    return [self supportMethod:method path:path];
+}
+
+- (BOOL)supportMethod:(NSString *)method path:(NSString *)path
+{
+    NSAssert(0, @"You must implement this method in subclass");
     return NO;
 }
 

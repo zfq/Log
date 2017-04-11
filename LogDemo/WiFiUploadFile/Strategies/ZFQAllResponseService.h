@@ -6,14 +6,7 @@
 //  Copyright © 2017年 zhaofuqiang. All rights reserved.
 //
 
-//#ifndef ZFQAllResponseService_h
-//#define ZFQAllResponseService_h
-//
-//#impor
-//
-//#endif /* ZFQAllResponseService_h */
 #import <Foundation/Foundation.h>
-
+#import "ZFQServiceContext.h"
 #import "ZFQFileListService.h"
 #import "ZFQUploadFileService.h"
-#import "ZFQServiceContext.h"

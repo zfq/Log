@@ -2,20 +2,18 @@
 //  ZFQConnectionProtocol.h
 //  LogDemo
 //
-//  Created by _ on 17/4/10.
+//  Created by _ on 17/4/11.
 //  Copyright © 2017年 zhaofuqiang. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import <CocoaHTTPServer/HTTPMessage.h>
-#import "CustomHTTPDataResponse.h"
+#import <CocoaHTTPServer/HTTPResponse.h>
 
 @protocol ZFQConnectionProtocol <NSObject>
 
-@property (nonatomic, copy) NSString *method;
-@property (nonatomic, copy) NSString *path;
-@property (nonatomic, copy) HTTPMessage *request;
-
+@required
+- (BOOL)supportMethod:(NSString *)method path:(NSString *)path;
 - (BOOL)matchMethod:(NSString *)method path:(NSString *)path request:(HTTPMessage *)request;
 - (NSObject<HTTPResponse> *)httpResponse;
 

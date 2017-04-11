@@ -7,8 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "ZFQBaseService.h"
+#import "ZFQConnectionProtocol.h"
 
-@interface ZFQFileListService : ZFQBaseService
+@interface ZFQFileListService : NSObject<ZFQConnectionProtocol>
 
 @end

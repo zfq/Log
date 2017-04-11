@@ -7,15 +7,19 @@
 //
 
 #import "ZFQUploadFileService.h"
-#import <CocoaHTTPServer/HTTPResponse.h>
+#import "CustomHTTPDataResponse.h"
 #import "NSString+FileHelp.h"
 
 @implementation ZFQUploadFileService
 
 - (BOOL)matchMethod:(NSString *)method path:(NSString *)path request:(HTTPMessage *)request
 {
-    [super matchMethod:method path:path request:request];
-    
+    self.request = request;
+    return [self supportMethod:method path:path];
+}
+
+- (BOOL)supportMethod:(NSString *)method path:(NSString *)path
+{
     return [method isEqualToString:@"POST"] && [path isEqualToString:@"/upload"];
 }
 
