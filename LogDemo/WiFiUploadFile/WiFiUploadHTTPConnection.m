@@ -183,35 +183,16 @@
     
     MultipartMessageHeaderField *disposition = [header.fields objectForKey:@"Content-Disposition"];
     NSString *fileName = [[disposition.params objectForKey:@"filename"] lastPathComponent];
-    
     if (!disposition || !fileName) {
         return;
     }
     
-    NSFileManager *fileManager = [NSFileManager defaultManager];
-    //判断wifiFile文件夹是否存在，如果不存在就创建
-    NSString *wifiFileDirPath = [[NSString documentPath] stringByAppendingPathComponent:@"wifiFile"];
-    BOOL isDir = NO;
-    if ( ![fileManager fileExistsAtPath:wifiFileDirPath isDirectory:&isDir] || !isDir) {
-        //创建文件夹
-        NSError *error;
-        [fileManager createDirectoryAtPath:wifiFileDirPath withIntermediateDirectories:YES attributes:nil error:&error];
-        if (error) {
-            NSLog(@"创建文件夹失败:%@",error);
-        }
-    }
+    //create file at directory
+    NSString *wifiFileDirPath = [NSString createDirInDocumentPathWithName:@"wifiFile"];
+    NSString *filePath = [NSString createFile:fileName atDirPath:wifiFileDirPath];
     
-    //判断wifiFile文件夹里面的文件是否已经存在,如果不存在就创建文件
-    NSString *filePath = [wifiFileDirPath stringByAppendingPathComponent:fileName];
-    if ([fileManager fileExistsAtPath:filePath isDirectory:&isDir] && isDir == NO)
-    {
-        //文件已经存在，则获取fileHandle
-        _fileHandle = [NSFileHandle fileHandleForWritingAtPath:filePath];
-    } else {
-        //文件不存在，则先创建文件，再获取fileHandle
-        [fileManager createFileAtPath:filePath contents:nil attributes:nil];
-        _fileHandle = [NSFileHandle fileHandleForWritingAtPath:filePath];
-    }
+    //获取fileHandle
+    _fileHandle = [NSFileHandle fileHandleForWritingAtPath:filePath];
 }
 
 @end

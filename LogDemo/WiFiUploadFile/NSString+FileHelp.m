@@ -15,6 +15,38 @@
     return [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
 }
 
++ (NSString *)createDirInDocumentPathWithName:(NSString *)dirName
+{
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    //判断wifiFile文件夹是否存在，如果不存在就创建
+    NSString *wifiFileDirPath = [[NSString documentPath] stringByAppendingPathComponent:dirName];
+    BOOL isDir = NO;
+    if ( ![fileManager fileExistsAtPath:wifiFileDirPath isDirectory:&isDir] || !isDir) {
+        //创建文件夹
+        NSError *error;
+        [fileManager createDirectoryAtPath:wifiFileDirPath withIntermediateDirectories:YES attributes:nil error:&error];
+        if (error) {
+            NSLog(@"创建文件夹失败:%@",error);
+        }
+    }
+    return wifiFileDirPath;
+}
+
++ (NSString *)createFile:(NSString *)fileName atDirPath:(NSString *)dirPath
+{
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    NSString *wifiFileDirPath = dirPath;
+    //判断wifiFile文件夹里面的文件是否已经存在,如果不存在就创建文件
+    NSString *filePath = [wifiFileDirPath stringByAppendingPathComponent:fileName];
+    BOOL isDir = NO;
+    BOOL fileExist = [fileManager fileExistsAtPath:filePath isDirectory:&isDir];
+    if (fileExist == NO || (fileExist && isDir == YES)) {
+        //文件不存在，则先创建文件，再获取fileHandle
+        [fileManager createFileAtPath:filePath contents:nil attributes:nil];
+    }
+    return filePath;
+}
+
 + (NSArray<NSDictionary *> *)filesInfoInDocPath
 {
     return [self filesInfoAtPath:[self documentPath]];
