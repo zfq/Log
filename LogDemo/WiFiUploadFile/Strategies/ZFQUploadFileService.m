@@ -40,4 +40,9 @@
     return response;
 }
 
+- (BOOL)expectsRequestBodyFromMethod:(NSString *)method atPath:(NSString *)path
+{
+    return [self supportMethod:method path:path];
+}
+
 @end

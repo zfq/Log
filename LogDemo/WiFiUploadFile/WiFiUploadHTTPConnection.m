@@ -11,6 +11,7 @@
 #import <CocoaHTTPServer/MultipartMessageHeaderField.h>
 #import <CocoaHTTPServer/HTTPDataResponse.h>
 #import "CustomHTTPDataResponse.h"
+#import "CustomHTTPFileResponse.h"
 #import "NSString+FileHelp.h"
 #import "ZFQAllResponseService.h"
 
@@ -27,7 +28,7 @@
 - (BOOL)supportsMethod:(NSString *)method atPath:(NSString *)path
 {
     NSLog(@"%@ %@",method,path);
-    
+    //We only focus on requests that we're interested in
     if ([self.serviceContext supportMethod:method path:path]) {
         return YES;
     }
@@ -38,35 +39,56 @@
 - (BOOL)expectsRequestBodyFromMethod:(NSString *)method atPath:(NSString *)path
 {
     NSLog(@"body:%@ %@",method,path);
-    if ([method isEqualToString:@"POST"] && [path isEqualToString:@"/upload"]) {
-        //获取boundary
-        NSString *contentType = [request headerField:@"Content-Type"];
-        NSString *pattern = @"boundary=-+[a-zA-Z0-9]+";
-        NSRegularExpression *reg = [NSRegularExpression regularExpressionWithPattern:pattern options:NSRegularExpressionCaseInsensitive error:nil];
-        NSArray<NSTextCheckingResult *> *result = [reg matchesInString:contentType options:NSMatchingReportCompletion range:NSMakeRange(0, contentType.length)];
-        if (result.count > 0) {
-            NSTextCheckingResult *checkResult = result.firstObject;
-            NSRange range = [checkResult range];
-            NSString *subStr = [contentType substringWithRange:range];
-            NSString *boundary = [subStr substringFromIndex:9];
-            [request setHeaderField:@"boundary" value:boundary];
-        }
+    
+    BOOL expects = [self.serviceContext expectsRequestBodyFromMethod:method atPath:path];
+    if (expects) {
         return YES;
+    } else {
+        return [super expectsRequestBodyFromMethod:method atPath:path];
     }
-    return [super expectsRequestBodyFromMethod:method atPath:path];
 }
 
 - (NSObject<HTTPResponse> *)httpResponseForMethod:(NSString *)method URI:(NSString *)path
 {
+    //handler our service
     NSObject<HTTPResponse> *responseObj = [self.serviceContext responseForMethod:method path:path request:request];
     if (responseObj) {
         return responseObj;
     }
     
+    //Add additional Content-Type value for Specific file such as css and js etc.
+    NSString *contentType = [self.serviceContext contentTypeForPath:path];
+    if (contentType) {
+        NSString *filePath = [self filePathForURI:path allowDirectory:NO];
+        BOOL isDir = NO;
+        if (filePath && [[NSFileManager defaultManager] fileExistsAtPath:filePath isDirectory:&isDir] && !isDir)
+        {
+            CustomHTTPFileResponse *customResponse = [[CustomHTTPFileResponse alloc] initWithFilePath:filePath forConnection:self];
+            customResponse.customHttpHeader = @{@"Content-Type":contentType};
+            return customResponse;
+        }
+    }
+    
     return [super httpResponseForMethod:method URI:path];
 }
 
-//以下两个方法默认是空方法, 类似servlet里面的两个代理方法
+- (NSData *)preprocessResponse:(HTTPMessage *)response
+{
+    //为特定类型的文件设置必要的Content-Type
+    /*
+    NSString *path = [response url].absoluteString;
+    if (path) {
+        NSLog(@"成功了:%@",path);
+        NSString *contentType = [self.serviceContext contentTypeForPath:path];
+        if (contentType) {
+            [response setHeaderField:@"Content-Type" value:contentType];
+        }
+    }*/
+    
+    return [super preprocessResponse:response];
+}
+
+//以下两个方法默认是空方法,
 - (void)prepareForBodyWithSize:(UInt64)contentLength
 {
     //得先获取到boundary
@@ -89,12 +111,18 @@
 {
     if (!_serviceContext) {
         _serviceContext = [[ZFQServiceContext alloc] init];
+        _serviceContext.request = request;
         [self addServiceForServiceContext:_serviceContext];
     }
     return _serviceContext;
 }
 
-//添加服务
+
+/**
+ Add your custom service for server,you should always add service in this function.
+
+ @param serviceContext serviceContext
+ */
 - (void)addServiceForServiceContext:(ZFQServiceContext *)serviceContext
 {
     [serviceContext addService:[[ZFQFileListService alloc] init]];

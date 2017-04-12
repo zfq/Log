@@ -12,6 +12,9 @@
 
 @protocol ZFQConnectionProtocol <NSObject>
 
+@optional
+- (BOOL)expectsRequestBodyFromMethod:(NSString *)method atPath:(NSString *)path;
+
 @required
 - (BOOL)supportMethod:(NSString *)method path:(NSString *)path;
 - (BOOL)matchMethod:(NSString *)method path:(NSString *)path request:(HTTPMessage *)request;

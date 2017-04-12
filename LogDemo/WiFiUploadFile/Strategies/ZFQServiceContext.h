@@ -11,8 +11,17 @@
 
 @interface ZFQServiceContext : NSObject
 
+@property (nonatomic, strong) HTTPMessage *request;
+
 - (NSObject<HTTPResponse> *)responseForMethod:(NSString *)method path:(NSString *)path request:(HTTPMessage *)request;
 - (BOOL)supportMethod:(NSString *)method path:(NSString *)path;
 - (void)addService:(id<ZFQConnectionProtocol>)service;
+- (BOOL)expectsRequestBodyFromMethod:(NSString *)method atPath:(NSString *)path;
+/**
+  Content-Type value corresponding to the request path. You can config custom Content-Type value for path which you're interested in.
 
+ @param path request path of client.
+ @return the appropriate Content-Type value for this path，if server can't handle this path,it will return nil.
+ */
+- (NSString *)contentTypeForPath:(NSString *)path;
 @end
