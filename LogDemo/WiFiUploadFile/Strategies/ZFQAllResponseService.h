@@ -10,3 +10,4 @@
 #import "ZFQServiceContext.h"
 #import "ZFQFileListService.h"
 #import "ZFQUploadFileService.h"
+#import "ZFQDownloadFileService.h"

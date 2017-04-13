@@ -82,4 +82,34 @@
     return filesInfo;
 }
 
+- (NSDictionary *)queryParams
+{
+    if (self.length == 0) return nil;
+    
+    NSArray *paramPairs = [self componentsSeparatedByString:@"&"];
+    NSMutableDictionary *mutiDict = [[NSMutableDictionary alloc] init];
+    for (NSString *str in paramPairs) {
+        NSArray *keyValuePair = [str componentsSeparatedByString:@"="];
+        NSString *key = keyValuePair[0];
+        NSString *value = keyValuePair[1];
+        if (key.length > 0) {
+            value = value ? value : @"";
+            [mutiDict setObject:value forKey:key];
+        }
+    }
+    return [mutiDict copy];
+}
+
+- (NSDictionary *)queryParamsWithServicePath:(NSString *)servicePath
+{
+    NSString *pattern = [NSString stringWithFormat:@"^/+%@\?",servicePath];
+    NSRegularExpression *regularExp = [NSRegularExpression regularExpressionWithPattern:pattern options:0 error:nil];
+    NSRange pathRange = [regularExp rangeOfFirstMatchInString:self options:NSMatchingReportCompletion range:NSMakeRange(0, self.length)];
+    if (pathRange.length != 0) {
+        NSURL *url = [NSURL URLWithString:self];
+        return [url.query queryParams];
+    }
+    return nil;
+}
+
 @end

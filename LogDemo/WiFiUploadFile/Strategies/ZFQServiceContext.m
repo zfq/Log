@@ -21,7 +21,7 @@
         if ([service matchMethod:method path:path request:request]) {
             NSObject<HTTPResponse> *response = [service httpResponse];
             
-            //添加过滤器
+            //add filter
             NSObject<HTTPResponse> *finalResponse = [self doFilterForMethod:method path:path request:request originResponse:response];
             return finalResponse;
         }
@@ -72,12 +72,12 @@
     if ([originResponse isKindOfClass:[CustomHTTPDataResponse class]]) {
         CustomHTTPDataResponse *customResponse = (CustomHTTPDataResponse *)originResponse;
 
-        //处理可能的Ajax跨域问题
+        //Handle possible Ajax cross-domain issues
         if ([request.allHeaderFields objectForKey:@"Origin"]) {
             customResponse.customHttpHeader[@"Access-Control-Allow-Origin"] = @"*";
         }
         
-        //...
+        //Add the necessary setting blew
         return customResponse;
     }
     return originResponse;
@@ -97,8 +97,10 @@
 
 - (void)setBoundaryHeaderFieldForRequest
 {
-    //获取boundary
+    //find out boundary string
     NSString *contentType = [self.request headerField:@"Content-Type"];
+    if (contentType == nil) return;
+    
     NSString *pattern = @"boundary=-+[a-zA-Z0-9]+";
     NSRegularExpression *reg = [NSRegularExpression regularExpressionWithPattern:pattern options:NSRegularExpressionCaseInsensitive error:nil];
     NSArray<NSTextCheckingResult *> *result = [reg matchesInString:contentType options:NSMatchingReportCompletion range:NSMakeRange(0, contentType.length)];

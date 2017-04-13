@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <CocoaHTTPServer/HTTPMessage.h>
 #import <CocoaHTTPServer/HTTPResponse.h>
+#import "NSString+FileHelp.h"
 
 @protocol ZFQConnectionProtocol <NSObject>
 

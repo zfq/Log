@@ -32,4 +32,19 @@
  */
 + (NSString *)createFile:(NSString *)fileName atDirPath:(NSString *)dirPath;
 
+/**
+ Separate query string into dictionary, if query is empty ,it's return nil.
+
+ @return dictionay,
+ */
+- (NSDictionary *)queryParams;
+
+/**
+ Parse key-value pairs from URI string, this method may be return nil if a string doesn't contain any valid key-value pairs.
+
+ @param servicePath path string which is between character '/' and first character '?'.
+ @return dictionary that contained all valid key-value pairs.
+ */
+- (NSDictionary *)queryParamsWithServicePath:(NSString *)servicePath;
+
 @end
