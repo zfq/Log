@@ -32,11 +32,6 @@
     NSData *data = [NSJSONSerialization dataWithJSONObject:jsonOBj options:0 error:nil];
     CustomHTTPDataResponse *response = [[CustomHTTPDataResponse alloc] initWithData:data];
     
-    //处理可能的Ajax跨域问题
-    if ([self.request.allHeaderFields objectForKey:@"Origin"]) {
-        response.customHttpHeader = @{@"Access-Control-Allow-Origin":@"*"};
-    }
-    
     return response;
 }
 

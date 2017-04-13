@@ -10,6 +10,6 @@
 
 @interface CustomHTTPDataResponse : HTTPDataResponse
 
-@property (nonatomic, copy) NSDictionary *customHttpHeader;
+@property (nonatomic, strong) NSMutableDictionary *customHttpHeader;
 
 @end

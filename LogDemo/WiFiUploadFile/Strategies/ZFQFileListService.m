@@ -13,7 +13,8 @@
 @implementation ZFQFileListService
 
 - (BOOL)matchMethod:(NSString *)method path:(NSString *)path request:(HTTPMessage *)request
-{    
+{
+    self.request = request;
     return [self supportMethod:method path:path];
 }
 
@@ -35,10 +36,7 @@
                               };
     NSData *data = [NSJSONSerialization dataWithJSONObject:jsonObj options:0 error:nil];
     CustomHTTPDataResponse *response = [[CustomHTTPDataResponse alloc] initWithData:data];
-    response.customHttpHeader = @{
-                                  @"Content-Type":@"text/plain; charset=utf-8"
-                                  };
-    
+    response.customHttpHeader[@"Content-Type"] = @"application/json; charset=utf-8";
     return response;
 }
 

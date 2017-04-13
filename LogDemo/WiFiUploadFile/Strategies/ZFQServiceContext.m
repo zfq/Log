@@ -22,9 +22,8 @@
             NSObject<HTTPResponse> *response = [service httpResponse];
             
             //添加过滤器
-//            NSObject<HTTPResponse> *finalResponse = [self doFilterForMethod:method path:path originResponse:response];
-//            return finalResponse;
-            return response;
+            NSObject<HTTPResponse> *finalResponse = [self doFilterForMethod:method path:path request:request originResponse:response];
+            return finalResponse;
         }
     }
     return nil;
@@ -68,24 +67,17 @@
 }
 
 #pragma mark - Private
-- (NSObject<HTTPResponse> *)doFilterForMethod:(NSString *)method path:(NSString *)path originResponse:(NSObject<HTTPResponse> *)originResponse
+- (NSObject<HTTPResponse> *)doFilterForMethod:(NSString *)method path:(NSString *)path request:(HTTPMessage *)request originResponse:(NSObject<HTTPResponse> *)originResponse
 {
     if ([originResponse isKindOfClass:[CustomHTTPDataResponse class]]) {
         CustomHTTPDataResponse *customResponse = (CustomHTTPDataResponse *)originResponse;
-        NSMutableDictionary *mutiDict = nil;
-        if (customResponse.customHttpHeader == nil) {
-            mutiDict = [[NSMutableDictionary alloc] init];
-        } else {
-            mutiDict = [[NSMutableDictionary alloc] initWithDictionary:customResponse.customHttpHeader];
+
+        //处理可能的Ajax跨域问题
+        if ([request.allHeaderFields objectForKey:@"Origin"]) {
+            customResponse.customHttpHeader[@"Access-Control-Allow-Origin"] = @"*";
         }
         
-        //设置Content-Type
-        NSString *contentType = [self contentTypeForPath:path];
-        if (contentType) {
-            mutiDict[@"Content-Type"] = contentType;
-        }
-        customResponse.customHttpHeader = mutiDict;
-        
+        //...
         return customResponse;
     }
     return originResponse;

@@ -15,4 +15,12 @@
     return self.customHttpHeader;
 }
 
+- (NSMutableDictionary *)customHttpHeader
+{
+    if (!_customHttpHeader) {
+        _customHttpHeader = [[NSMutableDictionary alloc] init];
+    }
+    return _customHttpHeader;
+}
+
 @end

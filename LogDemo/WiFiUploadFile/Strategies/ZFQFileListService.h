@@ -11,4 +11,6 @@
 
 @interface ZFQFileListService : NSObject<ZFQConnectionProtocol>
 
+@property (nonatomic, strong) HTTPMessage *request;
+
 @end

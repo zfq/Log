@@ -44,6 +44,8 @@ window.onload = function(e) {
 
             //再让当前的显示
             document.querySelector(tabEle.dataset.panelId).style.display = 'block';
+
+            tapTabAction(index);
         });
     });
 
@@ -86,8 +88,18 @@ function showFileLists() {
             console.log('请求失败%d',xhr.status);
         }
     };
+    xhr.onreadystatechange = function () {
+        console.log('请求状态为:' + xhr.status);
+    }
+    xhr.send();
 }
 
+function tapTabAction(index) {
+    // body...
+    if (index == 1) {
+        showFileLists();
+    }
+}
 </script>
 
 </body>
