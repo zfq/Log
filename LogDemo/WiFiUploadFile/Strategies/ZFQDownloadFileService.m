@@ -25,28 +25,27 @@
 {
     NSDictionary *queryParam = [path queryParamsWithServicePath:@"file"];
     if (queryParam == nil || queryParam.count == 0) return NO;
-    
-//    NSRegularExpression *regularExp = [NSRegularExpression regularExpressionWithPattern:@"^/+file\?" options:0 error:nil];
-//    NSRange pathRange = [regularExp rangeOfFirstMatchInString:path options:NSMatchingReportCompletion range:NSMakeRange(0, path.length)];
-//    if (pathRange.length != 0) {
-//        NSURL *url = [NSURL URLWithString:path];
-//        NSString *queryStr = url.query;
-//        NSArray *paramPairs = [queryStr componentsSeparatedByString:@"&"];
-//    }
-//    
-//    NSString *tmpPath = url.path;
-    if (queryParam[@"name"] != nil) {
+
+    _currFileName = queryParam[@"name"];
+    if (_currFileName != nil) {
         return YES;
     }
     return NO;
-//    return [method isEqualToString:@"GET"] && [path isEqualToString:@"/upload"];
 }
 
 - (NSObject<HTTPResponse> *)httpResponse
 {
     //Checking to see if file exists.
-    
     if (true) {
+        //get file path   virtual folder
+        /*
+         考虑多用户
+         数据库 存放虚拟路径（不包括文件名） | 文件名
+         （1） 两张表 路径表  文件名+用户 用户表
+         新建文件夹：
+         
+         */
+        NSString *filePath = [];
         CustomHTTPFileResponse *response = [[CustomHTTPFileResponse alloc] initWithFilePath:@"" forConnection:nil];
         return response;
     } else {
