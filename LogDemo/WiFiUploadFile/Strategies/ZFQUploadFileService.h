@@ -8,9 +8,12 @@
 
 #import <Foundation/Foundation.h>
 #import "ZFQConnectionProtocol.h"
+#import <CocoaHTTPServer/MultipartMessageHeader.h>
 
 @interface ZFQUploadFileService : NSObject<ZFQConnectionProtocol>
 
 @property (nonatomic, strong) HTTPMessage *request;
+
+@property (nonatomic, strong) NSFileHandle *fileHandle;
 
 @end

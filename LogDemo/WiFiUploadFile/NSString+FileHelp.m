@@ -27,6 +27,7 @@
         [fileManager createDirectoryAtPath:wifiFileDirPath withIntermediateDirectories:YES attributes:nil error:&error];
         if (error) {
             NSLog(@"创建文件夹失败:%@",error);
+            wifiFileDirPath = nil;
         }
     }
     return wifiFileDirPath;
@@ -42,7 +43,8 @@
     BOOL fileExist = [fileManager fileExistsAtPath:filePath isDirectory:&isDir];
     if (fileExist == NO || (fileExist && isDir == YES)) {
         //文件不存在，则先创建文件，再获取fileHandle
-        [fileManager createFileAtPath:filePath contents:nil attributes:nil];
+        BOOL result = [fileManager createFileAtPath:filePath contents:nil attributes:nil];
+        if (!result) filePath = nil;
     }
     return filePath;
 }

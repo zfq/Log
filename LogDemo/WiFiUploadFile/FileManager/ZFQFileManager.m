@@ -49,7 +49,6 @@
                     dispatch_async(dispatch_get_main_queue(), ^{
                         adapter.resolve(@"1");
                     });
-                    
                 }
             }];
             
@@ -58,6 +57,37 @@
     }];
     
     return promise;
+}
+
+- (ZFQDBPromise *)executeQuery:(NSString *)sql values:(NSArray *)values
+{
+    ZFQDBPromise *promise = [ZFQDBPromise promiseWithAdapterBlock:^(ZFQDBPromiseAdapter *adapter) {
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            [self.queue inDatabase:^(FMDatabase *db) {
+                NSError *error;
+                id result = [db executeQuery:sql values:values error:&error];
+                if (error) {
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        adapter.reject(error);
+                    });
+                } else {
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        adapter.resolve(result);
+                    });
+                }
+            }];
+            
+        });
+        
+    }];
+    
+    return promise;
+}
+
+- (ZFQDBPromise *)addFileWithName:(NSString *)fileName path:(NSString *)path
+{
+    NSString *sql = [NSString stringWithFormat:@"INSERT INTO TABLE wifi_files (path,name) VALUES(%@,%@)",path,fileName];
+    return [self executeUpdate:sql];
 }
 
 #pragma mark - Getter Setter
