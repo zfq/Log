@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		1F1B98031E5188E000A48AA8 /* CustomHTTPDataResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F1B98021E5188E000A48AA8 /* CustomHTTPDataResponse.m */; };
+		1F22FF181EA4982B00F75731 /* ZFQFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FF007F91EA45CC500109924 /* ZFQFileManager.m */; };
+		1F22FF191EA4982B00F75731 /* ZFQDBPromise.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FF007FC1EA46FB600109924 /* ZFQDBPromise.m */; };
 		1F50F2AF1E97A4DD007596A3 /* NSString+FileHelp.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F50F2AE1E97A4DD007596A3 /* NSString+FileHelp.m */; };
 		1F6970A91E9B948600701315 /* ZFQFileListService.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F6970A81E9B948600701315 /* ZFQFileListService.m */; };
 		1F6ED3A51E45D67900CE30CD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F6ED3A41E45D67900CE30CD /* main.m */; };
@@ -27,6 +29,8 @@
 		1FCA4CDC1E9F4FF500121ADE /* ZFQDownloadFileService.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FCA4CDB1E9F4FF500121ADE /* ZFQDownloadFileService.m */; };
 		1FE8539A1E4B3B67009D139C /* Web in Resources */ = {isa = PBXBuildFile; fileRef = 1FE853991E4B3B67009D139C /* Web */; };
 		1FE8539D1E4C1CFE009D139C /* WiFiUploadHTTPConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE8539C1E4C1CFE009D139C /* WiFiUploadHTTPConnection.m */; };
+		1FF007FA1EA45CC500109924 /* ZFQFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FF007F91EA45CC500109924 /* ZFQFileManager.m */; };
+		1FF007FD1EA46FB600109924 /* ZFQDBPromise.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FF007FC1EA46FB600109924 /* ZFQDBPromise.m */; };
 		36BB289B456A4C8CF5307364 /* libPods-LogDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C3521DA705C09602C10FEDBF /* libPods-LogDemo.a */; };
 		7BFD03741E9BC7D400620A1C /* ZFQUploadFileService.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BFD03731E9BC7D400620A1C /* ZFQUploadFileService.m */; };
 		7BFD03771E9BCBEB00620A1C /* ZFQServiceContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BFD03761E9BCBEB00620A1C /* ZFQServiceContext.m */; };
@@ -89,6 +93,10 @@
 		1FE853991E4B3B67009D139C /* Web */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Web; sourceTree = "<group>"; };
 		1FE8539B1E4C1CFE009D139C /* WiFiUploadHTTPConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WiFiUploadHTTPConnection.h; sourceTree = "<group>"; };
 		1FE8539C1E4C1CFE009D139C /* WiFiUploadHTTPConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WiFiUploadHTTPConnection.m; sourceTree = "<group>"; };
+		1FF007F81EA45CC500109924 /* ZFQFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZFQFileManager.h; sourceTree = "<group>"; };
+		1FF007F91EA45CC500109924 /* ZFQFileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZFQFileManager.m; sourceTree = "<group>"; };
+		1FF007FB1EA46FB600109924 /* ZFQDBPromise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZFQDBPromise.h; sourceTree = "<group>"; };
+		1FF007FC1EA46FB600109924 /* ZFQDBPromise.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZFQDBPromise.m; sourceTree = "<group>"; };
 		4205B274AE3C6BBCCB495BE0 /* Pods-LogDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LogDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LogDemo/Pods-LogDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		7B0C366D6AB05FB848A7DA2B /* libPods-LogDemoTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LogDemoTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BCB11CB1E9BD43200DD583E /* ZFQAllResponseService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZFQAllResponseService.h; sourceTree = "<group>"; };
@@ -214,6 +222,7 @@
 		1FA282F61E49E43000649387 /* WiFiUploadFile */ = {
 			isa = PBXGroup;
 			children = (
+				1FF007F71EA45C6A00109924 /* FileManager */,
 				1F6970A51E9B8B0300701315 /* Strategies */,
 				1FE853991E4B3B67009D139C /* Web */,
 				1FA282FC1E49E5AB00649387 /* wifi.png */,
@@ -234,6 +243,17 @@
 				1FA282FF1E4AB62A00649387 /* WiFiUploadFileManager.m */,
 			);
 			path = WiFiUploadFile;
+			sourceTree = "<group>";
+		};
+		1FF007F71EA45C6A00109924 /* FileManager */ = {
+			isa = PBXGroup;
+			children = (
+				1FF007F81EA45CC500109924 /* ZFQFileManager.h */,
+				1FF007F91EA45CC500109924 /* ZFQFileManager.m */,
+				1FF007FB1EA46FB600109924 /* ZFQDBPromise.h */,
+				1FF007FC1EA46FB600109924 /* ZFQDBPromise.m */,
+			);
+			path = FileManager;
 			sourceTree = "<group>";
 		};
 		BD054A2B93B4935BAF4B6092 /* Pods */ = {
@@ -497,6 +517,7 @@
 				1F6ED3A81E45D67900CE30CD /* AppDelegate.m in Sources */,
 				1FE8539D1E4C1CFE009D139C /* WiFiUploadHTTPConnection.m in Sources */,
 				7BFD03741E9BC7D400620A1C /* ZFQUploadFileService.m in Sources */,
+				1FF007FA1EA45CC500109924 /* ZFQFileManager.m in Sources */,
 				1FA283001E4AB62A00649387 /* WiFiUploadFileManager.m in Sources */,
 				1F6ED3A51E45D67900CE30CD /* main.m in Sources */,
 				1FA283061E4AD16400649387 /* NSString+IPAddress.m in Sources */,
@@ -506,6 +527,7 @@
 				1F50F2AF1E97A4DD007596A3 /* NSString+FileHelp.m in Sources */,
 				1FCA4CD91E9DC78400121ADE /* CustomHTTPFileResponse.m in Sources */,
 				1F1B98031E5188E000A48AA8 /* CustomHTTPDataResponse.m in Sources */,
+				1FF007FD1EA46FB600109924 /* ZFQDBPromise.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -513,6 +535,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F22FF181EA4982B00F75731 /* ZFQFileManager.m in Sources */,
+				1F22FF191EA4982B00F75731 /* ZFQDBPromise.m in Sources */,
 				1F6ED3BE1E45D67900CE30CD /* LogDemoTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

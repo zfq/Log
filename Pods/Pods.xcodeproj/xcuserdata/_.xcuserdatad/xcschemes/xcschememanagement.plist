@@ -19,6 +19,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>FMDB.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-LogDemo.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -47,22 +52,27 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>1EC111E80A794FAEF4EE135932823DF1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>23D7DA26C40DEA0CBB49A7825C7CD4F1</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>51E9F70F7CD5894B770291060CC5EEAE</key>
+		<key>8642CC820CE8C5B88C113D7F47AF4BC3</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>83C89750A775783CD7F2AEFCEF541BD9</key>
+		<key>AE1DACE827D230F475D1C6E114E609E6</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D551CF0D5DB893459A10864C4AE41E27</key>
+		<key>E5E864C22A07299ED5E439984A5DC7AC</key>
 		<dict>
 			<key>primary</key>
 			<true/>

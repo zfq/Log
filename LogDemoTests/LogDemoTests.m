@@ -8,9 +8,10 @@
 
 #import <XCTest/XCTest.h>
 #import "ZFQLog.h"
+#import "ZFQFileManager.h"
 
 @interface LogDemoTests : XCTestCase
-
+@property (nonatomic, strong) ZFQFileManager *fileManager;
 @end
 
 @implementation LogDemoTests
@@ -96,6 +97,26 @@
     // This is an example of a performance test case.
     [self measureBlock:^{
         [ZFQLog log:__LINE__ format:@"This is Test String and it's very long , I'm so hungry i want go home early please get off work quickly hahahhah"];
+    }];
+}
+
+- (void)testCreateTable
+{
+    XCTestExpectation *expect = [self expectationWithDescription:@"AAAAA"];
+    self.fileManager = [[ZFQFileManager alloc] init];
+    NSString *sql = @"CREATE TABLE IF NOT EXISTS wifi_files (path TEXT, name TEXT);";
+    [self.fileManager executeUpdate:sql].catch(^(NSError *error){
+        NSLog(@"出错了");
+        [expect fulfill];
+    })
+    .then(^(id value){
+        NSLog(@"结果:%@",value);
+        [expect fulfill];
+    });
+    [self waitForExpectationsWithTimeout:60 handler:^(NSError * _Nullable error) {
+        if (error) {
+            NSLog(@"测试失败:%@",error);
+        }
     }];
 }
 

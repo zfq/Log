@@ -13,10 +13,14 @@ PODS:
     - CocoaLumberjack/Core
   - CocoaLumberjack/Extensions (3.0.0):
     - CocoaLumberjack/Default
+  - FMDB (2.6.2):
+    - FMDB/standard (= 2.6.2)
+  - FMDB/standard (2.6.2)
   - ZFQLog (0.0.1)
 
 DEPENDENCIES:
   - CocoaHTTPServer (from `https://github.com/robbiehanson/CocoaHTTPServer.git`)
+  - FMDB
   - ZFQLog (from `/Users/wecash/Documents/Xcode工程/LogDemo`)
 
 EXTERNAL SOURCES:
@@ -34,8 +38,9 @@ SPEC CHECKSUMS:
   CocoaAsyncSocket: e0a7e93b2ffa411592ff87e58524fbbc9b95b4fa
   CocoaHTTPServer: 5624681fc3473d43b18202f635f9b3abb013b530
   CocoaLumberjack: c823149bccc5519a9447aeb433be7b1212a7d6a5
+  FMDB: 854a0341b4726e53276f2a8996f06f1b80f9259a
   ZFQLog: 2a92740da539309aee7e3b15d0db544aee06acad
 
-PODFILE CHECKSUM: 0ad5a990e66e6e911d07ed980005009cecc1c576
+PODFILE CHECKSUM: ddba7a73f7af87dba1e47760094121271788a20b
 
 COCOAPODS: 1.2.0

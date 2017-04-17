@@ -39,13 +39,10 @@
     if (true) {
         //get file path   virtual folder
         /*
-         考虑多用户
-         数据库 存放虚拟路径（不包括文件名） | 文件名
-         （1） 两张表 路径表  文件名+用户 用户表
-         新建文件夹：
-         
+         数据库表
+         虚拟路径（不包括文件名） | 文件名
          */
-        NSString *filePath = [];
+//        NSString *filePath = [];
         CustomHTTPFileResponse *response = [[CustomHTTPFileResponse alloc] initWithFilePath:@"" forConnection:nil];
         return response;
     } else {
