@@ -26,6 +26,7 @@
     //create table
     [queue inDatabase:^(FMDatabase *db) {
         NSString *sql = @"CREATE TABLE IF NOT EXISTS wifi_files ( \
+        file_id INTEGER PRIMARY KEY, \
         path TEXT, \
         name TEXT \
         );";
@@ -86,8 +87,40 @@
 
 - (ZFQDBPromise *)addFileWithName:(NSString *)fileName path:(NSString *)path
 {
-    NSString *sql = [NSString stringWithFormat:@"INSERT INTO TABLE wifi_files (path,name) VALUES(%@,%@)",path,fileName];
+    NSString *sql = [NSString stringWithFormat:@"INSERT INTO wifi_files (path,name) VALUES('%@','%@')",path,fileName];
     return [self executeUpdate:sql];
+}
+
+- (ZFQDBPromise *)removeFileWithName:(NSString *)fileName path:(NSString *)path
+{
+    NSString *sql = [NSString stringWithFormat:@"DELETE FROM wifi_files WHERE path='%@' AND name ='%@'",path,fileName];
+    return [self executeUpdate:sql];
+}
+
+- (ZFQDBPromise *)removeFileWithFileId:(NSInteger)fileId
+{
+    NSString *sql = [NSString stringWithFormat:@"DELETE FROM wifi_files WHERE file_id=%li",fileId];
+    return [self executeUpdate:sql];
+}
+
+- (ZFQDBPromise *)removeAllFile
+{
+    NSString *sql = @"DELETE FROM wifi_files";
+    return [self executeUpdate:sql];
+}
+
+- (ZFQDBPromise *)searchFileWithFileId:(NSInteger)fileId
+{
+//    return [self executeQuery:@"SELECT name,path FROM wifi_files WHERE file_id=?" values:@[@(fileId)]];
+    
+    ZFQDBPromise *promise = [ZFQDBPromise promiseWithAdapterBlock:^(ZFQDBPromiseAdapter *adapter) {
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(7 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            adapter.resolve(nil);
+        });
+        
+    }];
+    
+    return promise;
 }
 
 #pragma mark - Getter Setter

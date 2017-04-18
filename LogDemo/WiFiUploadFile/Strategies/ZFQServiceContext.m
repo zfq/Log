@@ -8,9 +8,11 @@
 
 #import "ZFQServiceContext.h"
 #import "CustomHTTPDataResponse.h"
+#import "ZFQAllResponseService.h"
 
 @interface ZFQServiceContext()
 @property (nonatomic, strong) NSMutableArray<id<ZFQConnectionProtocol> > *serviceList;
+@property (nonatomic, strong) NSMutableDictionary *serviceDict;
 @end
 @implementation ZFQServiceContext
 
@@ -44,7 +46,11 @@
     if (!_serviceList) {
         _serviceList = [[NSMutableArray alloc] init];
     }
+    if (!_serviceDict) {
+        _serviceDict = [[NSMutableDictionary alloc] init];
+    }
     [_serviceList addObject:service];
+    [_serviceDict setObject:service forKey:NSStringFromClass(service.class)];
 }
 
 - (BOOL)expectsRequestBodyFromMethod:(NSString *)method atPath:(NSString *)path
@@ -64,6 +70,17 @@
 {
     NSString *fileType = [path pathExtension];
     return [self contentTypeForFileType:fileType];
+}
+
+- (void)processStartOfPartWithHeader:(MultipartMessageHeader*)header
+{
+    for (id<ZFQConnectionProtocol> service in self.serviceList) {
+        if ([service respondsToSelector:@selector(processStartOfPartWithHeader:)]) {
+            [service processStartOfPartWithHeader:header];
+            self.fileHandle = [(ZFQUploadFileService *)service fileHandle];
+            break;
+        }
+    }
 }
 
 #pragma mark - Private

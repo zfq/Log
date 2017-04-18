@@ -9,7 +9,7 @@
 #import "ZFQBaseService.h"
 
 @implementation ZFQBaseService
-
+/*
 - (BOOL)matchMethod:(NSString *)method path:(NSString *)path request:(HTTPMessage *)request
 {
     self.method = method;
@@ -27,6 +27,14 @@
 - (NSObject<HTTPResponse> *)httpResponse
 {
     return nil;
+}*/
+
+- (ZFQFileManager *)fileManger
+{
+    if (!_fileManger) {
+        _fileManger = [[ZFQFileManager alloc] init];
+    }
+    return _fileManger;
 }
 
 @end

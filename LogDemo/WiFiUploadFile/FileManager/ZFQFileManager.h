@@ -19,9 +19,12 @@
  @return An ZFQDBPromise object.
  */
 - (ZFQDBPromise *)addFileWithName:(NSString *)fileName path:(NSString *)path;
+- (ZFQDBPromise *)removeFileWithFileId:(NSInteger)fileId;
+- (ZFQDBPromise *)removeFileWithName:(NSString *)fileName path:(NSString *)path;
+- (ZFQDBPromise *)removeAllFile;
+- (ZFQDBPromise *)searchFileWithFileId:(NSInteger)fileId;
 
 - (ZFQDBPromise *)executeUpdate:(NSString *)sql;
-
 - (ZFQDBPromise *)executeQuery:(NSString *)sql values:(NSArray *)values;
 
 @end

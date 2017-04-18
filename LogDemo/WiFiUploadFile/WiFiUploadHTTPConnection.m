@@ -18,7 +18,6 @@
 @interface WiFiUploadHTTPConnection()
 {
     MultipartFormDataParser *_parser;
-    NSFileHandle *_fileHandle;
     NSMutableString *_filePath;
 }
 @property (nonatomic, strong) ZFQServiceContext *serviceContext;
@@ -136,13 +135,13 @@
 - (void)processContent:(NSData*) data WithHeader:(MultipartMessageHeader*) header
 {
     //存数据
-    [_fileHandle writeData:data];
+    [self.serviceContext.fileHandle writeData:data];
 }
 
 - (void)processEndOfPartWithHeader:(MultipartMessageHeader*) header
 {
     //关闭文件
-    [_fileHandle closeFile];
+    [self.serviceContext.fileHandle closeFile];
 }
 
 - (void)processPreambleData:(NSData*) data
@@ -182,18 +181,19 @@
     // in this sample, we are not interested in parts, other then file parts.
     // check content disposition to find out filename
     
-    MultipartMessageHeaderField *disposition = [header.fields objectForKey:@"Content-Disposition"];
-    NSString *fileName = [[disposition.params objectForKey:@"filename"] lastPathComponent];
-    if (!disposition || !fileName) {
-        return;
-    }
-    
-    //create file at directory
-    NSString *wifiFileDirPath = [NSString createDirInDocumentPathWithName:@"wifiFile"];
-    NSString *filePath = [NSString createFile:fileName atDirPath:wifiFileDirPath];
-    
-    //获取fileHandle
-    _fileHandle = [NSFileHandle fileHandleForWritingAtPath:filePath];
+//    MultipartMessageHeaderField *disposition = [header.fields objectForKey:@"Content-Disposition"];
+//    NSString *fileName = [[disposition.params objectForKey:@"filename"] lastPathComponent];
+//    if (!disposition || !fileName) {
+//        return;
+//    }
+//    
+//    //create file at directory
+//    NSString *wifiFileDirPath = [NSString createDirInDocumentPathWithName:@"wifiFile"];
+//    NSString *filePath = [NSString createFile:fileName atDirPath:wifiFileDirPath];
+//    
+//    //获取fileHandle
+//    _fileHandle = [NSFileHandle fileHandleForWritingAtPath:filePath];
+    [self.serviceContext processStartOfPartWithHeader:header];
 }
 
 @end

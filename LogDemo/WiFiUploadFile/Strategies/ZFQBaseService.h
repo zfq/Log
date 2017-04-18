@@ -7,22 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <CocoaHTTPServer/HTTPMessage.h>
-#import <CocoaHTTPServer/HTTPResponse.h>
+#import "ZFQFileManager.h"
 
-@protocol ZFQConnectionProtocol <NSObject>
+@interface ZFQBaseService : NSObject
 
-@required
-- (BOOL)supportMethod:(NSString *)method path:(NSString *)path;
+//@property (nonatomic, copy) NSString *method;
+//@property (nonatomic, copy) NSString *path;
+@property (nonatomic, strong) ZFQFileManager *fileManger;
 
-@end
-@interface ZFQBaseService : NSObject <ZFQConnectionProtocol>
-
-@property (nonatomic, copy) NSString *method;
-@property (nonatomic, copy) NSString *path;
-@property (nonatomic, strong) HTTPMessage *request;
-
-- (BOOL)matchMethod:(NSString *)method path:(NSString *)path request:(HTTPMessage *)request;
-- (NSObject<HTTPResponse> *)httpResponse;
 
 @end

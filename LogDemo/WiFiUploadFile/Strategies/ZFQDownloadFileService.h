@@ -8,7 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import "ZFQConnectionProtocol.h"
+#import "ZFQBaseService.h"
 
-@interface ZFQDownloadFileService : NSObject<ZFQConnectionProtocol>
+@interface ZFQDownloadFileService : ZFQBaseService<ZFQConnectionProtocol>
 
+//- (instancetype)initWithConnection
 @end

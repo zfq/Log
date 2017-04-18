@@ -11,9 +11,10 @@
 #import "NSString+FileHelp.h"
 #import <CocoaHTTPServer/MultipartMessageHeaderField.h>
 #import "ZFQFileManager.h"
+#import <ZFQLog.h>
 
 @interface ZFQUploadFileService()
-@property (nonatomic, strong) ZFQFileManager *fileManager;
+
 @end
 
 @implementation ZFQUploadFileService
@@ -46,7 +47,7 @@
     return [self supportMethod:method path:path];
 }
 
-- (void)createFileWithHeader:(MultipartMessageHeader*) header
+- (void)processStartOfPartWithHeader:(MultipartMessageHeader *)header
 {
     MultipartMessageHeaderField *disposition = [header.fields objectForKey:@"Content-Disposition"];
     NSString *fileName = [[disposition.params objectForKey:@"filename"] lastPathComponent];
@@ -55,23 +56,19 @@
     }
     
     //create file at directory
-    NSString *wifiFileDirPath = [NSString createDirInDocumentPathWithName:@"wifiFile"];
-    NSString *filePath = [NSString createFile:fileName atDirPath:wifiFileDirPath];
-    if (filePath) {
-        __weak typeof(self) weakSelf = self;
-        [self.fileManager addFileWithName:fileName path:wifiFileDirPath].then(^(id value){
-            //get fileHandle 
-            weakSelf.fileHandle = [NSFileHandle fileHandleForWritingAtPath:filePath];
+    NSString *fileRelativePath = @"wifiFile";
+    NSString *wifiFileDirPath = [NSString createDirInDocumentPathWithName:fileRelativePath];
+    NSString *fileAbsolutePath = [NSString createFile:fileName atDirPath:wifiFileDirPath];
+    
+    //get fileHandle
+    self.fileHandle = [NSFileHandle fileHandleForWritingAtPath:fileAbsolutePath];
+    if (fileAbsolutePath) {
+        [self.fileManger addFileWithName:fileName path:fileRelativePath].then(^(id value){
+            
+        }).catch(^(NSError *error){
+            ZFQLog(@"%@",error);
         });
     }
-}
-
-- (ZFQFileManager *)fileManager
-{
-    if (!_fileManager) {
-        _fileManager = [[ZFQFileManager alloc] init];
-    }
-    return _fileManager;
 }
 
 @end

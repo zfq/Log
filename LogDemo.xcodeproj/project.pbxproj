@@ -10,6 +10,8 @@
 		1F1B98031E5188E000A48AA8 /* CustomHTTPDataResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F1B98021E5188E000A48AA8 /* CustomHTTPDataResponse.m */; };
 		1F22FF181EA4982B00F75731 /* ZFQFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FF007F91EA45CC500109924 /* ZFQFileManager.m */; };
 		1F22FF191EA4982B00F75731 /* ZFQDBPromise.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FF007FC1EA46FB600109924 /* ZFQDBPromise.m */; };
+		1F22FF1C1EA5F46400F75731 /* ZFQBaseService.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F22FF1A1EA5F46400F75731 /* ZFQBaseService.m */; };
+		1F22FF1F1EA6258400F75731 /* CustomHTTPAsynFileResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F22FF1E1EA6258400F75731 /* CustomHTTPAsynFileResponse.m */; };
 		1F50F2AF1E97A4DD007596A3 /* NSString+FileHelp.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F50F2AE1E97A4DD007596A3 /* NSString+FileHelp.m */; };
 		1F6970A91E9B948600701315 /* ZFQFileListService.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F6970A81E9B948600701315 /* ZFQFileListService.m */; };
 		1F6ED3A51E45D67900CE30CD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F6ED3A41E45D67900CE30CD /* main.m */; };
@@ -57,6 +59,10 @@
 /* Begin PBXFileReference section */
 		1F1B98011E5188E000A48AA8 /* CustomHTTPDataResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomHTTPDataResponse.h; sourceTree = "<group>"; };
 		1F1B98021E5188E000A48AA8 /* CustomHTTPDataResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomHTTPDataResponse.m; sourceTree = "<group>"; };
+		1F22FF1A1EA5F46400F75731 /* ZFQBaseService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZFQBaseService.m; sourceTree = "<group>"; };
+		1F22FF1B1EA5F46400F75731 /* ZFQBaseService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZFQBaseService.h; sourceTree = "<group>"; };
+		1F22FF1D1EA6258400F75731 /* CustomHTTPAsynFileResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomHTTPAsynFileResponse.h; sourceTree = "<group>"; };
+		1F22FF1E1EA6258400F75731 /* CustomHTTPAsynFileResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomHTTPAsynFileResponse.m; sourceTree = "<group>"; };
 		1F50F2AD1E97A4DD007596A3 /* NSString+FileHelp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+FileHelp.h"; sourceTree = "<group>"; };
 		1F50F2AE1E97A4DD007596A3 /* NSString+FileHelp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+FileHelp.m"; sourceTree = "<group>"; };
 		1F6970A71E9B948600701315 /* ZFQFileListService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZFQFileListService.h; sourceTree = "<group>"; };
@@ -140,6 +146,8 @@
 		1F6970A51E9B8B0300701315 /* Strategies */ = {
 			isa = PBXGroup;
 			children = (
+				1F22FF1B1EA5F46400F75731 /* ZFQBaseService.h */,
+				1F22FF1A1EA5F46400F75731 /* ZFQBaseService.m */,
 				7BCB11CB1E9BD43200DD583E /* ZFQAllResponseService.h */,
 				1F6971821E9CBD0C00701315 /* ZFQConnectionProtocol.h */,
 				1F6970A71E9B948600701315 /* ZFQFileListService.h */,
@@ -234,6 +242,8 @@
 				1F1B98021E5188E000A48AA8 /* CustomHTTPDataResponse.m */,
 				1FCA4CD71E9DC78400121ADE /* CustomHTTPFileResponse.h */,
 				1FCA4CD81E9DC78400121ADE /* CustomHTTPFileResponse.m */,
+				1F22FF1D1EA6258400F75731 /* CustomHTTPAsynFileResponse.h */,
+				1F22FF1E1EA6258400F75731 /* CustomHTTPAsynFileResponse.m */,
 				1FA283041E4AD16400649387 /* NSString+IPAddress.h */,
 				1FA283051E4AD16400649387 /* NSString+IPAddress.m */,
 				1F50F2AD1E97A4DD007596A3 /* NSString+FileHelp.h */,
@@ -518,9 +528,11 @@
 				1FE8539D1E4C1CFE009D139C /* WiFiUploadHTTPConnection.m in Sources */,
 				7BFD03741E9BC7D400620A1C /* ZFQUploadFileService.m in Sources */,
 				1FF007FA1EA45CC500109924 /* ZFQFileManager.m in Sources */,
+				1F22FF1F1EA6258400F75731 /* CustomHTTPAsynFileResponse.m in Sources */,
 				1FA283001E4AB62A00649387 /* WiFiUploadFileManager.m in Sources */,
 				1F6ED3A51E45D67900CE30CD /* main.m in Sources */,
 				1FA283061E4AD16400649387 /* NSString+IPAddress.m in Sources */,
+				1F22FF1C1EA5F46400F75731 /* ZFQBaseService.m in Sources */,
 				7BFD03771E9BCBEB00620A1C /* ZFQServiceContext.m in Sources */,
 				1FCA4CDC1E9F4FF500121ADE /* ZFQDownloadFileService.m in Sources */,
 				1F6970A91E9B948600701315 /* ZFQFileListService.m in Sources */,
