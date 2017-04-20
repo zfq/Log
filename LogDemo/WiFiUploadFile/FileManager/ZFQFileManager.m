@@ -18,6 +18,15 @@
 
 @implementation ZFQFileManager
 
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        [self createTableIfNotExist];
+    }
+    return self;
+}
+
 #pragma mark - Public
 - (void)createTableIfNotExist
 {
