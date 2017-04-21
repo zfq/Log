@@ -66,12 +66,6 @@
     return NO;
 }
 
-- (NSString *)contentTypeForPath:(NSString *)path
-{
-    NSString *fileType = [path pathExtension];
-    return [self contentTypeForFileType:fileType];
-}
-
 - (void)processStartOfPartWithHeader:(MultipartMessageHeader*)header
 {
     for (id<ZFQConnectionProtocol> service in self.serviceList) {
@@ -98,18 +92,6 @@
         return customResponse;
     }
     return originResponse;
-}
-
-- (NSString *)contentTypeForFileType:(NSString *)fileType
-{
-    if (fileType.length == 0) return nil;
-    
-    if ([fileType isEqualToString:@"css"]) {
-        return @"text/css; charset=utf-8";
-    } else if ([fileType isEqualToString:@"js"]) {
-        return @"application/javascript";
-    }
-    return nil;
 }
 
 - (void)setBoundaryHeaderFieldForRequest

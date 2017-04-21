@@ -12,8 +12,6 @@
 
 @interface ZFQBaseService : NSObject
 
-//@property (nonatomic, copy) NSString *method;
-//@property (nonatomic, copy) NSString *path;
 @property (nonatomic, strong) ZFQFileManager *fileManger;
 @property (nonatomic, weak) HTTPConnection *currConnection;
 

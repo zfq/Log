@@ -56,7 +56,7 @@
     }
     
     //Add additional Content-Type value for Specific file such as css and js etc.
-    NSString *contentType = [self.serviceContext contentTypeForPath:path];
+    NSString *contentType = [NSString contentTypeForPath:path];
     if (contentType) {
         NSString *filePath = [self filePathForURI:path allowDirectory:NO];
         BOOL isDir = NO;
@@ -69,22 +69,6 @@
     }
     
     return [super httpResponseForMethod:method URI:path];
-}
-
-- (NSData *)preprocessResponse:(HTTPMessage *)response
-{
-    //为特定类型的文件设置必要的Content-Type
-    /*
-    NSString *path = [response url].absoluteString;
-    if (path) {
-        NSLog(@"成功了:%@",path);
-        NSString *contentType = [self.serviceContext contentTypeForPath:path];
-        if (contentType) {
-            [response setHeaderField:@"Content-Type" value:contentType];
-        }
-    }*/
-    
-    return [super preprocessResponse:response];
 }
 
 //以下两个方法默认是空方法,
@@ -187,18 +171,6 @@
     // in this sample, we are not interested in parts, other then file parts.
     // check content disposition to find out filename
     
-//    MultipartMessageHeaderField *disposition = [header.fields objectForKey:@"Content-Disposition"];
-//    NSString *fileName = [[disposition.params objectForKey:@"filename"] lastPathComponent];
-//    if (!disposition || !fileName) {
-//        return;
-//    }
-//    
-//    //create file at directory
-//    NSString *wifiFileDirPath = [NSString createDirInDocumentPathWithName:@"wifiFile"];
-//    NSString *filePath = [NSString createFile:fileName atDirPath:wifiFileDirPath];
-//    
-//    //获取fileHandle
-//    _fileHandle = [NSFileHandle fileHandleForWritingAtPath:filePath];
     [self.serviceContext processStartOfPartWithHeader:header];
 }
 

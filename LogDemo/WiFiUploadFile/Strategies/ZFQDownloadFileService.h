@@ -12,5 +12,4 @@
 
 @interface ZFQDownloadFileService : ZFQBaseService<ZFQConnectionProtocol>
 
-//- (instancetype)initWithConnection
 @end
