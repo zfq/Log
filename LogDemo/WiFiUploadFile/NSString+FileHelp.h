@@ -47,4 +47,20 @@
  */
 - (NSDictionary *)queryParamsWithServicePath:(NSString *)servicePath;
 
+/**
+ Return the corresponding Content-Type value for path string.
+
+ @param path A string containing the file type.
+ @return Content-Type value for path, if path doesn't contain file type, this value will be nil.
+ */
++ (NSString *)contentTypeForPath:(NSString *)path;
+
+/**
+ Returns the value of the Content-Type based on the file type.
+
+ @param fileType File extention.
+ @return Content-Type value.
+ */
++ (NSString *)contentTypeForFileType:(NSString *)fileType;
+
 @end

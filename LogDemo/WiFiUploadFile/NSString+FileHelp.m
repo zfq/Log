@@ -114,4 +114,26 @@
     return nil;
 }
 
++ (NSString *)contentTypeForPath:(NSString *)path
+{
+    NSString *fileType = [path pathExtension];
+    return [self contentTypeForFileType:fileType];
+}
+
++ (NSString *)contentTypeForFileType:(NSString *)fileType
+{
+    if (fileType.length == 0) return nil;
+    
+    if ([fileType isEqualToString:@"css"]) {
+        return @"text/css; charset=utf-8";
+    } else if ([fileType isEqualToString:@"js"]) {
+        return @"application/javascript";
+    } else if ([fileType isEqualToString:@"jpg"]) {
+        return @"image/jpeg";
+    } else if ([fileType isEqualToString:@"png"]) {
+        return @"image/png";
+    }
+    return nil;
+}
+
 @end

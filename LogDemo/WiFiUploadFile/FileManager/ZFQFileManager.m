@@ -83,14 +83,11 @@
                         [allValues addObject:tmpDict];
                     }
                     [result close];
-//                    dispatch_async(dispatch_get_main_queue(), ^{
-//                        adapter.resolve(result);
-//                    });
-                    
-                    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                    dispatch_async(dispatch_get_main_queue(), ^{
                         adapter.resolve(allValues);
                     });
                 }
+                
             }];
             
         });
@@ -127,6 +124,11 @@
 - (ZFQDBPromise *)searchFileWithFileId:(NSInteger)fileId
 {
     return [self executeQuery:@"SELECT name,path FROM wifi_files WHERE file_id=?" values:@[@(fileId)]];
+}
+
+- (ZFQDBPromise *)fileListWithPath:(NSString *)folderPath
+{
+    return [self executeQuery:@"SELECT name,file_id FROM wifi_files WHERE path=?" values:@[folderPath]];
 }
 
 #pragma mark - Private

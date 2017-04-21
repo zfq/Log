@@ -8,6 +8,7 @@
 
 #import "CustomHTTPAsynFileResponse.h"
 #import <CocoaHTTPServer/HTTPConnection.h>
+#import "NSString+FileHelp.h"
 #import <unistd.h>
 #import <fcntl.h>
 
@@ -134,7 +135,7 @@
 
 - (void)connectionDidClose
 {
-    NSLog(@"连接已关闭");
+//    NSLog(@"连接已关闭");
 }
 
 - (void)dealloc
@@ -166,7 +167,7 @@
             
             //Setting Content-Type and Content-Disposition
             NSString *fileName = [tmpFilePath lastPathComponent];
-            NSString *contentType =  [self contentTypeForPath:tmpFilePath];
+            NSString *contentType =  [NSString contentTypeForPath:tmpFilePath];
             if (contentType) {
                 _customHttpHeader[@"Content-Type"] = contentType;
                 if (fileName.length > 0) {
@@ -212,25 +213,4 @@
     }
 }
 
-- (NSString *)contentTypeForPath:(NSString *)path
-{
-    NSString *fileType = [path pathExtension];
-    return [self contentTypeForFileType:fileType];
-}
-
-- (NSString *)contentTypeForFileType:(NSString *)fileType
-{
-    if (fileType.length == 0) return nil;
-    
-    if ([fileType isEqualToString:@"css"]) {
-        return @"text/css; charset=utf-8";
-    } else if ([fileType isEqualToString:@"js"]) {
-        return @"application/javascript";
-    } else if ([fileType isEqualToString:@"jpg"]) {
-        return @"image/jpeg";
-    } else if ([fileType isEqualToString:@"png"]) {
-        return @"image/png";
-    }
-    return nil;
-}
 @end

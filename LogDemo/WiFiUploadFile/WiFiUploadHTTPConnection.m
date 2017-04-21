@@ -124,7 +124,10 @@
  */
 - (void)addServiceForServiceContext:(ZFQServiceContext *)serviceContext
 {
-    [serviceContext addService:[[ZFQFileListService alloc] init]];
+    ZFQFileListService *fileListService = [[ZFQFileListService alloc] init];
+    fileListService.currConnection = self;
+    [serviceContext addService:fileListService];
+    
     [serviceContext addService:[[ZFQUploadFileService alloc] init]];
     
     ZFQDownloadFileService *downloadService = [[ZFQDownloadFileService alloc] init];

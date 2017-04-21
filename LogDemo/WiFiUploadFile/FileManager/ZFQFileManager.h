@@ -22,7 +22,17 @@
 - (ZFQDBPromise *)removeFileWithFileId:(NSInteger)fileId;
 - (ZFQDBPromise *)removeFileWithName:(NSString *)fileName path:(NSString *)path;
 - (ZFQDBPromise *)removeAllFile;
+
 - (ZFQDBPromise *)searchFileWithFileId:(NSInteger)fileId;
+
+/**
+ Return all files information in folder path. Default root path of folder is 'wifilFile',
+ The value of folder path can be 'wifiFile' or something like 'wifiFile/MyFolder'.
+ 
+ @param folderPath folder path, folder root path is 'wifiFile'.
+ @return An ZFQDBPromise object.
+ */
+- (ZFQDBPromise *)fileListWithPath:(NSString *)folderPath;
 
 - (ZFQDBPromise *)executeUpdate:(NSString *)sql;
 - (ZFQDBPromise *)executeQuery:(NSString *)sql values:(NSArray *)values;
