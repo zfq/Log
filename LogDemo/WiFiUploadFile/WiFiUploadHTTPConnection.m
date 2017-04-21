@@ -126,7 +126,10 @@
 {
     [serviceContext addService:[[ZFQFileListService alloc] init]];
     [serviceContext addService:[[ZFQUploadFileService alloc] init]];
-    [serviceContext addService:[[ZFQDownloadFileService alloc] init]];
+    
+    ZFQDownloadFileService *downloadService = [[ZFQDownloadFileService alloc] init];
+    downloadService.currConnection = self;
+    [serviceContext addService:downloadService];
 }
 
 #pragma mark - Multipart form data parser delegate 以下的方法在while循环里，可能被调用多次

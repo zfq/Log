@@ -8,7 +8,18 @@
 
 #import <Foundation/Foundation.h>
 #import <CocoaHTTPServer/HTTPAsyncFileResponse.h>
+#import <CocoaHTTPServer/HTTPResponse.h>
 
-@interface CustomHTTPAsynFileResponse : HTTPAsyncFileResponse
+@interface CustomHTTPAsynFileResponse : NSObject<HTTPResponse>
+
+@property (nonatomic, copy) NSString *myFilePath;
+
+- (instancetype)initWithConnection:(HTTPConnection *)connection;
+
+
+/**
+ 处理完成时手动调用
+ */
+- (void)processResponseComplete;
 
 @end

@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <CocoaHTTPServer/HTTPFileResponse.h>
 #import <CocoaHTTPServer/HTTPAsyncFileResponse.h>
+
 @interface CustomHTTPFileResponse : HTTPFileResponse
 
 @property (nonatomic, copy) NSDictionary *customHttpHeader;

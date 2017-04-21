@@ -20,7 +20,7 @@
 + (FMDatabaseQueue *)sharedDBQueue
 {
     /**
-     Since there are may be several ZFQFileManager instance in multithreading, 
+     Since there are may be several ZFQFileManager instances in multithreading, 
      so these instance should be use a shared database queue.
      */
     static FMDatabaseQueue *sharedQueue = nil;
@@ -71,17 +71,24 @@
             [queue inDatabase:^(FMDatabase *db) {
                 NSError *error;
                 FMResultSet *result = [db executeQuery:sql values:values error:&error];
+
                 if (error) {
                     dispatch_async(dispatch_get_main_queue(), ^{
                         adapter.reject(error);
-                        [result close];
                     });
                 } else {
+                    NSMutableArray *allValues = [[NSMutableArray alloc] init];
+                    while ([result next]) {
+                        NSDictionary *tmpDict = [result resultDictionary];
+                        [allValues addObject:tmpDict];
+                    }
+                    [result close];
 //                    dispatch_async(dispatch_get_main_queue(), ^{
 //                        adapter.resolve(result);
 //                    });
+                    
                     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                        adapter.resolve(result);
+                        adapter.resolve(allValues);
                     });
                 }
             }];
@@ -121,7 +128,6 @@
 {
     return [self executeQuery:@"SELECT name,path FROM wifi_files WHERE file_id=?" values:@[@(fileId)]];
 }
-
 
 #pragma mark - Private
 + (NSString *)dbPath

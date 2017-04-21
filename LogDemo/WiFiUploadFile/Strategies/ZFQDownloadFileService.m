@@ -17,6 +17,7 @@
     NSString *_method;
     NSString *_currFileId;
 }
+@property (nonatomic, strong) CustomHTTPAsynFileResponse *response;
 @end
 @implementation ZFQDownloadFileService
 
@@ -40,12 +41,17 @@
 
 - (NSObject<HTTPResponse> *)httpResponse
 {
+    //下载文件
     if ([_method isEqualToString:@"GET"]) {
+        self.response = [[CustomHTTPAsynFileResponse alloc] initWithConnection:self.currConnection];
         //Checking to see if file exists.
-        [self.fileManger searchFileWithFileId:_currFileId].then(^(FMResultSet *resultSet){
-            if (resultSet) {
-                NSString *path = [resultSet stringForColumn:@"path"];
-                NSString *fileName = [resultSet stringForColumn:@"name"];
+        NSInteger tmpFileId = [_currFileId integerValue];
+        [self.fileManger searchFileWithFileId:tmpFileId].then(^(NSArray *result){
+            if (result.count > 0) {
+                NSDictionary *dict = result[0];
+                
+                NSString *path = dict[@"path"];
+                NSString *fileName = dict[@"name"];
                 
                 NSMutableString *filePath = [[NSMutableString alloc] init];
                 if (path.length > 0) {
@@ -53,30 +59,23 @@
                 } else {
                     [filePath appendFormat:@"/%@",fileName];
                 }
-
+                
+                //
+                self.response.myFilePath = [[NSString documentPath] stringByAppendingPathComponent:filePath];
+                
+                [self.response processResponseComplete];
             }
         })
         .catch(^(NSError *error){
             ZFQLog(@"Download file error:%@",error);
+            
+            [self.response processResponseComplete];
         });
         
-        
-        if (true) {
-            //get file path   virtual folder
-            /*
-             数据库表
-             虚拟路径（不包括文件名） | 文件名
-             */
-            //        NSString *filePath = [];
-//            CustomHTTPFileResponse *response = [[CustomHTTPFileResponse alloc] initWithFilePath:@"" forConnection:nil];
-//            return response;
-            CustomHTTPAsynFileResponse *response = [[CustomHTTPFileResponse alloc] initWithFilePath:@"" forConnection:nil];
-            return response;
-        } else {
-            return nil;
-        }
+        return self.response;
     }
     
+    //删除文件
     if ([_method isEqualToString:@"DELETE"]) {
         //delete file
 //        return nil;
