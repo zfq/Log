@@ -7,12 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1F1B98031E5188E000A48AA8 /* CustomHTTPDataResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F1B98021E5188E000A48AA8 /* CustomHTTPDataResponse.m */; };
+		1F1F11731EAA000D009FAED0 /* CustomHTTPAsynFileResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F1F11631EAA000D009FAED0 /* CustomHTTPAsynFileResponse.m */; };
+		1F1F11741EAA000D009FAED0 /* CustomHTTPDataResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F1F11651EAA000D009FAED0 /* CustomHTTPDataResponse.m */; };
+		1F1F11751EAA000D009FAED0 /* CustomHTTPFileResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F1F11671EAA000D009FAED0 /* CustomHTTPFileResponse.m */; };
+		1F1F11761EAA000D009FAED0 /* WiFiUploadFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F1F116A1EAA000D009FAED0 /* WiFiUploadFileManager.m */; };
+		1F1F11771EAA000D009FAED0 /* WiFiUploadHTTPConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F1F116D1EAA000D009FAED0 /* WiFiUploadHTTPConnection.m */; };
+		1F1F11781EAA000D009FAED0 /* NSString+FileHelp.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F1F11701EAA000D009FAED0 /* NSString+FileHelp.m */; };
+		1F1F11791EAA000D009FAED0 /* NSString+IPAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F1F11721EAA000D009FAED0 /* NSString+IPAddress.m */; };
+		1F1F117E1EAA001F009FAED0 /* WiFiViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F1F117A1EAA001F009FAED0 /* WiFiViewController.xib */; };
+		1F1F117F1EAA001F009FAED0 /* WiFiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F1F117B1EAA001F009FAED0 /* WiFiViewController.m */; };
+		1F1F11801EAA001F009FAED0 /* wifi.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F1F117D1EAA001F009FAED0 /* wifi.png */; };
 		1F22FF181EA4982B00F75731 /* ZFQFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FF007F91EA45CC500109924 /* ZFQFileManager.m */; };
 		1F22FF191EA4982B00F75731 /* ZFQDBPromise.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FF007FC1EA46FB600109924 /* ZFQDBPromise.m */; };
 		1F22FF1C1EA5F46400F75731 /* ZFQBaseService.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F22FF1A1EA5F46400F75731 /* ZFQBaseService.m */; };
-		1F22FF1F1EA6258400F75731 /* CustomHTTPAsynFileResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F22FF1E1EA6258400F75731 /* CustomHTTPAsynFileResponse.m */; };
-		1F50F2AF1E97A4DD007596A3 /* NSString+FileHelp.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F50F2AE1E97A4DD007596A3 /* NSString+FileHelp.m */; };
 		1F6970A91E9B948600701315 /* ZFQFileListService.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F6970A81E9B948600701315 /* ZFQFileListService.m */; };
 		1F6ED3A51E45D67900CE30CD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F6ED3A41E45D67900CE30CD /* main.m */; };
 		1F6ED3A81E45D67900CE30CD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F6ED3A71E45D67900CE30CD /* AppDelegate.m */; };
@@ -22,15 +29,8 @@
 		1F6ED3B31E45D67900CE30CD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F6ED3B11E45D67900CE30CD /* LaunchScreen.storyboard */; };
 		1F6ED3BE1E45D67900CE30CD /* LogDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F6ED3BD1E45D67900CE30CD /* LogDemoTests.m */; };
 		1F6ED3C91E45D67900CE30CD /* LogDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F6ED3C81E45D67900CE30CD /* LogDemoUITests.m */; };
-		1FA282FA1E49E4F000649387 /* WiFiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FA282F81E49E4F000649387 /* WiFiViewController.m */; };
-		1FA282FB1E49E4F000649387 /* WiFiViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FA282F91E49E4F000649387 /* WiFiViewController.xib */; };
-		1FA282FD1E49E5AB00649387 /* wifi.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FA282FC1E49E5AB00649387 /* wifi.png */; };
-		1FA283001E4AB62A00649387 /* WiFiUploadFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FA282FF1E4AB62A00649387 /* WiFiUploadFileManager.m */; };
-		1FA283061E4AD16400649387 /* NSString+IPAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FA283051E4AD16400649387 /* NSString+IPAddress.m */; };
-		1FCA4CD91E9DC78400121ADE /* CustomHTTPFileResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FCA4CD81E9DC78400121ADE /* CustomHTTPFileResponse.m */; };
 		1FCA4CDC1E9F4FF500121ADE /* ZFQDownloadFileService.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FCA4CDB1E9F4FF500121ADE /* ZFQDownloadFileService.m */; };
 		1FE8539A1E4B3B67009D139C /* Web in Resources */ = {isa = PBXBuildFile; fileRef = 1FE853991E4B3B67009D139C /* Web */; };
-		1FE8539D1E4C1CFE009D139C /* WiFiUploadHTTPConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE8539C1E4C1CFE009D139C /* WiFiUploadHTTPConnection.m */; };
 		1FF007FA1EA45CC500109924 /* ZFQFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FF007F91EA45CC500109924 /* ZFQFileManager.m */; };
 		1FF007FD1EA46FB600109924 /* ZFQDBPromise.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FF007FC1EA46FB600109924 /* ZFQDBPromise.m */; };
 		36BB289B456A4C8CF5307364 /* libPods-LogDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C3521DA705C09602C10FEDBF /* libPods-LogDemo.a */; };
@@ -57,14 +57,26 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1F1B98011E5188E000A48AA8 /* CustomHTTPDataResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomHTTPDataResponse.h; sourceTree = "<group>"; };
-		1F1B98021E5188E000A48AA8 /* CustomHTTPDataResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomHTTPDataResponse.m; sourceTree = "<group>"; };
+		1F1F11621EAA000D009FAED0 /* CustomHTTPAsynFileResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomHTTPAsynFileResponse.h; sourceTree = "<group>"; };
+		1F1F11631EAA000D009FAED0 /* CustomHTTPAsynFileResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomHTTPAsynFileResponse.m; sourceTree = "<group>"; };
+		1F1F11641EAA000D009FAED0 /* CustomHTTPDataResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomHTTPDataResponse.h; sourceTree = "<group>"; };
+		1F1F11651EAA000D009FAED0 /* CustomHTTPDataResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomHTTPDataResponse.m; sourceTree = "<group>"; };
+		1F1F11661EAA000D009FAED0 /* CustomHTTPFileResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomHTTPFileResponse.h; sourceTree = "<group>"; };
+		1F1F11671EAA000D009FAED0 /* CustomHTTPFileResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomHTTPFileResponse.m; sourceTree = "<group>"; };
+		1F1F11691EAA000D009FAED0 /* WiFiUploadFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WiFiUploadFileManager.h; sourceTree = "<group>"; };
+		1F1F116A1EAA000D009FAED0 /* WiFiUploadFileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WiFiUploadFileManager.m; sourceTree = "<group>"; };
+		1F1F116C1EAA000D009FAED0 /* WiFiUploadHTTPConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WiFiUploadHTTPConnection.h; sourceTree = "<group>"; };
+		1F1F116D1EAA000D009FAED0 /* WiFiUploadHTTPConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WiFiUploadHTTPConnection.m; sourceTree = "<group>"; };
+		1F1F116F1EAA000D009FAED0 /* NSString+FileHelp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+FileHelp.h"; sourceTree = "<group>"; };
+		1F1F11701EAA000D009FAED0 /* NSString+FileHelp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+FileHelp.m"; sourceTree = "<group>"; };
+		1F1F11711EAA000D009FAED0 /* NSString+IPAddress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+IPAddress.h"; sourceTree = "<group>"; };
+		1F1F11721EAA000D009FAED0 /* NSString+IPAddress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+IPAddress.m"; sourceTree = "<group>"; };
+		1F1F117A1EAA001F009FAED0 /* WiFiViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WiFiViewController.xib; sourceTree = "<group>"; };
+		1F1F117B1EAA001F009FAED0 /* WiFiViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WiFiViewController.m; sourceTree = "<group>"; };
+		1F1F117C1EAA001F009FAED0 /* WiFiViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WiFiViewController.h; sourceTree = "<group>"; };
+		1F1F117D1EAA001F009FAED0 /* wifi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wifi.png; sourceTree = "<group>"; };
 		1F22FF1A1EA5F46400F75731 /* ZFQBaseService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZFQBaseService.m; sourceTree = "<group>"; };
 		1F22FF1B1EA5F46400F75731 /* ZFQBaseService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZFQBaseService.h; sourceTree = "<group>"; };
-		1F22FF1D1EA6258400F75731 /* CustomHTTPAsynFileResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomHTTPAsynFileResponse.h; sourceTree = "<group>"; };
-		1F22FF1E1EA6258400F75731 /* CustomHTTPAsynFileResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomHTTPAsynFileResponse.m; sourceTree = "<group>"; };
-		1F50F2AD1E97A4DD007596A3 /* NSString+FileHelp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+FileHelp.h"; sourceTree = "<group>"; };
-		1F50F2AE1E97A4DD007596A3 /* NSString+FileHelp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+FileHelp.m"; sourceTree = "<group>"; };
 		1F6970A71E9B948600701315 /* ZFQFileListService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZFQFileListService.h; sourceTree = "<group>"; };
 		1F6970A81E9B948600701315 /* ZFQFileListService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZFQFileListService.m; sourceTree = "<group>"; };
 		1F6971821E9CBD0C00701315 /* ZFQConnectionProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZFQConnectionProtocol.h; sourceTree = "<group>"; };
@@ -84,21 +96,9 @@
 		1F6ED3C41E45D67900CE30CD /* LogDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LogDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F6ED3C81E45D67900CE30CD /* LogDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LogDemoUITests.m; sourceTree = "<group>"; };
 		1F6ED3CA1E45D67900CE30CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1FA282F71E49E4F000649387 /* WiFiViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WiFiViewController.h; sourceTree = "<group>"; };
-		1FA282F81E49E4F000649387 /* WiFiViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WiFiViewController.m; sourceTree = "<group>"; };
-		1FA282F91E49E4F000649387 /* WiFiViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WiFiViewController.xib; sourceTree = "<group>"; };
-		1FA282FC1E49E5AB00649387 /* wifi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wifi.png; sourceTree = "<group>"; };
-		1FA282FE1E4AB62A00649387 /* WiFiUploadFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WiFiUploadFileManager.h; sourceTree = "<group>"; };
-		1FA282FF1E4AB62A00649387 /* WiFiUploadFileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WiFiUploadFileManager.m; sourceTree = "<group>"; };
-		1FA283041E4AD16400649387 /* NSString+IPAddress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+IPAddress.h"; sourceTree = "<group>"; };
-		1FA283051E4AD16400649387 /* NSString+IPAddress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+IPAddress.m"; sourceTree = "<group>"; };
-		1FCA4CD71E9DC78400121ADE /* CustomHTTPFileResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomHTTPFileResponse.h; sourceTree = "<group>"; };
-		1FCA4CD81E9DC78400121ADE /* CustomHTTPFileResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomHTTPFileResponse.m; sourceTree = "<group>"; };
 		1FCA4CDA1E9F4FF500121ADE /* ZFQDownloadFileService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZFQDownloadFileService.h; sourceTree = "<group>"; };
 		1FCA4CDB1E9F4FF500121ADE /* ZFQDownloadFileService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZFQDownloadFileService.m; sourceTree = "<group>"; };
 		1FE853991E4B3B67009D139C /* Web */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Web; sourceTree = "<group>"; };
-		1FE8539B1E4C1CFE009D139C /* WiFiUploadHTTPConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WiFiUploadHTTPConnection.h; sourceTree = "<group>"; };
-		1FE8539C1E4C1CFE009D139C /* WiFiUploadHTTPConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WiFiUploadHTTPConnection.m; sourceTree = "<group>"; };
 		1FF007F81EA45CC500109924 /* ZFQFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZFQFileManager.h; sourceTree = "<group>"; };
 		1FF007F91EA45CC500109924 /* ZFQFileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZFQFileManager.m; sourceTree = "<group>"; };
 		1FF007FB1EA46FB600109924 /* ZFQDBPromise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZFQDBPromise.h; sourceTree = "<group>"; };
@@ -143,6 +143,48 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1F1F11611EAA000D009FAED0 /* Response */ = {
+			isa = PBXGroup;
+			children = (
+				1F1F11621EAA000D009FAED0 /* CustomHTTPAsynFileResponse.h */,
+				1F1F11631EAA000D009FAED0 /* CustomHTTPAsynFileResponse.m */,
+				1F1F11641EAA000D009FAED0 /* CustomHTTPDataResponse.h */,
+				1F1F11651EAA000D009FAED0 /* CustomHTTPDataResponse.m */,
+				1F1F11661EAA000D009FAED0 /* CustomHTTPFileResponse.h */,
+				1F1F11671EAA000D009FAED0 /* CustomHTTPFileResponse.m */,
+			);
+			path = Response;
+			sourceTree = "<group>";
+		};
+		1F1F11681EAA000D009FAED0 /* Manger */ = {
+			isa = PBXGroup;
+			children = (
+				1F1F11691EAA000D009FAED0 /* WiFiUploadFileManager.h */,
+				1F1F116A1EAA000D009FAED0 /* WiFiUploadFileManager.m */,
+			);
+			path = Manger;
+			sourceTree = "<group>";
+		};
+		1F1F116B1EAA000D009FAED0 /* Connection */ = {
+			isa = PBXGroup;
+			children = (
+				1F1F116C1EAA000D009FAED0 /* WiFiUploadHTTPConnection.h */,
+				1F1F116D1EAA000D009FAED0 /* WiFiUploadHTTPConnection.m */,
+			);
+			path = Connection;
+			sourceTree = "<group>";
+		};
+		1F1F116E1EAA000D009FAED0 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				1F1F116F1EAA000D009FAED0 /* NSString+FileHelp.h */,
+				1F1F11701EAA000D009FAED0 /* NSString+FileHelp.m */,
+				1F1F11711EAA000D009FAED0 /* NSString+IPAddress.h */,
+				1F1F11721EAA000D009FAED0 /* NSString+IPAddress.m */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
 		1F6970A51E9B8B0300701315 /* Strategies */ = {
 			isa = PBXGroup;
 			children = (
@@ -188,6 +230,10 @@
 			isa = PBXGroup;
 			children = (
 				1FA282F61E49E43000649387 /* WiFiUploadFile */,
+				1F1F117A1EAA001F009FAED0 /* WiFiViewController.xib */,
+				1F1F117B1EAA001F009FAED0 /* WiFiViewController.m */,
+				1F1F117C1EAA001F009FAED0 /* WiFiViewController.h */,
+				1F1F117D1EAA001F009FAED0 /* wifi.png */,
 				1F6ED3A61E45D67900CE30CD /* AppDelegate.h */,
 				1F6ED3A71E45D67900CE30CD /* AppDelegate.m */,
 				1F6ED3A91E45D67900CE30CD /* ViewController.h */,
@@ -230,27 +276,13 @@
 		1FA282F61E49E43000649387 /* WiFiUploadFile */ = {
 			isa = PBXGroup;
 			children = (
+				1F1F11611EAA000D009FAED0 /* Response */,
+				1F1F11681EAA000D009FAED0 /* Manger */,
+				1F1F116B1EAA000D009FAED0 /* Connection */,
+				1F1F116E1EAA000D009FAED0 /* Category */,
 				1FF007F71EA45C6A00109924 /* FileManager */,
 				1F6970A51E9B8B0300701315 /* Strategies */,
 				1FE853991E4B3B67009D139C /* Web */,
-				1FA282FC1E49E5AB00649387 /* wifi.png */,
-				1FA282F71E49E4F000649387 /* WiFiViewController.h */,
-				1FA282F81E49E4F000649387 /* WiFiViewController.m */,
-				1FE8539B1E4C1CFE009D139C /* WiFiUploadHTTPConnection.h */,
-				1FE8539C1E4C1CFE009D139C /* WiFiUploadHTTPConnection.m */,
-				1F1B98011E5188E000A48AA8 /* CustomHTTPDataResponse.h */,
-				1F1B98021E5188E000A48AA8 /* CustomHTTPDataResponse.m */,
-				1FCA4CD71E9DC78400121ADE /* CustomHTTPFileResponse.h */,
-				1FCA4CD81E9DC78400121ADE /* CustomHTTPFileResponse.m */,
-				1F22FF1D1EA6258400F75731 /* CustomHTTPAsynFileResponse.h */,
-				1F22FF1E1EA6258400F75731 /* CustomHTTPAsynFileResponse.m */,
-				1FA283041E4AD16400649387 /* NSString+IPAddress.h */,
-				1FA283051E4AD16400649387 /* NSString+IPAddress.m */,
-				1F50F2AD1E97A4DD007596A3 /* NSString+FileHelp.h */,
-				1F50F2AE1E97A4DD007596A3 /* NSString+FileHelp.m */,
-				1FA282F91E49E4F000649387 /* WiFiViewController.xib */,
-				1FA282FE1E4AB62A00649387 /* WiFiUploadFileManager.h */,
-				1FA282FF1E4AB62A00649387 /* WiFiUploadFileManager.m */,
 			);
 			path = WiFiUploadFile;
 			sourceTree = "<group>";
@@ -400,11 +432,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				1F6ED3B31E45D67900CE30CD /* LaunchScreen.storyboard in Resources */,
-				1FA282FD1E49E5AB00649387 /* wifi.png in Resources */,
-				1FA282FB1E49E4F000649387 /* WiFiViewController.xib in Resources */,
 				1FE8539A1E4B3B67009D139C /* Web in Resources */,
+				1F1F11801EAA001F009FAED0 /* wifi.png in Resources */,
 				1F6ED3B01E45D67900CE30CD /* Assets.xcassets in Resources */,
 				1F6ED3AE1E45D67900CE30CD /* Main.storyboard in Resources */,
+				1F1F117E1EAA001F009FAED0 /* WiFiViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -523,23 +555,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				1F6ED3AB1E45D67900CE30CD /* ViewController.m in Sources */,
-				1FA282FA1E49E4F000649387 /* WiFiViewController.m in Sources */,
 				1F6ED3A81E45D67900CE30CD /* AppDelegate.m in Sources */,
-				1FE8539D1E4C1CFE009D139C /* WiFiUploadHTTPConnection.m in Sources */,
+				1F1F11731EAA000D009FAED0 /* CustomHTTPAsynFileResponse.m in Sources */,
 				7BFD03741E9BC7D400620A1C /* ZFQUploadFileService.m in Sources */,
 				1FF007FA1EA45CC500109924 /* ZFQFileManager.m in Sources */,
-				1F22FF1F1EA6258400F75731 /* CustomHTTPAsynFileResponse.m in Sources */,
-				1FA283001E4AB62A00649387 /* WiFiUploadFileManager.m in Sources */,
 				1F6ED3A51E45D67900CE30CD /* main.m in Sources */,
-				1FA283061E4AD16400649387 /* NSString+IPAddress.m in Sources */,
+				1F1F11791EAA000D009FAED0 /* NSString+IPAddress.m in Sources */,
+				1F1F11771EAA000D009FAED0 /* WiFiUploadHTTPConnection.m in Sources */,
 				1F22FF1C1EA5F46400F75731 /* ZFQBaseService.m in Sources */,
+				1F1F11741EAA000D009FAED0 /* CustomHTTPDataResponse.m in Sources */,
 				7BFD03771E9BCBEB00620A1C /* ZFQServiceContext.m in Sources */,
+				1F1F11781EAA000D009FAED0 /* NSString+FileHelp.m in Sources */,
 				1FCA4CDC1E9F4FF500121ADE /* ZFQDownloadFileService.m in Sources */,
+				1F1F117F1EAA001F009FAED0 /* WiFiViewController.m in Sources */,
 				1F6970A91E9B948600701315 /* ZFQFileListService.m in Sources */,
-				1F50F2AF1E97A4DD007596A3 /* NSString+FileHelp.m in Sources */,
-				1FCA4CD91E9DC78400121ADE /* CustomHTTPFileResponse.m in Sources */,
-				1F1B98031E5188E000A48AA8 /* CustomHTTPDataResponse.m in Sources */,
+				1F1F11751EAA000D009FAED0 /* CustomHTTPFileResponse.m in Sources */,
 				1FF007FD1EA46FB600109924 /* ZFQDBPromise.m in Sources */,
+				1F1F11761EAA000D009FAED0 /* WiFiUploadFileManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
