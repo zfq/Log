@@ -44,48 +44,12 @@ function upload() {
 }
 
 function uploadTest2(file) {
-    /* body... */
-
-    /*
-    //获取二进制数据
-    var binaryData;
-    var reader = new FileReader();
-    reader.onload = function(e) {
-        binaryData = e.target.result;
-    };
-    reader.readAsBinaryString(formData);
-
-    var xhr = new new XMLHttpRequest();
-    xhr.open("POST","http://127.0.0.1:8091/upload");
-    xhr.overrideMimeType()
-    */
-
     var formData = new FormData();
     formData.append("my111",file);
 
     var xhr = new XMLHttpRequest();
     xhr.open("POST", "http://127.0.0.1:8091/upload", true);
     xhr.send(formData);
-    /*
-
-
-    var formData = new FormData();
-    formData.append(file.name,file);
-
-    var xhr = new XMLHttpRequest();
-    xhr.open('POST','http://127.0.0.1:8091/upload',true);
-
-    var boundary = Date.now().toString(16);
-    xhr.setRequestHeader("Content-type","mutipart/form-data; boundary=" + boundary);
-    xhr.sendAsBinary("--" + boundary + "\r\n" + file.segments.join("--" + boundary + "\r\n") + "--" + boundary + "--\r\n");
-    xhr.onload = function () {
-        if (xhr.readyState == 4 && xhr.status == 200) {
-            console.log('上传成功');
-        } else {
-            console.log('上传失败%d',xhr.status);
-        }
-    };
-    xhr.send();*/
 }
 
 function showFileLists() {
