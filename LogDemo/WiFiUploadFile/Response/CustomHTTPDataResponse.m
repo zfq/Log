@@ -9,23 +9,6 @@
 #import "CustomHTTPDataResponse.h"
 #import "NSString+FileHelp.h"
 
-@implementation CustomHTTPDataResponse
-
-- (NSDictionary *)httpHeaders
-{
-    return self.customHttpHeader;
-}
-
-- (NSMutableDictionary *)customHttpHeader
-{
-    if (!_customHttpHeader) {
-        _customHttpHeader = [[NSMutableDictionary alloc] init];
-    }
-    return _customHttpHeader;
-}
-
-@end
-
 @interface CustomHTTPAsynDataResponse ()
 {
     __weak HTTPConnection *_myConnection;

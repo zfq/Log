@@ -16,91 +16,22 @@
 </div>
 <div id="content">
     <div id="contentPlaceholder">
-        <img src="http://mshebao.wecash.net/static/images/strategyNew/maternity/female.png">
+		
+		<div id="drop_zone" draggable="true" >将文件拖拽到此处
+            <output id = "file_list"></output>
+        </div>
+		
+		<form name="demoForm" id="demoFormId" method="post" enctype="multipart/form-data" action="javascript:upload();">
+		    <input id="tmpFileId" type="file" name="testFileName"> 
+		    <input type="submit" value="提交" />
+		</form>
     </div>
     <div id="fileLists">
         <p>你好</p>
     </div>
 </div>
 
-hello wold
-<form name="demoForm" id="demoFormId" method="post" enctype="multipart/form-data" action="javascript:upload();">
-    <input id="tmpFileId" type="file" name="testFileName"> 
-    <input type="submit" value="提交" />
-</form> 
-
-<script type="text/javascript">
-
-window.onload = function(e) {
-    var tabs = document.querySelectorAll("a.send_type_link");
-    var panels = document.querySelectorAll("#contentPlaceholder,#fileLists");
-
-    tabs.forEach( function(tabEle, index) {
-        tabEle.addEventListener('click', function() {
-            //先让所有的隐藏
-            panels.forEach( function(panelEle, index) {
-                panelEle.style.display = 'none';
-            });
-
-            //再让当前的显示
-            document.querySelector(tabEle.dataset.panelId).style.display = 'block';
-
-            tapTabAction(index);
-        });
-    });
-
-    //设置默认显示第0个
-    tabs[0].click();
-}
-
-function upload() {
-    //获取表单内容
-    var formData = new FormData();
-    var files = document.getElementById('tmpFileId').files;
-    //怎么添加文件到form表单里
-    formData.append('fileName',files[0]);
-
-    var xhr = new XMLHttpRequest();
-    xhr.open('POST','http://127.0.0.1:8091/upload',true);
-
-    //上传完成的回调
-    xhr.onload = function () {
-        if (xhr.readyState == 4 && xhr.status == 200) {
-            console.log('上传成功');
-        } else {
-            console.log('上传失败%d',xhr.status);
-        }
-    };
-
-    //将表单内容发送给服务器
-    xhr.send(formData);
-}
-
-function showFileLists() {
-    var xhr = new XMLHttpRequest();
-    xhr.open('GET','http://127.0.0.1:8091/files');
-    xhr.onload = function () {
-        if (xhr.readyState == 4 && xhr.status == 200) {
-            var obj = xhr.responseText;
-
-            console.log('请求成功',obj);
-        } else {
-            console.log('请求失败%d',xhr.status);
-        }
-    };
-    xhr.onreadystatechange = function () {
-        console.log('请求状态为:' + xhr.status);
-    }
-    xhr.send();
-}
-
-function tapTabAction(index) {
-    // body...
-    if (index == 1) {
-        showFileLists();
-    }
-}
-</script>
+<script type="text/javascript" src="index.js"></script>
 
 </body>
 </html>

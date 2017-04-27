@@ -80,8 +80,8 @@
 #pragma mark - Private
 - (NSObject<HTTPResponse> *)doFilterForMethod:(NSString *)method path:(NSString *)path request:(HTTPMessage *)request originResponse:(NSObject<HTTPResponse> *)originResponse
 {
-    if ([originResponse isKindOfClass:[CustomHTTPDataResponse class]]) {
-        CustomHTTPDataResponse *customResponse = (CustomHTTPDataResponse *)originResponse;
+    if ([originResponse isKindOfClass:[CustomHTTPAsynDataResponse class]]) {
+        CustomHTTPAsynDataResponse *customResponse = (CustomHTTPAsynDataResponse *)originResponse;
 
         //Handle possible Ajax cross-domain issues
         if ([request.allHeaderFields objectForKey:@"Origin"]) {

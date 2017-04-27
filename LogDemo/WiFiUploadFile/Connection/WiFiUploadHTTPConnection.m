@@ -112,7 +112,9 @@
     fileListService.currConnection = self;
     [serviceContext addService:fileListService];
     
-    [serviceContext addService:[[ZFQUploadFileService alloc] init]];
+    ZFQUploadFileService *uploadFileService = [[ZFQUploadFileService alloc] init];
+    uploadFileService.currConnection = self;
+    [serviceContext addService:uploadFileService];
     
     ZFQDownloadFileService *downloadService = [[ZFQDownloadFileService alloc] init];
     downloadService.currConnection = self;

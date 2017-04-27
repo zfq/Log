@@ -14,7 +14,7 @@
 #import <ZFQLog.h>
 
 @interface ZFQUploadFileService()
-
+@property (nonatomic, strong) CustomHTTPAsynDataResponse *response;
 @end
 
 @implementation ZFQUploadFileService
@@ -32,14 +32,9 @@
 
 - (NSObject<HTTPResponse> *)httpResponse
 {
-    NSDictionary *jsonOBj = @{
-                              @"errorCode":@0,
-                              @"msg":@"success"
-                              };
-    NSData *data = [NSJSONSerialization dataWithJSONObject:jsonOBj options:0 error:nil];
-    CustomHTTPDataResponse *response = [[CustomHTTPDataResponse alloc] initWithData:data];
+    self.response = [[CustomHTTPAsynDataResponse alloc] initWithConnection:self.currConnection];
     
-    return response;
+    return self.response;
 }
 
 - (BOOL)expectsRequestBodyFromMethod:(NSString *)method atPath:(NSString *)path
@@ -64,8 +59,21 @@
     self.fileHandle = [NSFileHandle fileHandleForWritingAtPath:fileAbsolutePath];
     if (fileAbsolutePath) {
         [self.fileManger addFileWithName:fileName path:fileRelativePath].then(^(id value){
-            
+            NSDictionary *jsonOBj = @{
+                                      @"errorCode":@0,
+                                      @"msg":@"success"
+                                      };
+            NSData *data = [NSJSONSerialization dataWithJSONObject:jsonOBj options:0 error:nil];
+            self.response.customData = data;
+            [self.response processResponseComplete];
         }).catch(^(NSError *error){
+            NSDictionary *jsonOBj = @{
+                                      @"errorCode":@500,
+                                      @"msg":[error localizedDescription]
+                                      };
+            NSData *data = [NSJSONSerialization dataWithJSONObject:jsonOBj options:0 error:nil];
+            self.response.customData = data;
+            [self.response processResponseComplete];
             ZFQLog(@"%@",error);
         });
     }

@@ -9,11 +9,6 @@
 #import <CocoaHTTPServer/HTTPDataResponse.h>
 #import <CocoaHTTPServer/HTTPConnection.h>
 
-@interface CustomHTTPDataResponse : HTTPDataResponse
-
-@property (nonatomic, strong) NSMutableDictionary *customHttpHeader;
-
-@end
 
 @interface CustomHTTPAsynDataResponse : NSObject <HTTPResponse>
 
