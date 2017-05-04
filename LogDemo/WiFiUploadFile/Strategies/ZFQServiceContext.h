@@ -12,8 +12,8 @@
 
 @interface ZFQServiceContext : NSObject
 
-@property (nonatomic, strong) HTTPMessage *request;
 @property (nonatomic, strong) NSFileHandle *fileHandle;
+@property (nonatomic, strong, readonly) NSObject<HTTPResponse> *response;
 
 - (NSObject<HTTPResponse> *)responseForMethod:(NSString *)method path:(NSString *)path request:(HTTPMessage *)request;
 
@@ -24,5 +24,9 @@
 - (BOOL)expectsRequestBodyFromMethod:(NSString *)method atPath:(NSString *)path;
 
 - (void)processStartOfPartWithHeader:(MultipartMessageHeader*) header;
+
+- (void)processEndOfPartWithHeader:(MultipartMessageHeader*) header;
+
+- (NSString *)boundaryForRequest:(HTTPMessage *)request;
 
 @end

@@ -49,6 +49,8 @@ function uploadTest2(file) {
 
     var xhr = new XMLHttpRequest();
     xhr.open("POST", "http://127.0.0.1:8091/upload", true);
+     //进度条
+    xhr.upload.addEventListener("progress", ProgressHandler);
     xhr.send(formData);
 }
 
@@ -67,7 +69,13 @@ function showFileLists() {
     xhr.onreadystatechange = function () {
         console.log('请求状态为:' + xhr.status);
     }
+
     xhr.send();
+}
+
+function ProgressHandler(e) {
+    var complete = Math.round(e.loaded / e.total * 100);
+    console.log(complete + "% complete");
 }
 
 function tapTabAction(index) {
@@ -108,6 +116,5 @@ dropZone.addEventListener('drop',function (event) {
 
     event.dataTransfer.dropEffect = 'copy';
     uploadTest2(files[0]);
-
     
 }, false);

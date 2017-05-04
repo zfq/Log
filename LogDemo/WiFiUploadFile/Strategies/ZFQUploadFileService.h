@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "ZFQConnectionProtocol.h"
 #import <CocoaHTTPServer/MultipartMessageHeader.h>
+#import "CustomHTTPDataResponse.h"
 #import "ZFQBaseService.h"
 
 @interface ZFQUploadFileService : ZFQBaseService<ZFQConnectionProtocol>
@@ -16,5 +17,7 @@
 @property (nonatomic, strong) HTTPMessage *request;
 
 @property (nonatomic, strong) NSFileHandle *fileHandle;
+
+@property (nonatomic, strong) CustomHTTPAsynDataResponse *response;
 
 @end

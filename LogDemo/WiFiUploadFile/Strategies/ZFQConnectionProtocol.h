@@ -17,6 +17,7 @@
 @optional
 - (BOOL)expectsRequestBodyFromMethod:(NSString *)method atPath:(NSString *)path;
 - (void)processStartOfPartWithHeader:(MultipartMessageHeader*) header;
+- (void)processEndOfPartWithHeader:(MultipartMessageHeader*) header;
 
 @required
 - (BOOL)supportMethod:(NSString *)method path:(NSString *)path;

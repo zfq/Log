@@ -28,7 +28,7 @@
             return finalResponse;
         }
     }
-    return nil;
+    return [self configResponseWithMethod:method path:path];
 }
 
 - (BOOL)supportMethod:(NSString *)method path:(NSString *)path
@@ -38,7 +38,8 @@
             return YES;
         }
     }
-    return NO;
+    
+    return [self configWithMethod:method path:path];
 }
 
 - (void)addService:(id<ZFQConnectionProtocol>)service
@@ -58,7 +59,6 @@
     for (id<ZFQConnectionProtocol> service in self.serviceList) {
         if ([service respondsToSelector:@selector(expectsRequestBodyFromMethod:atPath:)]) {
             if ([service expectsRequestBodyFromMethod:method atPath:path]) {
-                [self setBoundaryHeaderFieldForRequest];
                 return YES;
             }
         }
@@ -72,6 +72,16 @@
         if ([service respondsToSelector:@selector(processStartOfPartWithHeader:)]) {
             [service processStartOfPartWithHeader:header];
             self.fileHandle = [(ZFQUploadFileService *)service fileHandle];
+            break;
+        }
+    }
+}
+
+- (void)processEndOfPartWithHeader:(MultipartMessageHeader*) header
+{
+    for (id<ZFQConnectionProtocol> service in self.serviceList) {
+        if ([service respondsToSelector:@selector(processEndOfPartWithHeader:)]) {
+            [service processEndOfPartWithHeader:header];
             break;
         }
     }
@@ -94,11 +104,11 @@
     return originResponse;
 }
 
-- (void)setBoundaryHeaderFieldForRequest
+- (NSString *)boundaryForRequest:(HTTPMessage *)request
 {
     //find out boundary string
-    NSString *contentType = [self.request headerField:@"Content-Type"];
-    if (contentType == nil) return;
+    NSString *contentType = [request headerField:@"Content-Type"];
+    if (contentType == nil) return nil;
     
     NSString *pattern = @"boundary=-+[a-zA-Z0-9]+";
     NSRegularExpression *reg = [NSRegularExpression regularExpressionWithPattern:pattern options:NSRegularExpressionCaseInsensitive error:nil];
@@ -108,8 +118,29 @@
         NSRange range = [checkResult range];
         NSString *subStr = [contentType substringWithRange:range];
         NSString *boundary = [subStr substringFromIndex:9];
-        [self.request setHeaderField:@"boundary" value:boundary];
+        return boundary;
     }
+    return nil;
+}
+
+- (BOOL)configWithMethod:(NSString *)method path:(NSString *)path
+{
+    if ([method isEqualToString:@"OPTIONS"]) {
+        return YES;
+    }
+    return NO;
+}
+
+- (NSObject<HTTPResponse> *)configResponseWithMethod:(NSString *)method path:(NSString *)path
+{
+    if ([method isEqualToString:@"OPTIONS"]) {
+        CustomSyncDataResponse *response = [[CustomSyncDataResponse alloc] initWithData:nil];
+        response.customHttpHeader[@"Access-Control-Allow-Origin"] = @"*";
+        response.customHttpHeader[@"Access-Control-Allow-Methods"] = @"POST, GET, OPTIONS";
+        response.customHttpHeader[@"Access-Control-Max-Age"] = @"86400";
+        return response;
+    }
+    return nil;
 }
 
 @end

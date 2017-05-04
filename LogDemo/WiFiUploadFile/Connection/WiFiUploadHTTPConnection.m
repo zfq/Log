@@ -35,6 +35,7 @@
     return [super supportsMethod:method atPath:path];
 }
 
+//This method called in other thread.
 - (BOOL)expectsRequestBodyFromMethod:(NSString *)method atPath:(NSString *)path
 {
     NSLog(@"body:%@ %@",method,path);
@@ -75,7 +76,7 @@
 - (void)prepareForBodyWithSize:(UInt64)contentLength
 {
     //得先获取到boundary
-    NSString *boundary = [request headerField:@"boundary"];
+    NSString *boundary = [self.serviceContext boundaryForRequest:request];
     _parser = [[MultipartFormDataParser alloc] initWithBoundary:boundary formEncoding:NSUTF8StringEncoding];
     _parser.delegate = self;
     
@@ -94,7 +95,6 @@
 {
     if (!_serviceContext) {
         _serviceContext = [[ZFQServiceContext alloc] init];
-        _serviceContext.request = request;
         [self addServiceForServiceContext:_serviceContext];
     }
     return _serviceContext;
@@ -126,6 +126,10 @@
 //如果上传的文件比较大，这个方法可能会被调用多次
 - (void)processContent:(NSData*) data WithHeader:(MultipartMessageHeader*) header
 {
+    /*
+     思路：先暂时存储下data, 若self.serviceContext.fileHandle 不为空时 就writeData, 因为肯能存在
+     刚开始fileHandle为空，后来慢慢不为空的情况
+     */
     //存数据
     [self.serviceContext.fileHandle writeData:data];
 }
@@ -134,6 +138,8 @@
 {
     //关闭文件
     [self.serviceContext.fileHandle closeFile];
+    //
+    [self.serviceContext processEndOfPartWithHeader:header];
 }
 
 - (void)processPreambleData:(NSData*) data

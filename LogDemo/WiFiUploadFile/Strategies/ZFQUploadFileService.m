@@ -7,14 +7,12 @@
 //
 
 #import "ZFQUploadFileService.h"
-#import "CustomHTTPDataResponse.h"
 #import "NSString+FileHelp.h"
 #import <CocoaHTTPServer/MultipartMessageHeaderField.h>
 #import "ZFQFileManager.h"
 #import <ZFQLog.h>
 
 @interface ZFQUploadFileService()
-@property (nonatomic, strong) CustomHTTPAsynDataResponse *response;
 @end
 
 @implementation ZFQUploadFileService
@@ -57,6 +55,21 @@
     
     //get fileHandle
     self.fileHandle = [NSFileHandle fileHandleForWritingAtPath:fileAbsolutePath];
+}
+
+- (void)processEndOfPartWithHeader:(MultipartMessageHeader*) header
+{
+    MultipartMessageHeaderField *disposition = [header.fields objectForKey:@"Content-Disposition"];
+    NSString *fileName = [[disposition.params objectForKey:@"filename"] lastPathComponent];
+    if (!disposition || !fileName) {
+        return;
+    }
+    
+    //create file at directory
+    NSString *fileRelativePath = @"wifiFile";
+    NSString *wifiFileDirPath = [NSString createDirInDocumentPathWithName:fileRelativePath];
+    NSString *fileAbsolutePath = [NSString createFile:fileName atDirPath:wifiFileDirPath];
+    
     if (fileAbsolutePath) {
         [self.fileManger addFileWithName:fileName path:fileRelativePath].then(^(id value){
             NSDictionary *jsonOBj = @{
@@ -77,6 +90,6 @@
             ZFQLog(@"%@",error);
         });
     }
-}
 
+}
 @end
