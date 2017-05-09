@@ -8,6 +8,7 @@
 
 #import "ZFQDownloadFileService.h"
 #import "CustomHTTPFileResponse.h"
+#import "CustomHTTPDataResponse.h"
 #import "CustomHTTPAsynFileResponse.h"
 #import <FMDB.h>
 #import <ZFQLog.h>
@@ -18,6 +19,7 @@
     NSString *_currFileId;
 }
 @property (nonatomic, strong) CustomHTTPAsynFileResponse *response;
+@property (nonatomic, strong) CustomHTTPAsynDataResponse *dataResponse;
 @end
 @implementation ZFQDownloadFileService
 
@@ -41,7 +43,7 @@
 
 - (NSObject<HTTPResponse> *)httpResponse
 {
-    //下载文件
+    //Download file
     if ([_method isEqualToString:@"GET"]) {
         self.response = [[CustomHTTPAsynFileResponse alloc] initWithConnection:self.currConnection];
         //Checking to see if file exists.
@@ -62,7 +64,6 @@
                 
                 //
                 self.response.myFilePath = [[NSString documentPath] stringByAppendingPathComponent:filePath];
-                
                 [self.response processResponseComplete];
             }
         })
@@ -75,10 +76,21 @@
         return self.response;
     }
     
-    //删除文件
+    //Delete file
     if ([_method isEqualToString:@"DELETE"]) {
-        //delete file
-//        return nil;
+
+        self.dataResponse = [[CustomHTTPAsynDataResponse alloc] initWithConnection:self.currConnection];
+        [self.fileManger removeFileWithFileId:_currFileId].then(^(id value){
+            NSLog(@"删除成功");
+            NSDictionary *jsonOBj = @{
+                                      @"errorCode":@0,
+                                      @"msg":@"删除成功"
+                                      };
+            NSData *data = [NSJSONSerialization dataWithJSONObject:jsonOBj options:0 error:nil];
+            self.dataResponse.customData = data;
+            [self.dataResponse processResponseComplete];
+        });
+        return self.dataResponse;
     }
     return nil;
 }

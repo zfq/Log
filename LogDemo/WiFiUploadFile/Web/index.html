@@ -19,6 +19,7 @@
 		
 		<div id="drop_zone" draggable="true" >将文件拖拽到此处
             <output id = "file_list"></output>
+            <progress value="0" max="100" id = "progressBar" style = "display: none;">
         </div>
 		
 		<form name="demoForm" id="demoFormId" method="post" enctype="multipart/form-data" action="javascript:upload();">
@@ -26,9 +27,7 @@
 		    <input type="submit" value="提交" />
 		</form>
     </div>
-    <div id="fileLists">
-        <p>你好</p>
-    </div>
+    
 </div>
 
 <script type="text/javascript" src="index.js"></script>

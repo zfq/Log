@@ -170,11 +170,11 @@
             NSString *contentType =  [NSString contentTypeForPath:tmpFilePath];
             if (contentType) {
                 _customHttpHeader[@"Content-Type"] = contentType;
-                if (fileName.length > 0) {
-                    _customHttpHeader[@"Content-Disposition"] = [NSString stringWithFormat:@"attachment; filename=%@",fileName];
-                } else {
-                    _customHttpHeader[@"Content-Disposition"] = @"attachment";
-                }
+            }
+            if (fileName.length > 0) {
+                _customHttpHeader[@"Content-Disposition"] = [NSString stringWithFormat:@"attachment; filename=%@",fileName];
+            } else {
+                _customHttpHeader[@"Content-Disposition"] = @"attachment";
             }
         }
     }

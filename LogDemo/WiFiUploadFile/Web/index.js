@@ -52,6 +52,8 @@ function uploadTest2(file) {
      //进度条
     xhr.upload.addEventListener("progress", ProgressHandler);
     xhr.send(formData);
+    //显示进度条
+    document.getElementById("progressBar").display = 'block';
 }
 
 function showFileLists() {
@@ -75,6 +77,13 @@ function showFileLists() {
 
 function ProgressHandler(e) {
     var complete = Math.round(e.loaded / e.total * 100);
+    var element = document.getElementById("progressBar");
+    element.setAttribute("value", complete);
+    if (complete >= 100) {
+        setTimeout((function(){
+            element.style.display = 'none';
+        }), 1000);
+    }
     console.log(complete + "% complete");
 }
 
