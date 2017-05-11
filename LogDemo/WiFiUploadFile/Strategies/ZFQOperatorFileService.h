@@ -10,6 +10,6 @@
 #import "ZFQConnectionProtocol.h"
 #import "ZFQBaseService.h"
 
-@interface ZFQDownloadFileService : ZFQBaseService<ZFQConnectionProtocol>
+@interface ZFQOperatorFileService : ZFQBaseService<ZFQConnectionProtocol>
 
 @end

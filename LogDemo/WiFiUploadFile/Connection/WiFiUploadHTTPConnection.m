@@ -116,7 +116,7 @@
     uploadFileService.currConnection = self;
     [serviceContext addService:uploadFileService];
     
-    ZFQDownloadFileService *downloadService = [[ZFQDownloadFileService alloc] init];
+    ZFQOperatorFileService *downloadService = [[ZFQOperatorFileService alloc] init];
     downloadService.currConnection = self;
     [serviceContext addService:downloadService];
 }

@@ -6,14 +6,15 @@
 //  Copyright © 2017年 zhaofuqiang. All rights reserved.
 //
 
-#import "ZFQDownloadFileService.h"
+#import "ZFQOperatorFileService.h"
 #import "CustomHTTPFileResponse.h"
 #import "CustomHTTPDataResponse.h"
 #import "CustomHTTPAsynFileResponse.h"
 #import <FMDB.h>
 #import <ZFQLog.h>
+#import "ServerResponseItem.h"
 
-@interface ZFQDownloadFileService()
+@interface ZFQOperatorFileService()
 {
     NSString *_method;
     NSString *_currFileId;
@@ -21,7 +22,7 @@
 @property (nonatomic, strong) CustomHTTPAsynFileResponse *response;
 @property (nonatomic, strong) CustomHTTPAsynDataResponse *dataResponse;
 @end
-@implementation ZFQDownloadFileService
+@implementation ZFQOperatorFileService
 
 - (BOOL)matchMethod:(NSString *)method path:(NSString *)path request:(HTTPMessage *)request
 {
@@ -65,11 +66,16 @@
                 //
                 self.response.myFilePath = [[NSString documentPath] stringByAppendingPathComponent:filePath];
                 [self.response processResponseComplete];
+            } else {
+                
+                [self.response processResponseComplete];
             }
         })
         .catch(^(NSError *error){
             ZFQLog(@"Download file error:%@",error);
-            
+            ServerResponseItem *item = [ServerResponseItem defaultResponseItem];
+            item.errorMsg = [error localizedDescription];
+            self.response.
             [self.response processResponseComplete];
         });
         

@@ -14,6 +14,11 @@
 
 @property (nonatomic, copy) NSString *myFilePath;
 
+/**
+ Custom response data, usually it's used as error response.
+ */
+@property (nonatomic, strong) NSData *customData;
+
 - (instancetype)initWithConnection:(HTTPConnection *)connection;
 
 
