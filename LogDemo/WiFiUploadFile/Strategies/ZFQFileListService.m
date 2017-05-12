@@ -9,6 +9,7 @@
 #import "ZFQFileListService.h"
 #import "CustomHTTPDataResponse.h"
 #import "NSString+FileHelp.h"
+#import "ServerResponseItem.h"
 
 @implementation ZFQFileListService
 
@@ -49,27 +50,23 @@
                 [infoArray addObject:info];
             }
         }
-       
-        NSDictionary *jsonObj = @{
-                                  @"errorCode":@200,
-                                  @"msg":@"",
-                                  @"obj":infoArray
-                                  };
-        NSData *data = [NSJSONSerialization dataWithJSONObject:jsonObj options:0 error:nil];
-        response.customData = data;
+
+        ServerResponseItem *item = [ServerResponseItem defaultResponseItem];
+        item.errorCode = 200;
+        item.obj = infoArray;
+        response.customData = [item jsonData];
+        
         response.customHttpHeader[@"Content-Type"] = @"application/json; charset=utf-8";
         
         //mark as complete
         [response processResponseComplete];
     }).catch(^(NSError *error){
-        
-        NSDictionary *jsonObj = @{
-                                  @"errorCode":@500,
-                                  @"msg":[error localizedDescription],
-                                  @"obj":[NSArray array]
-                                  };
-        NSData *data = [NSJSONSerialization dataWithJSONObject:jsonObj options:0 error:nil];
-        response.customData = data;
+
+        ServerResponseItem *item = [ServerResponseItem defaultResponseItem];
+        item.errorCode = 500;
+        item.errorMsg = [error localizedDescription];
+        item.obj = [NSArray array];
+        response.customData = [item jsonData];
         response.customHttpHeader[@"Content-Type"] = @"application/json; charset=utf-8";
         
         //mark as complete

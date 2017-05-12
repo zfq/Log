@@ -12,6 +12,7 @@
 
 @property (nonatomic) NSInteger errorCode;
 @property (nonatomic, copy) NSString *errorMsg;
+@property (nonatomic, strong) id obj;
 
 + (instancetype)defaultResponseItem;
 

@@ -55,7 +55,11 @@
 #pragma mark - Protocol
 - (UInt64)contentLength
 {
-    return _fileSize;
+    if (_customData.length > 0) {
+        return _customData.length;
+    } else {
+        return _fileSize;
+    }
 }
 
 - (UInt64)offset
@@ -66,6 +70,11 @@
 - (void)setOffset:(UInt64)offset
 {
     _fileOffset = offset;
+    
+    if (self.customData.length > 0) {
+        return;
+    }
+    
     //打开文件
     if ([self openFileIfNeed] == NO) {
         return;
@@ -80,6 +89,14 @@
 
 - (NSData *)readDataOfLength:(NSUInteger)length
 {
+    if (self.customData.length > 0) {
+        UInt64 byteLeftSize = _customData.length - _fileOffset;
+        UInt64 actualSize = MIN(length, byteLeftSize);
+        void *bytes = (void *)([_customData bytes] + _fileOffset);
+        _fileOffset += length;
+        return [NSData dataWithBytesNoCopy:bytes length:actualSize freeWhenDone:NO];
+    }
+    
     //打开文件
     if ([self openFileIfNeed] == NO) {
         return nil;
@@ -110,7 +127,11 @@
 
 - (BOOL)isDone
 {
-    return _fileOffset == _fileSize;
+    if (_customData.length > 0) {
+        return _fileOffset = _customData.length;
+    } else {
+        return _fileOffset == _fileSize;
+    }
 }
 
 - (BOOL)delayResponseHeaders

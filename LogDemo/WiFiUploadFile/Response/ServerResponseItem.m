@@ -8,6 +8,9 @@
 
 #import "ServerResponseItem.h"
 
+#define kSRIErrorCode @"errorCode"
+#define kSRIErrorMsg @"msg"
+
 @interface ServerResponseItem()
 @property (nonatomic, strong) NSMutableDictionary *responseDict;
 @end
@@ -20,8 +23,8 @@
     item.errorCode = 0;
     item.errorMsg = @"";
     
-    item.responseDict[@"errorCode"] = @(item.errorCode);
-    item.responseDict[@"errorMsg"] = item.errorMsg;
+    item.responseDict[kSRIErrorCode] = @(item.errorCode);
+    item.responseDict[kSRIErrorMsg] = item.errorMsg;
     
     return item;
 }
@@ -33,13 +36,13 @@
         msg = [errorMsg copy];
         
     _errorMsg = msg;
-    self.responseDict[@"errorCode"] = _errorMsg;
+    self.responseDict[kSRIErrorMsg] = _errorMsg;
 }
 
 - (void)setErrorCode:(NSInteger)errorCode
 {
     _errorCode = errorCode;
-    self.responseDict[@"errorCode"] = @(_errorCode);
+    self.responseDict[kSRIErrorCode] = @(_errorCode);
 }
 
 - (NSMutableDictionary *)responseDict
@@ -48,6 +51,14 @@
         _responseDict = [[NSMutableDictionary alloc] initWithCapacity:2];
     }
     return _responseDict;
+}
+
+- (void)setObj:(id)obj
+{
+    _obj = obj;
+    if (_obj != nil) {
+        self.responseDict[@"obj"] = _obj;
+    }
 }
 
 - (NSData *)jsonData

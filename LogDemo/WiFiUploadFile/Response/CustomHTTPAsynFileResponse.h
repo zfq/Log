@@ -15,7 +15,7 @@
 @property (nonatomic, copy) NSString *myFilePath;
 
 /**
- Custom response data, usually it's used as error response.
+ Custom response data,  it's usually used as error response.
  */
 @property (nonatomic, strong) NSData *customData;
 

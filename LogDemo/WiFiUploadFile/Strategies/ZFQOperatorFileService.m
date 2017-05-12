@@ -67,7 +67,10 @@
                 self.response.myFilePath = [[NSString documentPath] stringByAppendingPathComponent:filePath];
                 [self.response processResponseComplete];
             } else {
-                
+                ServerResponseItem *item = [ServerResponseItem defaultResponseItem];
+                item.errorMsg = @"文件不存在";
+                item.errorCode = 404;
+                self.response.customData = [item jsonData];
                 [self.response processResponseComplete];
             }
         })
@@ -75,7 +78,7 @@
             ZFQLog(@"Download file error:%@",error);
             ServerResponseItem *item = [ServerResponseItem defaultResponseItem];
             item.errorMsg = [error localizedDescription];
-            self.response.
+            self.response.customData = [item jsonData];
             [self.response processResponseComplete];
         });
         
@@ -84,16 +87,12 @@
     
     //Delete file
     if ([_method isEqualToString:@"DELETE"]) {
-
         self.dataResponse = [[CustomHTTPAsynDataResponse alloc] initWithConnection:self.currConnection];
         [self.fileManger removeFileWithFileId:_currFileId].then(^(id value){
-            NSLog(@"删除成功");
-            NSDictionary *jsonOBj = @{
-                                      @"errorCode":@0,
-                                      @"msg":@"删除成功"
-                                      };
-            NSData *data = [NSJSONSerialization dataWithJSONObject:jsonOBj options:0 error:nil];
-            self.dataResponse.customData = data;
+            ServerResponseItem *item = [ServerResponseItem defaultResponseItem];
+            item.errorMsg = @"删除成功";
+            item.errorCode = 0;
+            self.dataResponse.customData = [item jsonData];
             [self.dataResponse processResponseComplete];
         });
         return self.dataResponse;

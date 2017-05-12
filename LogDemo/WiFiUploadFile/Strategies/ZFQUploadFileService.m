@@ -10,6 +10,7 @@
 #import "NSString+FileHelp.h"
 #import <CocoaHTTPServer/MultipartMessageHeaderField.h>
 #import "ZFQFileManager.h"
+#import "ServerResponseItem.h"
 #import <ZFQLog.h>
 
 @interface ZFQUploadFileService()
@@ -72,20 +73,15 @@
     
     if (fileAbsolutePath) {
         [self.fileManger addFileWithName:fileName path:fileRelativePath].then(^(id value){
-            NSDictionary *jsonOBj = @{
-                                      @"errorCode":@0,
-                                      @"msg":@"success"
-                                      };
-            NSData *data = [NSJSONSerialization dataWithJSONObject:jsonOBj options:0 error:nil];
-            self.response.customData = data;
+            ServerResponseItem *item = [ServerResponseItem defaultResponseItem];
+            item.errorMsg = @"success";
+            self.response.customData = [item jsonData];
             [self.response processResponseComplete];
         }).catch(^(NSError *error){
-            NSDictionary *jsonOBj = @{
-                                      @"errorCode":@500,
-                                      @"msg":[error localizedDescription]
-                                      };
-            NSData *data = [NSJSONSerialization dataWithJSONObject:jsonOBj options:0 error:nil];
-            self.response.customData = data;
+            ServerResponseItem *item = [ServerResponseItem defaultResponseItem];
+            item.errorMsg = [error localizedDescription];
+            item.errorCode = 500;
+            self.response.customData = [item jsonData];
             [self.response processResponseComplete];
             ZFQLog(@"%@",error);
         });
