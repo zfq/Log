@@ -20,6 +20,7 @@
  */
 - (ZFQDBPromise *)addFileWithName:(NSString *)fileName path:(NSString *)path;
 - (ZFQDBPromise *)removeFileWithFileId:(NSString *)fileId;
+- (void)removeFileWithFileIds:(NSArray *)fileIds successBlk:(void (^)(void))successBlk;
 - (ZFQDBPromise *)removeFileWithName:(NSString *)fileName path:(NSString *)path;
 - (ZFQDBPromise *)removeAllFile;
 

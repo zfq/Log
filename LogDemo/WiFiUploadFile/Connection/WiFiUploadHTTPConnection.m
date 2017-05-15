@@ -18,6 +18,7 @@
 @interface WiFiUploadHTTPConnection()
 {
     MultipartFormDataParser *_parser;
+    NSMutableData *_bodyData;
     NSMutableString *_filePath;
 }
 @property (nonatomic, strong) ZFQServiceContext *serviceContext;
@@ -77,10 +78,13 @@
 {
     //得先获取到boundary
     NSString *boundary = [self.serviceContext boundaryForRequest:request];
-    _parser = [[MultipartFormDataParser alloc] initWithBoundary:boundary formEncoding:NSUTF8StringEncoding];
-    _parser.delegate = self;
-    
-    _filePath = [[NSMutableString alloc] init];
+    if (boundary != nil) {
+        _parser = [[MultipartFormDataParser alloc] initWithBoundary:boundary formEncoding:NSUTF8StringEncoding];
+        _parser.delegate = self;
+        _filePath = [[NSMutableString alloc] init];
+    } else {
+        _bodyData = [[NSMutableData alloc] init];
+    }
 }
 
 //如果上传的文件比较大，则这个方法可能会被调用多次
@@ -88,7 +92,16 @@
 {
     // append data to the parser. It will invoke callbacks to let us handle
     // parsed data.
-    [_parser appendData:postDataChunk];
+    if (_parser != nil) {
+        [_parser appendData:postDataChunk];
+    } else {
+        [_bodyData appendData:postDataChunk];
+    }
+}
+
+- (void)finishBody
+{
+    [self.serviceContext finishBody:_bodyData];
 }
 
 - (ZFQServiceContext *)serviceContext
@@ -119,6 +132,10 @@
     ZFQOperatorFileService *downloadService = [[ZFQOperatorFileService alloc] init];
     downloadService.currConnection = self;
     [serviceContext addService:downloadService];
+    
+    ZFQDeleteMutiFilesService *delMutiFilesService = [[ZFQDeleteMutiFilesService alloc] init];
+    delMutiFilesService.currConnection = self;
+    [serviceContext addService:delMutiFilesService];
 }
 
 #pragma mark - Multipart form data parser delegate 以下的方法在while循环里，可能被调用多次

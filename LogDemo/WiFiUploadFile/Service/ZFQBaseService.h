@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "ZFQFileManager.h"
 #import <CocoaHTTPServer/HTTPConnection.h>
+#import "ZFQConnectionProtocol.h"
+#import "ServerResponseItem.h"
 
 @interface ZFQBaseService : NSObject
 

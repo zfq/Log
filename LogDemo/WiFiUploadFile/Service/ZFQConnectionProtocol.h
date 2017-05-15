@@ -19,6 +19,7 @@
 - (void)processStartOfPartWithHeader:(MultipartMessageHeader*) header;
 - (void)processEndOfPartWithHeader:(MultipartMessageHeader*) header;
 
+- (void)finishBody:(NSData *)body;
 @required
 - (BOOL)supportMethod:(NSString *)method path:(NSString *)path;
 - (BOOL)matchMethod:(NSString *)method path:(NSString *)path request:(HTTPMessage *)request;

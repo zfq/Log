@@ -8,7 +8,6 @@
 
 #import <Foundation/Foundation.h>
 #import "ZFQBaseService.h"
-#import "ZFQConnectionProtocol.h"
 
 @interface ZFQDeleteAllFileService : ZFQBaseService<ZFQConnectionProtocol>
 

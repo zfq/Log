@@ -87,6 +87,16 @@
     }
 }
 
+- (void)finishBody:(NSData *)bodyData
+{
+    for (id<ZFQConnectionProtocol> service in self.serviceList) {
+        if ([service respondsToSelector:@selector(finishBody:)]) {
+            [service finishBody:bodyData];
+            break;
+        }
+    }
+}
+
 #pragma mark - Private
 - (NSObject<HTTPResponse> *)doFilterForMethod:(NSString *)method path:(NSString *)path request:(HTTPMessage *)request originResponse:(NSObject<HTTPResponse> *)originResponse
 {

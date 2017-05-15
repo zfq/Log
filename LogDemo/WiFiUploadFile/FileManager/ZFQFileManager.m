@@ -210,6 +210,29 @@
     });
 }
 
+- (void)removeFileWithFileIds:(NSArray *)fileIds successBlk:(void (^)(void))successBlk
+{
+    if (fileIds == nil || fileIds.count == 0) {
+        if (successBlk) successBlk();
+    }
+    
+    dispatch_group_t group = dispatch_group_create();
+    dispatch_group_notify(group, dispatch_get_main_queue(), ^{
+        if (successBlk) {
+            successBlk();
+        }
+    });
+    for (NSString *fileId in fileIds) {
+        dispatch_group_enter(group);
+        [self removeFileWithFileId:fileId].then(^(id value){
+            dispatch_group_leave(group);
+        })
+        .catch(^(NSError *error){
+            dispatch_group_leave(group);
+        });
+    }
+}
+
 - (ZFQDBPromise *)removeAllFile
 {
     NSString *folderPath = @"wifiFile";

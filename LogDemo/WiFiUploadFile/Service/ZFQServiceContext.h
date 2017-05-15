@@ -29,4 +29,6 @@
 
 - (NSString *)boundaryForRequest:(HTTPMessage *)request;
 
+- (void)finishBody:(NSData *)bodyData;
+
 @end

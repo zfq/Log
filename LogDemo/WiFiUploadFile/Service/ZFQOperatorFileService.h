@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "ZFQConnectionProtocol.h"
 #import "ZFQBaseService.h"
 
 @interface ZFQOperatorFileService : ZFQBaseService<ZFQConnectionProtocol>
