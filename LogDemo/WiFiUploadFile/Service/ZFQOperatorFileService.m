@@ -98,19 +98,6 @@
         return self.dataResponse;
     }
     
-    //Delete all file
-    if ([_method isEqualToString:@"POST"]) {
-        self.dataResponse = [[CustomHTTPAsynDataResponse alloc] initWithConnection:self.currConnection];
-        [self.fileManger removeFileWithFileId:_currFileId].then(^(id value){
-            ServerResponseItem *item = [ServerResponseItem responseItem];
-            item.errorMsg = @"删除成功";
-            item.errorCode = 0;
-            self.dataResponse.customData = [item jsonData];
-            [self.dataResponse processResponseComplete];
-        });
-        return self.dataResponse;
-    }
-    
     return nil;
 }
 
