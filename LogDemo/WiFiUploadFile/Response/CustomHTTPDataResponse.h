@@ -23,7 +23,7 @@
 - (instancetype)initWithConnection:(HTTPConnection *)connection;
 
 /**
- 处理完成时手动调用
+ This method must be called after you ready response data.
  */
 - (void)processResponseComplete;
 

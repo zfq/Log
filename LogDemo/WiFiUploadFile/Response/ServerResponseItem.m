@@ -17,7 +17,7 @@
 
 @implementation ServerResponseItem
 
-+ (instancetype)defaultResponseItem
++ (instancetype)responseItem
 {
     ServerResponseItem *item = [[ServerResponseItem alloc] init];
     item.errorCode = 0;

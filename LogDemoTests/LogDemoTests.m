@@ -276,4 +276,20 @@
     }];
 }
 
+- (void)testRemoveAllFile
+{
+    XCTestExpectation *expect = [self expectationWithDescription:@"testRemoveAllFile"];
+    [self.fileManager removeAllFile].then(^(id value){
+        NSLog(@"删除成功");
+        [expect fulfill];
+    }).catch(^(NSError *error){
+        XCTFail(@"删除失败:%@",error);
+    });
+    [self waitForExpectationsWithTimeout:60 handler:^(NSError * _Nullable error) {
+        if (error) {
+            NSLog(@"测试失败:%@",error);
+        }
+    }];
+}
+
 @end

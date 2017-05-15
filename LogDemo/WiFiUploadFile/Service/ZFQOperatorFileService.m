@@ -9,7 +9,7 @@
 #import "ZFQOperatorFileService.h"
 #import "CustomHTTPFileResponse.h"
 #import "CustomHTTPDataResponse.h"
-#import "CustomHTTPAsynFileResponse.h"
+#import "CustomHTTPFileResponse.h"
 #import <FMDB.h>
 #import <ZFQLog.h>
 #import "ServerResponseItem.h"
@@ -67,7 +67,7 @@
                 self.response.myFilePath = [[NSString documentPath] stringByAppendingPathComponent:filePath];
                 [self.response processResponseComplete];
             } else {
-                ServerResponseItem *item = [ServerResponseItem defaultResponseItem];
+                ServerResponseItem *item = [ServerResponseItem responseItem];
                 item.errorMsg = @"文件不存在";
                 item.errorCode = 404;
                 self.response.customData = [item jsonData];
@@ -76,7 +76,7 @@
         })
         .catch(^(NSError *error){
             ZFQLog(@"Download file error:%@",error);
-            ServerResponseItem *item = [ServerResponseItem defaultResponseItem];
+            ServerResponseItem *item = [ServerResponseItem responseItem];
             item.errorMsg = [error localizedDescription];
             self.response.customData = [item jsonData];
             [self.response processResponseComplete];
@@ -89,7 +89,7 @@
     if ([_method isEqualToString:@"DELETE"]) {
         self.dataResponse = [[CustomHTTPAsynDataResponse alloc] initWithConnection:self.currConnection];
         [self.fileManger removeFileWithFileId:_currFileId].then(^(id value){
-            ServerResponseItem *item = [ServerResponseItem defaultResponseItem];
+            ServerResponseItem *item = [ServerResponseItem responseItem];
             item.errorMsg = @"删除成功";
             item.errorCode = 0;
             self.dataResponse.customData = [item jsonData];
@@ -97,6 +97,20 @@
         });
         return self.dataResponse;
     }
+    
+    //Delete all file
+    if ([_method isEqualToString:@"POST"]) {
+        self.dataResponse = [[CustomHTTPAsynDataResponse alloc] initWithConnection:self.currConnection];
+        [self.fileManger removeFileWithFileId:_currFileId].then(^(id value){
+            ServerResponseItem *item = [ServerResponseItem responseItem];
+            item.errorMsg = @"删除成功";
+            item.errorCode = 0;
+            self.dataResponse.customData = [item jsonData];
+            [self.dataResponse processResponseComplete];
+        });
+        return self.dataResponse;
+    }
+    
     return nil;
 }
 

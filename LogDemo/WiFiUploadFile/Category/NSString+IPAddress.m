@@ -27,70 +27,6 @@
 
 @implementation NSString (IPAddress)
 
-/*
-+ (NSString *)currentIpAddress
-{
-    char hostName[128];
-    
-    gethostname(hostName, sizeof(hostName));
-    
-    //getHostByName会阻塞，不要在主线程中调用，getHostByName是已经淘汰的方法，用getaddrinfo来代替
-    struct hostent *hent = gethostbyname(hostName);
-    if (hent == NULL) {
-        //使用另一种获取ip地址的方法
-        return [self getIpAddressMethod1];
-    }
-    ZFQLog(@"hostname: %@\n",[NSString stringWithUTF8String:hent->h_name]);
-    
-    char *ipAddress = NULL;
-    for (NSInteger i = 0; hent -> h_addr_list[i]; i++) {
-
-        struct in_addr addr = *(struct in_addr *)(hent->h_addr_list[i]);
-        ipAddress = inet_ntoa(addr);
-        
-        ZFQLog(@"%@\n", [NSString stringWithUTF8String:ipAddress]);
-    }
-    
-    return [NSString stringWithUTF8String:ipAddress];
-}*/
-
-/*
-//通过枚举网卡来获取IP地址
-+ (NSString *)getIpAddressMethod1
-{
-//    [self getWifiName:^(NSString *wifiName) {
-//        NSLog(@"wifi名称为:%@",wifiName);
-//    }];
-//    
-//    NSString *cellularName = [self cellularProviderName];
-//    NSLog(@"%@",cellularName);
-    
-    struct ifaddrs *ifAddrStruct = NULL;
-    void * tmpAddrPtr = NULL;
-    
-    getifaddrs(&ifAddrStruct);
-    while (ifAddrStruct != NULL) {
-        if (ifAddrStruct->ifa_addr->sa_family == AF_INET) {
-            tmpAddrPtr = &((struct sockaddr_in *)ifAddrStruct->ifa_addr)->sin_addr;
-            char addressBuffer[INET_ADDRSTRLEN];
-            inet_ntop(AF_INET, tmpAddrPtr, addressBuffer, INET_ADDRSTRLEN);
-            
-            printf("名称：%s,ip地址为:%s\n",ifAddrStruct->ifa_name,addressBuffer);
-        } else if (ifAddrStruct->ifa_addr->sa_family == AF_INET6) {
-            tmpAddrPtr = &((struct sockaddr_in *)ifAddrStruct->ifa_addr)->sin_addr;
-            char addressBuffer[INET6_ADDRSTRLEN];
-            inet_ntop(AF_INET6, tmpAddrPtr, addressBuffer, INET6_ADDRSTRLEN);
-            printf("名称：%s，ipv6地址为:%s\n",ifAddrStruct->ifa_name,addressBuffer);
-        }
-        
-        ifAddrStruct = ifAddrStruct->ifa_next;
-    }
-    
-    freeifaddrs(ifAddrStruct);
-    return @"";
-}
-*/
-
 + (NSString *)currentIpAddress
 {
     return [self getIPAddress:YES];
@@ -103,7 +39,6 @@
     @[ /*IOS_VPN @"/" IP_ADDR_IPv6, IOS_VPN @"/" IP_ADDR_IPv4,*/ IOS_WIFI @"/" IP_ADDR_IPv6, IOS_WIFI @"/" IP_ADDR_IPv4, IOS_CELLULAR @"/" IP_ADDR_IPv6, IOS_CELLULAR @"/" IP_ADDR_IPv4 ] ;
     
     NSDictionary *addresses = [self getIPAddresses];
-    NSLog(@"addresses: %@", addresses);
     
     __block NSString *address;
     [searchArray enumerateObjectsUsingBlock:^(NSString *key, NSUInteger idx, BOOL *stop)

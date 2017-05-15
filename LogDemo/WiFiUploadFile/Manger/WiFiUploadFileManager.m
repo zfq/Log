@@ -31,7 +31,6 @@
     if ([_httpServer start:&error]) {
         UInt16 port = [_httpServer listeningPort];
         NSString *ipAddress = [NSString currentIpAddress];
-        NSLog(@"%@:%hu",ipAddress,port);
         ZFQLog(@"启动成功,端口号为:%@:%hu",ipAddress,port);
         ipAddress = [NSString stringWithFormat:@"%@:%i",ipAddress,port];
         if (self.ipAddressBlk) {

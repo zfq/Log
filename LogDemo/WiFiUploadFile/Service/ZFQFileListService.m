@@ -51,7 +51,7 @@
             }
         }
 
-        ServerResponseItem *item = [ServerResponseItem defaultResponseItem];
+        ServerResponseItem *item = [ServerResponseItem responseItem];
         item.errorCode = 200;
         item.obj = infoArray;
         response.customData = [item jsonData];
@@ -62,7 +62,7 @@
         [response processResponseComplete];
     }).catch(^(NSError *error){
 
-        ServerResponseItem *item = [ServerResponseItem defaultResponseItem];
+        ServerResponseItem *item = [ServerResponseItem responseItem];
         item.errorCode = 500;
         item.errorMsg = [error localizedDescription];
         item.obj = [NSArray array];

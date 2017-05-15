@@ -63,7 +63,7 @@
         BOOL isDir = NO;
         if (filePath && [[NSFileManager defaultManager] fileExistsAtPath:filePath isDirectory:&isDir] && !isDir)
         {
-            CustomHTTPFileResponse *customResponse = [[CustomHTTPFileResponse alloc] initWithFilePath:filePath forConnection:self];
+            CustomHTTPSyncFileResponse *customResponse = [[CustomHTTPSyncFileResponse alloc] initWithFilePath:filePath forConnection:self];
             customResponse.customHttpHeader = @{@"Content-Type":contentType};
             return customResponse;
         }

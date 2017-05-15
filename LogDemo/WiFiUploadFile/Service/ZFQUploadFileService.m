@@ -73,12 +73,12 @@
     
     if (fileAbsolutePath) {
         [self.fileManger addFileWithName:fileName path:fileRelativePath].then(^(id value){
-            ServerResponseItem *item = [ServerResponseItem defaultResponseItem];
+            ServerResponseItem *item = [ServerResponseItem responseItem];
             item.errorMsg = @"success";
             self.response.customData = [item jsonData];
             [self.response processResponseComplete];
         }).catch(^(NSError *error){
-            ServerResponseItem *item = [ServerResponseItem defaultResponseItem];
+            ServerResponseItem *item = [ServerResponseItem responseItem];
             item.errorMsg = [error localizedDescription];
             item.errorCode = 500;
             self.response.customData = [item jsonData];

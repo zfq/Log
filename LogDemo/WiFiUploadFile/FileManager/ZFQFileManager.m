@@ -163,6 +163,23 @@
     [[NSFileManager defaultManager] removeItemAtPath:absolutePath error:nil];
 }
 
+- (NSError *)removeAllFileAtPath:(NSString *)path
+{
+    if (!path) return nil;
+
+    BOOL isDir = NO;
+    [[NSFileManager defaultManager] fileExistsAtPath:path isDirectory:&isDir];
+    if (isDir == NO) return nil;
+        
+    //Clear all file at path.
+    NSError *error;
+    [[NSFileManager defaultManager] removeItemAtPath:path error:&error];
+    if (error) {
+        ZFQLog(@"remove all file error:%@",[error localizedDescription]);
+    }
+    return error;
+}
+
 - (ZFQDBPromise *)removeFileWithFileId:(NSString *)fileId
 {
     NSString *sql = [NSString stringWithFormat:@"DELETE FROM wifi_files WHERE file_id=%@",fileId];
@@ -189,15 +206,27 @@
         }
     })
     .thenOn(^(id value,ZFQDBPromise *promise){
-        //死循环了
         promise.adapter.resolve(value);
     });
 }
 
 - (ZFQDBPromise *)removeAllFile
 {
-    NSString *sql = @"DELETE FROM wifi_files";
-    return [self executeUpdate:sql];
+    NSString *folderPath = @"wifiFile";
+    NSString *sql = [NSString stringWithFormat:@"DELETE FROM wifi_files where path='%@'",folderPath];
+    return [self executeUpdate:sql]
+    .then(^(id value){
+    
+    })
+    .thenOn(^(id value,ZFQDBPromise *promise){
+        NSString *absolutePath = [[NSString documentPath] stringByAppendingPathComponent:folderPath];
+        NSError *error = [self removeAllFileAtPath:absolutePath];
+        if (error) {
+            promise.adapter.reject(error);
+        } else {
+            promise.adapter.resolve(nil);
+        }
+    });
 }
 
 - (ZFQDBPromise *)searchFileWithFileId:(NSInteger)fileId
