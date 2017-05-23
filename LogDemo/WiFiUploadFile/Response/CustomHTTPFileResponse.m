@@ -11,7 +11,7 @@
 #import "NSString+FileHelp.h"
 #import <unistd.h>
 #import <fcntl.h>
-#import <ZFQLog.h>
+#import "ZFQLog.h"
 
 @implementation CustomHTTPSyncFileResponse
 

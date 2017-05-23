@@ -14,7 +14,7 @@
 #include <arpa/inet.h>
 #include <ifaddrs.h>
 #include <net/if.h>
-#import <ZFQLog.h>
+#import "ZFQLog.h"
 #import <SystemConfiguration/CaptiveNetwork.h>
 #import <CoreTelephony/CTCarrier.h>
 #import <CoreTelephony/CTTelephonyNetworkInfo.h>

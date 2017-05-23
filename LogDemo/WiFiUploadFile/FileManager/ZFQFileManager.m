@@ -8,7 +8,7 @@
 
 #import "ZFQFileManager.h"
 #import <FMDB.h>
-#import <ZFQLog.h>
+#import "ZFQLog.h"
 #import "ZFQDBPromise.h"
 #import "NSString+FileHelp.h"
 

@@ -11,7 +11,7 @@
 #import "CustomHTTPDataResponse.h"
 #import "CustomHTTPFileResponse.h"
 #import <FMDB.h>
-#import <ZFQLog.h>
+#import "ZFQLog.h"
 #import "ServerResponseItem.h"
 
 @interface ZFQOperatorFileService()

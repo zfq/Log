@@ -16,18 +16,14 @@ PODS:
   - FMDB (2.6.2):
     - FMDB/standard (= 2.6.2)
   - FMDB/standard (2.6.2)
-  - ZFQLog (0.0.1)
 
 DEPENDENCIES:
   - CocoaHTTPServer (from `https://github.com/robbiehanson/CocoaHTTPServer.git`)
   - FMDB
-  - ZFQLog (from `/Users/wecash/Documents/Xcode工程/LogDemo`)
 
 EXTERNAL SOURCES:
   CocoaHTTPServer:
     :git: https://github.com/robbiehanson/CocoaHTTPServer.git
-  ZFQLog:
-    :path: "/Users/wecash/Documents/Xcode工程/LogDemo"
 
 CHECKOUT OPTIONS:
   CocoaHTTPServer:
@@ -39,8 +35,7 @@ SPEC CHECKSUMS:
   CocoaHTTPServer: 5624681fc3473d43b18202f635f9b3abb013b530
   CocoaLumberjack: c823149bccc5519a9447aeb433be7b1212a7d6a5
   FMDB: 854a0341b4726e53276f2a8996f06f1b80f9259a
-  ZFQLog: 2a92740da539309aee7e3b15d0db544aee06acad
 
-PODFILE CHECKSUM: ddba7a73f7af87dba1e47760094121271788a20b
+PODFILE CHECKSUM: d22593e1f00946fe69ef780ab95ac2577349a967
 
 COCOAPODS: 1.2.0
