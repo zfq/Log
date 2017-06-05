@@ -37,7 +37,7 @@
 {
     //Delete file
     self.dataResponse = [[CustomHTTPAsynDataResponse alloc] initWithConnection:self.currConnection];
-    [self.fileManger removeFileWithFileId:_currFileId].then(^(id value){
+    [self.fileManger removeAllFile].then(^(id value){
         ServerResponseItem *item = [ServerResponseItem responseItem];
         item.errorMsg = @"删除成功";
         item.errorCode = 0;

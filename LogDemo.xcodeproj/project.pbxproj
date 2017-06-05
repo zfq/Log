@@ -18,6 +18,8 @@
 		1F6ED3B31E45D67900CE30CD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F6ED3B11E45D67900CE30CD /* LaunchScreen.storyboard */; };
 		1F6ED3BE1E45D67900CE30CD /* LogDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F6ED3BD1E45D67900CE30CD /* LogDemoTests.m */; };
 		1F6ED3C91E45D67900CE30CD /* LogDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F6ED3C81E45D67900CE30CD /* LogDemoUITests.m */; };
+		1FB24ABF1EE4F00F009C15E7 /* ZFQOrdinaryFileListService.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FB24ABE1EE4F00F009C15E7 /* ZFQOrdinaryFileListService.m */; };
+		1FB24AC21EE50540009C15E7 /* ZFQOrdinaryDownloadFileService.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FB24AC11EE50540009C15E7 /* ZFQOrdinaryDownloadFileService.m */; };
 		1FB3CB341ED4392F0092012D /* NSString+FileHelp.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FB3CB091ED4392F0092012D /* NSString+FileHelp.m */; };
 		1FB3CB351ED4392F0092012D /* NSString+IPAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FB3CB0B1ED4392F0092012D /* NSString+IPAddress.m */; };
 		1FB3CB361ED4392F0092012D /* WiFiUploadHTTPConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FB3CB0E1ED4392F0092012D /* WiFiUploadHTTPConnection.m */; };
@@ -78,6 +80,10 @@
 		1F6ED3C41E45D67900CE30CD /* LogDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LogDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F6ED3C81E45D67900CE30CD /* LogDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LogDemoUITests.m; sourceTree = "<group>"; };
 		1F6ED3CA1E45D67900CE30CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1FB24ABD1EE4F00F009C15E7 /* ZFQOrdinaryFileListService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZFQOrdinaryFileListService.h; sourceTree = "<group>"; };
+		1FB24ABE1EE4F00F009C15E7 /* ZFQOrdinaryFileListService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZFQOrdinaryFileListService.m; sourceTree = "<group>"; };
+		1FB24AC01EE50540009C15E7 /* ZFQOrdinaryDownloadFileService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZFQOrdinaryDownloadFileService.h; sourceTree = "<group>"; };
+		1FB24AC11EE50540009C15E7 /* ZFQOrdinaryDownloadFileService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZFQOrdinaryDownloadFileService.m; sourceTree = "<group>"; };
 		1FB3CB081ED4392F0092012D /* NSString+FileHelp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+FileHelp.h"; sourceTree = "<group>"; };
 		1FB3CB091ED4392F0092012D /* NSString+FileHelp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+FileHelp.m"; sourceTree = "<group>"; };
 		1FB3CB0A1ED4392F0092012D /* NSString+IPAddress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+IPAddress.h"; sourceTree = "<group>"; };
@@ -300,6 +306,10 @@
 				1FB3CB261ED4392F0092012D /* ZFQDeleteMutiFilesService.m */,
 				1FB3CB271ED4392F0092012D /* ZFQFileListService.h */,
 				1FB3CB281ED4392F0092012D /* ZFQFileListService.m */,
+				1FB24ABD1EE4F00F009C15E7 /* ZFQOrdinaryFileListService.h */,
+				1FB24ABE1EE4F00F009C15E7 /* ZFQOrdinaryFileListService.m */,
+				1FB24AC01EE50540009C15E7 /* ZFQOrdinaryDownloadFileService.h */,
+				1FB24AC11EE50540009C15E7 /* ZFQOrdinaryDownloadFileService.m */,
 				1FB3CB291ED4392F0092012D /* ZFQOperatorFileService.h */,
 				1FB3CB2A1ED4392F0092012D /* ZFQOperatorFileService.m */,
 				1FB3CB2B1ED4392F0092012D /* ZFQServiceContext.h */,
@@ -596,7 +606,9 @@
 				1FB3CB351ED4392F0092012D /* NSString+IPAddress.m in Sources */,
 				1FB3CB3C1ED4392F0092012D /* ServerResponseItem.m in Sources */,
 				1FB3CB401ED4392F0092012D /* ZFQFileListService.m in Sources */,
+				1FB24AC21EE50540009C15E7 /* ZFQOrdinaryDownloadFileService.m in Sources */,
 				1FB3CB3D1ED4392F0092012D /* ZFQBaseService.m in Sources */,
+				1FB24ABF1EE4F00F009C15E7 /* ZFQOrdinaryFileListService.m in Sources */,
 				1FB3CB3F1ED4392F0092012D /* ZFQDeleteMutiFilesService.m in Sources */,
 				1FB3CB3E1ED4392F0092012D /* ZFQDeleteAllFileService.m in Sources */,
 				1FB3CB431ED4392F0092012D /* ZFQUploadFileService.m in Sources */,

@@ -136,6 +136,14 @@
     ZFQDeleteMutiFilesService *delMutiFilesService = [[ZFQDeleteMutiFilesService alloc] init];
     delMutiFilesService.currConnection = self;
     [serviceContext addService:delMutiFilesService];
+    
+    ZFQOrdinaryFileListService *ordinaryFileListService = [[ZFQOrdinaryFileListService alloc] init];
+    ordinaryFileListService.currConnection = self;
+    [serviceContext addService:ordinaryFileListService];
+    
+    ZFQOrdinaryDownloadFileService *ordinaryDownloadFileService = [[ZFQOrdinaryDownloadFileService alloc] init];
+    ordinaryDownloadFileService.currConnection = self;
+    [serviceContext addService:ordinaryDownloadFileService];
 }
 
 #pragma mark - Multipart form data parser delegate 以下的方法在while循环里，可能被调用多次
