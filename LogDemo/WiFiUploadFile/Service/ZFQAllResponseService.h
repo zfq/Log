@@ -13,4 +13,4 @@
 #import "ZFQOperatorFileService.h"
 #import "ZFQDeleteMutiFilesService.h"
 #import "ZFQOrdinaryFileListService.h"
-#import "ZFQOrdinaryDownloadFileService.h"
+#import "ZFQOrdinaryOperatorFileService.h"

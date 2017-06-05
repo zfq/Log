@@ -141,9 +141,9 @@
     ordinaryFileListService.currConnection = self;
     [serviceContext addService:ordinaryFileListService];
     
-    ZFQOrdinaryDownloadFileService *ordinaryDownloadFileService = [[ZFQOrdinaryDownloadFileService alloc] init];
-    ordinaryDownloadFileService.currConnection = self;
-    [serviceContext addService:ordinaryDownloadFileService];
+    ZFQOrdinaryOperatorFileService *ordinaryOperatorFileService = [[ZFQOrdinaryOperatorFileService alloc] init];
+    ordinaryOperatorFileService.currConnection = self;
+    [serviceContext addService:ordinaryOperatorFileService];
 }
 
 #pragma mark - Multipart form data parser delegate 以下的方法在while循环里，可能被调用多次
