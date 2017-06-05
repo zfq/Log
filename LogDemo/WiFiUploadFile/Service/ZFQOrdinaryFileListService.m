@@ -41,6 +41,13 @@
 
 - (NSArray *)fileInfosInPath:(NSString *)path
 {
+    NSString *beginRoot = @"/disk";
+    if ([path rangeOfString:beginRoot].location != 0) {
+        return nil;
+    } else {
+        path = [path substringFromIndex:beginRoot.length];
+    }
+
     NSString *currPath = [NSHomeDirectory() stringByAppendingString:path];
     NSFileManager *fileManager = [NSFileManager defaultManager];
     

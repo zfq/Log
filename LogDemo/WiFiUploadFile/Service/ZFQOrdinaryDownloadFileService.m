@@ -32,8 +32,15 @@
 
 - (BOOL)supportMethod:(NSString *)method path:(NSString *)path
 {
+    NSString *beginRoot = @"/disk";
+    if ([path rangeOfString:beginRoot].location != 0) {
+        return NO;
+    } else {
+        path = [path substringFromIndex:beginRoot.length];
+    }
+    
     BOOL isDir = NO;
-    _currPath = [NSHomeDirectory() stringByAppendingString:path];
+    _currPath = [NSHomeDirectory() stringByAppendingPathComponent:path];
     NSFileManager *fileManager = [NSFileManager defaultManager];
     if ([fileManager fileExistsAtPath:_currPath isDirectory:&isDir] && isDir == NO) {
         return YES;
