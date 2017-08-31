@@ -18,6 +18,6 @@
 
 @property (nonatomic, strong) NSFileHandle *fileHandle;
 
-@property (nonatomic, strong) CustomHTTPAsynDataResponse *response;
+@property (nonatomic, strong) CustomHTTPAsyncDataResponse *response;
 
 @end

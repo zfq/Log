@@ -26,7 +26,7 @@
 
 - (NSObject<HTTPResponse> *)httpResponse
 {    
-    CustomHTTPAsynDataResponse *response = [[CustomHTTPAsynDataResponse alloc] initWithConnection:self.currConnection];
+    CustomHTTPAsyncDataResponse *response = [[CustomHTTPAsyncDataResponse alloc] initWithConnection:self.currConnection];
     
     //查询
     NSString *currPath = @"wifiFile";

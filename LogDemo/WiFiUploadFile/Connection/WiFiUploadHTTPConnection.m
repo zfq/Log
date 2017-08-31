@@ -23,6 +23,7 @@
 }
 @property (nonatomic, strong) ZFQServiceContext *serviceContext;
 @end
+
 @implementation WiFiUploadHTTPConnection 
 
 - (BOOL)supportsMethod:(NSString *)method atPath:(NSString *)path
@@ -136,10 +137,6 @@
     ZFQDeleteMutiFilesService *delMutiFilesService = [[ZFQDeleteMutiFilesService alloc] init];
     delMutiFilesService.currConnection = self;
     [serviceContext addService:delMutiFilesService];
-    
-    ZFQOrdinaryFileListService *ordinaryFileListService = [[ZFQOrdinaryFileListService alloc] init];
-    ordinaryFileListService.currConnection = self;
-    [serviceContext addService:ordinaryFileListService];
     
     ZFQOrdinaryOperatorFileService *ordinaryOperatorFileService = [[ZFQOrdinaryOperatorFileService alloc] init];
     ordinaryOperatorFileService.currConnection = self;

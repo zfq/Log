@@ -9,13 +9,13 @@
 #import <CocoaHTTPServer/HTTPDataResponse.h>
 #import <CocoaHTTPServer/HTTPConnection.h>
 
-//Synchronize data response
-@interface CustomSyncDataResponse : HTTPDataResponse
+//Asynchronize data response
+@interface CustomAsyncDataResponse : HTTPDataResponse
 @property (nonatomic, strong) NSMutableDictionary *customHttpHeader;
 @end
 
-//Asynchronize data response
-@interface CustomHTTPAsynDataResponse : NSObject <HTTPResponse>
+//Synchronize data response
+@interface CustomHTTPAsyncDataResponse : NSObject <HTTPResponse>
 
 @property (nonatomic, copy) NSData *customData;
 @property (nonatomic, strong) NSMutableDictionary *customHttpHeader;

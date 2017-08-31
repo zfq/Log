@@ -100,8 +100,8 @@
 #pragma mark - Private
 - (NSObject<HTTPResponse> *)doFilterForMethod:(NSString *)method path:(NSString *)path request:(HTTPMessage *)request originResponse:(NSObject<HTTPResponse> *)originResponse
 {
-    if ([originResponse isKindOfClass:[CustomHTTPAsynDataResponse class]]) {
-        CustomHTTPAsynDataResponse *customResponse = (CustomHTTPAsynDataResponse *)originResponse;
+    if ([originResponse isKindOfClass:[CustomHTTPAsyncDataResponse class]]) {
+        CustomHTTPAsyncDataResponse *customResponse = (CustomHTTPAsyncDataResponse *)originResponse;
 
         //Handle possible Ajax cross-domain issues
         if ([request.allHeaderFields objectForKey:@"Origin"]) {
@@ -144,7 +144,7 @@
 - (NSObject<HTTPResponse> *)configResponseWithMethod:(NSString *)method path:(NSString *)path
 {
     if ([method isEqualToString:@"OPTIONS"]) {
-        CustomSyncDataResponse *response = [[CustomSyncDataResponse alloc] initWithData:nil];
+        CustomAsyncDataResponse *response = [[CustomAsyncDataResponse alloc] initWithData:nil];
         response.customHttpHeader[@"Access-Control-Allow-Origin"] = @"*";
         response.customHttpHeader[@"Access-Control-Allow-Methods"] = @"POST, GET, OPTIONS";
         response.customHttpHeader[@"Access-Control-Max-Age"] = @"86400";

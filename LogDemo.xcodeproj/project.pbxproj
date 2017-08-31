@@ -33,8 +33,7 @@
 		1FB24B031EE50970009C15E7 /* ZFQDeleteMutiFilesService.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FB24AE71EE50970009C15E7 /* ZFQDeleteMutiFilesService.m */; };
 		1FB24B041EE50970009C15E7 /* ZFQFileListService.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FB24AE91EE50970009C15E7 /* ZFQFileListService.m */; };
 		1FB24B051EE50970009C15E7 /* ZFQOperatorFileService.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FB24AEB1EE50970009C15E7 /* ZFQOperatorFileService.m */; };
-		1FB24B061EE50970009C15E7 /* ZFQOrdinaryDownloadFileService.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FB24AED1EE50970009C15E7 /* ZFQOrdinaryDownloadFileService.m */; };
-		1FB24B071EE50970009C15E7 /* ZFQOrdinaryFileListService.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FB24AEF1EE50970009C15E7 /* ZFQOrdinaryFileListService.m */; };
+		1FB24B061EE50970009C15E7 /* ZFQOrdinaryOperatorFileService.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FB24AED1EE50970009C15E7 /* ZFQOrdinaryOperatorFileService.m */; };
 		1FB24B081EE50970009C15E7 /* ZFQServiceContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FB24AF11EE50970009C15E7 /* ZFQServiceContext.m */; };
 		1FB24B091EE50970009C15E7 /* ZFQUploadFileService.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FB24AF31EE50970009C15E7 /* ZFQUploadFileService.m */; };
 		1FB24B0A1EE50970009C15E7 /* ZFQLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FB24AF71EE50970009C15E7 /* ZFQLog.m */; };
@@ -111,10 +110,8 @@
 		1FB24AE91EE50970009C15E7 /* ZFQFileListService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZFQFileListService.m; sourceTree = "<group>"; };
 		1FB24AEA1EE50970009C15E7 /* ZFQOperatorFileService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZFQOperatorFileService.h; sourceTree = "<group>"; };
 		1FB24AEB1EE50970009C15E7 /* ZFQOperatorFileService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZFQOperatorFileService.m; sourceTree = "<group>"; };
-		1FB24AEC1EE50970009C15E7 /* ZFQOrdinaryDownloadFileService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZFQOrdinaryDownloadFileService.h; sourceTree = "<group>"; };
-		1FB24AED1EE50970009C15E7 /* ZFQOrdinaryDownloadFileService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZFQOrdinaryDownloadFileService.m; sourceTree = "<group>"; };
-		1FB24AEE1EE50970009C15E7 /* ZFQOrdinaryFileListService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZFQOrdinaryFileListService.h; sourceTree = "<group>"; };
-		1FB24AEF1EE50970009C15E7 /* ZFQOrdinaryFileListService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZFQOrdinaryFileListService.m; sourceTree = "<group>"; };
+		1FB24AEC1EE50970009C15E7 /* ZFQOrdinaryOperatorFileService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZFQOrdinaryOperatorFileService.h; sourceTree = "<group>"; };
+		1FB24AED1EE50970009C15E7 /* ZFQOrdinaryOperatorFileService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZFQOrdinaryOperatorFileService.m; sourceTree = "<group>"; };
 		1FB24AF01EE50970009C15E7 /* ZFQServiceContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZFQServiceContext.h; sourceTree = "<group>"; };
 		1FB24AF11EE50970009C15E7 /* ZFQServiceContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZFQServiceContext.m; sourceTree = "<group>"; };
 		1FB24AF21EE50970009C15E7 /* ZFQUploadFileService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZFQUploadFileService.h; sourceTree = "<group>"; };
@@ -308,10 +305,8 @@
 				1FB24AE91EE50970009C15E7 /* ZFQFileListService.m */,
 				1FB24AEA1EE50970009C15E7 /* ZFQOperatorFileService.h */,
 				1FB24AEB1EE50970009C15E7 /* ZFQOperatorFileService.m */,
-				1FB24AEC1EE50970009C15E7 /* ZFQOrdinaryDownloadFileService.h */,
-				1FB24AED1EE50970009C15E7 /* ZFQOrdinaryDownloadFileService.m */,
-				1FB24AEE1EE50970009C15E7 /* ZFQOrdinaryFileListService.h */,
-				1FB24AEF1EE50970009C15E7 /* ZFQOrdinaryFileListService.m */,
+				1FB24AEC1EE50970009C15E7 /* ZFQOrdinaryOperatorFileService.h */,
+				1FB24AED1EE50970009C15E7 /* ZFQOrdinaryOperatorFileService.m */,
 				1FB24AF01EE50970009C15E7 /* ZFQServiceContext.h */,
 				1FB24AF11EE50970009C15E7 /* ZFQServiceContext.m */,
 				1FB24AF21EE50970009C15E7 /* ZFQUploadFileService.h */,
@@ -430,6 +425,7 @@
 				TargetAttributes = {
 					1F6ED39F1E45D67900CE30CD = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 7P82UB69CY;
 						ProvisioningStyle = Manual;
 					};
 					1F6ED3B81E45D67900CE30CD = {
@@ -600,7 +596,7 @@
 				1FB24AFF1EE50970009C15E7 /* CustomHTTPFileResponse.m in Sources */,
 				1FB24AFA1EE50970009C15E7 /* WiFiUploadHTTPConnection.m in Sources */,
 				1FB24AF81EE50970009C15E7 /* NSString+FileHelp.m in Sources */,
-				1FB24B061EE50970009C15E7 /* ZFQOrdinaryDownloadFileService.m in Sources */,
+				1FB24B061EE50970009C15E7 /* ZFQOrdinaryOperatorFileService.m in Sources */,
 				1FB24AFC1EE50970009C15E7 /* ZFQFileManager.m in Sources */,
 				1F1F117F1EAA001F009FAED0 /* WiFiViewController.m in Sources */,
 				1FB24AF91EE50970009C15E7 /* NSString+IPAddress.m in Sources */,
@@ -612,7 +608,6 @@
 				1FB24B031EE50970009C15E7 /* ZFQDeleteMutiFilesService.m in Sources */,
 				1FB24B021EE50970009C15E7 /* ZFQDeleteAllFileService.m in Sources */,
 				1FB24B081EE50970009C15E7 /* ZFQServiceContext.m in Sources */,
-				1FB24B071EE50970009C15E7 /* ZFQOrdinaryFileListService.m in Sources */,
 				1FB24AFB1EE50970009C15E7 /* ZFQDBPromise.m in Sources */,
 				1FB24B051EE50970009C15E7 /* ZFQOperatorFileService.m in Sources */,
 			);
@@ -762,12 +757,14 @@
 			baseConfigurationReference = 4205B274AE3C6BBCCB495BE0 /* Pods-LogDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				DEVELOPMENT_TEAM = 7P82UB69CY;
 				INFOPLIST_FILE = LogDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.zfq.LogDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.wecash.o2o;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "2eff81c4-8027-420b-bcf6-7b7eeb67fdd0";
+				PROVISIONING_PROFILE_SPECIFIER = o2o;
 			};
 			name = Debug;
 		};
@@ -776,12 +773,14 @@
 			baseConfigurationReference = CE8443CD79B0789455990B0E /* Pods-LogDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				DEVELOPMENT_TEAM = 7P82UB69CY;
 				INFOPLIST_FILE = LogDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.zfq.LogDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.wecash.o2o;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "2eff81c4-8027-420b-bcf6-7b7eeb67fdd0";
+				PROVISIONING_PROFILE_SPECIFIER = o2o;
 			};
 			name = Release;
 		};

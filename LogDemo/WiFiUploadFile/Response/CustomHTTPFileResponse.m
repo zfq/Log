@@ -45,8 +45,6 @@
  */
 @property (nonatomic) BOOL sendComplete;
 
-@property (nonatomic, strong) NSMutableDictionary *customHttpHeader;
-
 @end
 
 @implementation CustomHTTPAsynFileResponse

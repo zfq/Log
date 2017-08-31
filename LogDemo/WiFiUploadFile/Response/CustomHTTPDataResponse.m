@@ -9,7 +9,7 @@
 #import "CustomHTTPDataResponse.h"
 #import "NSString+FileHelp.h"
 
-@implementation CustomSyncDataResponse
+@implementation CustomAsyncDataResponse
 
 - (NSMutableDictionary *)customHttpHeader
 {
@@ -27,7 +27,7 @@
 @end
 
 
-@interface CustomHTTPAsynDataResponse ()
+@interface CustomHTTPAsyncDataResponse ()
 {
     __weak HTTPConnection *_myConnection;
     UInt64 _currOffset;
@@ -38,7 +38,7 @@
 @property (nonatomic) BOOL responseIsReady;
 
 @end
-@implementation CustomHTTPAsynDataResponse
+@implementation CustomHTTPAsyncDataResponse
 
 - (instancetype)initWithConnection:(HTTPConnection *)connection
 {
@@ -74,7 +74,7 @@
     
     void *bytes = (void *)([_customData bytes] + _currOffset);
     _currOffset += length;
-    return [NSData dataWithBytesNoCopy:bytes length:actualSize freeWhenDone:NO];
+    return [NSData dataWithBytesNoCopy:bytes length:(NSUInteger)actualSize freeWhenDone:NO];
 }
 
 - (BOOL)isDone
@@ -96,7 +96,6 @@
 - (void)processResponseComplete
 {
     //Setting Content-Type and Content-Disposition
-    
     self.responseIsReady = YES;
     [_myConnection responseHasAvailableData:self];
 }

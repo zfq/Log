@@ -20,7 +20,7 @@
     NSString *_currFileId;
 }
 @property (nonatomic, strong) CustomHTTPAsynFileResponse *response;
-@property (nonatomic, strong) CustomHTTPAsynDataResponse *dataResponse;
+@property (nonatomic, strong) CustomHTTPAsyncDataResponse *dataResponse;
 @end
 @implementation ZFQOperatorFileService
 
@@ -87,7 +87,7 @@
     
     //Delete file
     if ([_method isEqualToString:@"DELETE"]) {
-        self.dataResponse = [[CustomHTTPAsynDataResponse alloc] initWithConnection:self.currConnection];
+        self.dataResponse = [[CustomHTTPAsyncDataResponse alloc] initWithConnection:self.currConnection];
         [self.fileManger removeFileWithFileId:_currFileId].then(^(id value){
             ServerResponseItem *item = [ServerResponseItem responseItem];
             item.errorMsg = @"删除成功";

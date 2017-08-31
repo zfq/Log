@@ -15,7 +15,7 @@
     HTTPMessage *_request;
     NSArray *_fileList;
 }
-@property (nonatomic, strong) CustomHTTPAsynDataResponse *dataResponse;
+@property (nonatomic, strong) CustomHTTPAsyncDataResponse *dataResponse;
 @end
 @implementation ZFQDeleteMutiFilesService
 
@@ -37,7 +37,7 @@
 - (NSObject<HTTPResponse> *)httpResponse
 {
     //Delete file
-    self.dataResponse = [[CustomHTTPAsynDataResponse alloc] initWithConnection:self.currConnection];
+    self.dataResponse = [[CustomHTTPAsyncDataResponse alloc] initWithConnection:self.currConnection];
     
     [self.fileManger removeFileWithFileIds:_fileList successBlk:^{
         ServerResponseItem *item = [ServerResponseItem responseItem];

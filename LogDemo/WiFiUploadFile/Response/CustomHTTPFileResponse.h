@@ -28,8 +28,12 @@
  */
 @property (nonatomic, strong) NSData *customData;
 
-- (instancetype)initWithConnection:(HTTPConnection *)connection;
+/**
+ If you want to add any extra HTTP headers to the response , just set it.
+ */
+@property (nonatomic, strong) NSMutableDictionary *customHttpHeader;
 
+- (instancetype)initWithConnection:(HTTPConnection *)connection;
 
 /**
   This method must be called after you ready response data.

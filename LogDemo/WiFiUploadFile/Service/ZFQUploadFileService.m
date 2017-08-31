@@ -31,8 +31,7 @@
 
 - (NSObject<HTTPResponse> *)httpResponse
 {
-    self.response = [[CustomHTTPAsynDataResponse alloc] initWithConnection:self.currConnection];
-    
+    self.response = [[CustomHTTPAsyncDataResponse alloc] initWithConnection:self.currConnection];
     return self.response;
 }
 

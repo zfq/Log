@@ -15,7 +15,7 @@
     NSString *_method;
     NSString *_currFileId;
 }
-@property (nonatomic, strong) CustomHTTPAsynDataResponse *dataResponse;
+@property (nonatomic, strong) CustomHTTPAsyncDataResponse *dataResponse;
 @end
 @implementation ZFQDeleteAllFileService
 
@@ -36,7 +36,7 @@
 - (NSObject<HTTPResponse> *)httpResponse
 {
     //Delete file
-    self.dataResponse = [[CustomHTTPAsynDataResponse alloc] initWithConnection:self.currConnection];
+    self.dataResponse = [[CustomHTTPAsyncDataResponse alloc] initWithConnection:self.currConnection];
     [self.fileManger removeAllFile].then(^(id value){
         ServerResponseItem *item = [ServerResponseItem responseItem];
         item.errorMsg = @"删除成功";
